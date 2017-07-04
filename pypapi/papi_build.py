@@ -11,8 +11,6 @@ ffibuilder = FFI()
 ffibuilder.set_source("pypapi._papi",
         "",
         extra_objects=[os.path.join(_ROOT, "..", "papi", "src", "libpapi.a")],
-        include_dirs=[os.path.join(_ROOT, "..", "papi", "src")],
-        extra_compile_args=["-fPIC"]
         )
 ffibuilder.cdef(open(_PAPI_H, "r").read())
 
