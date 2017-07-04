@@ -16,7 +16,7 @@ from ._papi import lib, ffi
 # [ ] stop_counters
 
 
-_Flips = namedtuple("Flops", "rvalue rtime ptime flpins mflips")
+_Flips = namedtuple("Flips", "rvalue rtime ptime flpins mflips")
 
 def flips():
     """Simplified call to get Mflips/s (floating point instruction rate), real
