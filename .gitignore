@@ -3,3 +3,7 @@
 *.pyc
 _*.c
 __pycache__
+.eggs
+*.egg-info
+build
+dist
