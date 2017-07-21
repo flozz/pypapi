@@ -1,5 +1,5 @@
 from ._papi import lib, ffi
-from .types import NumCounters, Flips, Flops, IPC, EPC
+from .types import Flips, Flops, IPC, EPC
 
 
 # TODO (high api):
