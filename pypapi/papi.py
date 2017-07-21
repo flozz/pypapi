@@ -61,14 +61,14 @@ def ipc():
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
     ins = ffi.new("long long*", 0)
-    _ipc = ffi.new("float*", 0)
+    ipc_ = ffi.new("float*", 0)
 
-    rcode = lib.PAPI_ipc(rtime, ptime, ins, _ipc)
+    rcode = lib.PAPI_ipc(rtime, ptime, ins, ipc_)
 
     return IPC(
             rcode,
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(ins, 1)[0],
-            ffi.unpack(_ipc, 1)[0]
+            ffi.unpack(ipc_, 1)[0]
             )
