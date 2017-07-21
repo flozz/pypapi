@@ -8,7 +8,8 @@ _PAPI_H = os.path.join(_ROOT, "papi.h")
 
 
 ffibuilder = FFI()
-ffibuilder.set_source("pypapi._papi",
+ffibuilder.set_source(
+        "pypapi._papi",
         "",
         extra_objects=[os.path.join(_ROOT, "..", "papi", "src", "libpapi.a")],
         )
@@ -17,4 +18,3 @@ ffibuilder.cdef(open(_PAPI_H, "r").read())
 
 if __name__ == "__main__":
     ffibuilder.compile(verbose=True)
-
