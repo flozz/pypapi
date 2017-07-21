@@ -1,1 +1,1 @@
-from papi import *
+from papi import *  # noqa
