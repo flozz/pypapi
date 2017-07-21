@@ -1,5 +1,5 @@
 from ._papi import lib, ffi
-from .types import Flips, Flops, IPC
+from .types import Flips, Flops, IPC, EPC
 
 
 # TODO (high api):
@@ -71,4 +71,26 @@ def ipc():
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(ins, 1)[0],
             ffi.unpack(ipc_, 1)[0]
+            )
+
+
+def epc():
+    """Gets (named) events per cycle, real and processor time, reference and
+    core cycles
+    """
+    rtime = ffi.new("float*", 0)
+    ptime = ffi.new("float*", 0)
+    ref = ffi.new("long long*", 0)
+    core = ffi.new("long long*", 0)
+    epc_ = ffi.new("float*", 0)
+
+    rcode = lib.PAPI_epc(rtime, ptime, ref, core, epc_)
+
+    return EPC(
+            rcode,
+            ffi.unpack(rtime, 1)[0],
+            ffi.unpack(ptime, 1)[0],
+            ffi.unpack(ref, 1)[0],
+            ffi.unpack(core, 1)[0],
+            ffi.unpack(epc_, 1)[0]
             )
