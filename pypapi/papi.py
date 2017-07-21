@@ -1,6 +1,5 @@
-from collections import namedtuple
-
 from ._papi import lib, ffi
+from .types import Flips, Flops
 
 
 # TODO (high api):
@@ -16,8 +15,6 @@ from ._papi import lib, ffi
 # [ ] stop_counters
 
 
-_Flips = namedtuple("Flips", "rvalue rtime ptime flpins mflips")
-
 def flips():
     """Simplified call to get Mflips/s (floating point instruction rate), real
     and processor time.
@@ -27,18 +24,16 @@ def flips():
     flpins = ffi.new("long long*", 0)
     mflips = ffi.new("float*", 0)
 
-    rvalue = lib.PAPI_flops(rtime, ptime, flpins, mflips)
+    rcode = lib.PAPI_flops(rtime, ptime, flpins, mflips)
 
-    return _Flips(
-            rvalue,
+    return Flips(
+            rcode,
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(flpins, 1)[0],
             ffi.unpack(mflips, 1)[0]
             )
 
-
-_Flops = namedtuple("Flops", "rvalue rtime ptime flpops mflops")
 
 def flops():
     """Simplified call to get Mflops/s (floating point operation rate), real
@@ -49,10 +44,10 @@ def flops():
     flpops = ffi.new("long long*", 0)
     mflops = ffi.new("float*", 0)
 
-    rvalue = lib.PAPI_flops(rtime, ptime, flpops, mflops)
+    rcode = lib.PAPI_flops(rtime, ptime, flpops, mflops)
 
-    return _Flops(
-            rvalue,
+    return Flops(
+            rcode,
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(flpops, 1)[0],

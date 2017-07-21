@@ -3,6 +3,7 @@
 *.pyc
 _*.c
 __pycache__
+__env__
 .eggs
 *.egg-info
 build
