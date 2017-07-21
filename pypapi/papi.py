@@ -1,5 +1,5 @@
 from ._papi import lib, ffi
-from .types import Flips, Flops, IPC, EPC
+from .types import NumCounters, Flips, Flops, IPC, EPC
 
 
 # TODO (high api):
@@ -9,10 +9,15 @@ from .types import Flips, Flops, IPC, EPC
 # [x] flops
 # [x] ipc
 # [ ] num_components
-# [ ] num_counters
+# [x] num_counters
 # [ ] read_counters
 # [ ] start_counters
 # [ ] stop_counters
+
+
+def num_counters():
+    """Get the number of hardware counters available on the system"""
+    return lib.PAPI_num_counters()
 
 
 def flips():
