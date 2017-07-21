@@ -16,8 +16,15 @@ from .types import Flips, Flops, IPC, EPC
 
 
 def num_counters():
-    """Get the number of hardware counters available on the system"""
+    """Get the number of hardware counters available on the system.
+    """
     return lib.PAPI_num_counters()
+
+
+def num_components():
+    """Get the number of components available on the system.
+    """
+    return lib.PAPI_num_components()
 
 
 def flips():
@@ -81,7 +88,7 @@ def ipc():
 
 def epc(event=0):
     """Gets (named) events per cycle, real and processor time, reference and
-    core cycles
+    core cycles.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
