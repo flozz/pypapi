@@ -4,7 +4,7 @@ from .types import Flips, Flops, IPC, EPC
 
 # TODO (high api):
 # [ ] accum_counters
-# [ ] epc
+# [x] epc
 # [x] flips
 # [x] flops
 # [x] ipc
@@ -74,7 +74,7 @@ def ipc():
             )
 
 
-def epc():
+def epc(event=0):
     """Gets (named) events per cycle, real and processor time, reference and
     core cycles
     """
@@ -82,9 +82,10 @@ def epc():
     ptime = ffi.new("float*", 0)
     ref = ffi.new("long long*", 0)
     core = ffi.new("long long*", 0)
+    evt = ffi.new("long long*", 0)
     epc_ = ffi.new("float*", 0)
 
-    rcode = lib.PAPI_epc(rtime, ptime, ref, core, epc_)
+    rcode = lib.PAPI_epc(event, rtime, ptime, ref, core, evt, epc_)
 
     return EPC(
             rcode,
@@ -92,5 +93,6 @@ def epc():
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(ref, 1)[0],
             ffi.unpack(core, 1)[0],
+            ffi.unpack(evt, 1)[0],
             ffi.unpack(epc_, 1)[0]
             )
