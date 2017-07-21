@@ -1,5 +1,5 @@
 from ._papi import lib, ffi
-from .types import Flips, Flops
+from .types import Flips, Flops, IPC
 
 
 # TODO (high api):
@@ -7,7 +7,7 @@ from .types import Flips, Flops
 # [ ] epc
 # [x] flips
 # [x] flops
-# [ ] ipc
+# [x] ipc
 # [ ] num_components
 # [ ] num_counters
 # [ ] read_counters
@@ -52,4 +52,23 @@ def flops():
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(flpops, 1)[0],
             ffi.unpack(mflops, 1)[0]
+            )
+
+
+def ipc():
+    """Gets instructions per cycle, real and processor time.
+    """
+    rtime = ffi.new("float*", 0)
+    ptime = ffi.new("float*", 0)
+    ins = ffi.new("long long*", 0)
+    _ipc = ffi.new("float*", 0)
+
+    rcode = lib.PAPI_ipc(rtime, ptime, ins, _ipc)
+
+    return IPC(
+            rcode,
+            ffi.unpack(rtime, 1)[0],
+            ffi.unpack(ptime, 1)[0],
+            ffi.unpack(ins, 1)[0],
+            ffi.unpack(_ipc, 1)[0]
             )
