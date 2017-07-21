@@ -1,5 +1,7 @@
 # PyPAPI
 
+[![Build Status](https://travis-ci.org/flozz/pypapi.svg?branch=master)](https://travis-ci.org/flozz/pypapi)
+
 PyPAPI is a Python binding for the [PAPI (Performance Application Programming
 Interface) library][libpapi] (only the high level api).
 
