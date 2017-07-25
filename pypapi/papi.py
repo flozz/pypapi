@@ -9,7 +9,7 @@ from .exceptions import papi_error
 # [x] flips
 # [x] flops
 # [x] ipc
-# [ ] num_components
+# [x] num_components
 # [x] num_counters
 # [ ] read_counters
 # [ ] start_counters
@@ -17,8 +17,15 @@ from .exceptions import papi_error
 
 
 def num_counters():
-    """Get the number of hardware counters available on the system"""
+    """Get the number of hardware counters available on the system.
+    """
     return lib.PAPI_num_counters()
+
+
+def num_components():
+    """Get the number of components available on the system.
+    """
+    return lib.PAPI_num_components()
 
 
 @papi_error
@@ -83,7 +90,7 @@ def ipc():
 @papi_error
 def epc(event=0):
     """Gets (named) events per cycle, real and processor time, reference and
-    core cycles
+    core cycles.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
