@@ -56,9 +56,7 @@ class PapiNoEventError(PapiError):
 
 
 class PapiConflictError(PapiError):
-    """Event exists, but cannot be counted due to counter resource
-    limitations.
-    """
+    """Event exists, but cannot be counted due to counter resource limitations."""  # noqa
     c_name = "PAPI_ECNFLCT"
     c_value = lib.PAPI_ECNFLCT
 
@@ -157,3 +155,16 @@ class PapiCombinationError(PapiError):
     """Bad combination of feature."""
     c_name = "PAPI_ECOMBO"
     c_value = lib.PAPI_ECOMBO
+
+
+def papi_error(function):
+    """Decorator to raise PAPI errors."""
+    def papi_error_wrapper(*args, **kwargs):
+        rcode, rvalue = function(*args, **kwargs)
+        if rcode < 0:
+            for name, object_ in globals().iteritems():
+                print name, object_
+                if object_ and hasattr(object_, "c_value") and object_.c_value == rcode:
+                    raise object_()
+        return rvalue
+    return papi_error_wrapper
