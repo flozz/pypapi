@@ -1,5 +1,5 @@
 from ._papi import lib, ffi
-from .types import StopCounters, Flips, Flops, IPC, EPC
+from .types import Flips, Flops, IPC, EPC
 from .exceptions import papi_error
 
 
@@ -29,12 +29,19 @@ def num_components():
 
 
 @papi_error
-def start_counters(events=[]):
+def start_counters(events):
     """Start counting hardware events.
     """
+    for i in range(0, len(events)):
+        if events[i] | 0x80000000:
+            events[i] = events[i] | ~0x7FFFFFFF
+
+    events_ = ffi.new("int[]", events)
     array_len = len(events)
 
-    return lib.PAPI_start_counters(events, array_len)
+    rcode = lib.PAPI_start_counters(events_, array_len)
+
+    return rcode, None
 
 
 @papi_error
@@ -45,9 +52,7 @@ def stop_counters(array_len=0):
 
     rcode = lib.PAPI_stop_counters(values, array_len)
 
-    return rcode, StopCounters(
-            ffi.unpack(values, array_len)
-            )
+    return rcode, ffi.unpack(values, array_len)
 
 
 @papi_error
