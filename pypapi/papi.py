@@ -12,8 +12,8 @@ from .exceptions import papi_error
 # [x] num_components
 # [x] num_counters
 # [ ] read_counters
-# [ ] start_counters
-# [ ] stop_counters
+# [x] start_counters
+# [x] stop_counters
 
 
 def num_counters():
@@ -26,6 +26,33 @@ def num_components():
     """Get the number of components available on the system.
     """
     return lib.PAPI_num_components()
+
+
+@papi_error
+def start_counters(events):
+    """Start counting hardware events.
+    """
+    for i in range(0, len(events)):
+        if events[i] | 0x80000000:
+            events[i] = events[i] | ~0x7FFFFFFF
+
+    events_ = ffi.new("int[]", events)
+    array_len = len(events)
+
+    rcode = lib.PAPI_start_counters(events_, array_len)
+
+    return rcode, None
+
+
+@papi_error
+def stop_counters(array_len=0):
+    """Stop counters and return current counts.
+    """
+    values = ffi.new("long long[]", array_len)
+
+    rcode = lib.PAPI_stop_counters(values, array_len)
+
+    return rcode, ffi.unpack(values, array_len)
 
 
 @papi_error
