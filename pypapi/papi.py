@@ -1,5 +1,5 @@
 from ._papi import lib, ffi
-from .types import Flips, Flops, IPC, EPC
+from .types import StopCounters, Flips, Flops, IPC, EPC
 
 
 # TODO (high api):
@@ -8,11 +8,11 @@ from .types import Flips, Flops, IPC, EPC
 # [x] flips
 # [x] flops
 # [x] ipc
-# [ ] num_components
+# [x] num_components
 # [x] num_counters
 # [ ] read_counters
-# [ ] start_counters
-# [ ] stop_counters
+# [x] start_counters
+# [x] stop_counters
 
 
 def num_counters():
@@ -25,6 +25,27 @@ def num_components():
     """Get the number of components available on the system.
     """
     return lib.PAPI_num_components()
+
+
+def start_counters(events=[]):
+    """Start counting hardware events.
+    """
+    array_len = len(events)
+
+    return lib.PAPI_start_counters(events, array_len)
+
+
+def stop_counters(array_len=0):
+    """Stop counters and return current counts.
+    """
+    values = ffi.new("long long[]", array_len)
+
+    rcode = lib.PAPI_stop_counters(values, array_len)
+
+    return StopCounters(
+        rcode,
+        ffi.unpack(values, array_len)
+    )
 
 
 def flips():
