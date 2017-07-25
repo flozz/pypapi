@@ -1,5 +1,6 @@
 from ._papi import lib, ffi
 from .types import StopCounters, Flips, Flops, IPC, EPC
+from .exceptions import papi_error
 
 
 # TODO (high api):
@@ -27,6 +28,7 @@ def num_components():
     return lib.PAPI_num_components()
 
 
+@papi_error
 def start_counters(events=[]):
     """Start counting hardware events.
     """
@@ -35,6 +37,7 @@ def start_counters(events=[]):
     return lib.PAPI_start_counters(events, array_len)
 
 
+@papi_error
 def stop_counters(array_len=0):
     """Stop counters and return current counts.
     """
@@ -42,12 +45,12 @@ def stop_counters(array_len=0):
 
     rcode = lib.PAPI_stop_counters(values, array_len)
 
-    return StopCounters(
-        rcode,
-        ffi.unpack(values, array_len)
-    )
+    return rcode, StopCounters(
+            ffi.unpack(values, array_len)
+            )
 
 
+@papi_error
 def flips():
     """Simplified call to get Mflips/s (floating point instruction rate), real
     and processor time.
@@ -59,8 +62,7 @@ def flips():
 
     rcode = lib.PAPI_flops(rtime, ptime, flpins, mflips)
 
-    return Flips(
-            rcode,
+    return rcode, Flips(
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(flpins, 1)[0],
@@ -68,6 +70,7 @@ def flips():
             )
 
 
+@papi_error
 def flops():
     """Simplified call to get Mflops/s (floating point operation rate), real
     and processor time.
@@ -79,8 +82,7 @@ def flops():
 
     rcode = lib.PAPI_flops(rtime, ptime, flpops, mflops)
 
-    return Flops(
-            rcode,
+    return rcode, Flops(
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(flpops, 1)[0],
@@ -88,6 +90,7 @@ def flops():
             )
 
 
+@papi_error
 def ipc():
     """Gets instructions per cycle, real and processor time.
     """
@@ -98,8 +101,7 @@ def ipc():
 
     rcode = lib.PAPI_ipc(rtime, ptime, ins, ipc_)
 
-    return IPC(
-            rcode,
+    return rcode, IPC(
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(ins, 1)[0],
@@ -107,6 +109,7 @@ def ipc():
             )
 
 
+@papi_error
 def epc(event=0):
     """Gets (named) events per cycle, real and processor time, reference and
     core cycles.
@@ -120,8 +123,7 @@ def epc(event=0):
 
     rcode = lib.PAPI_epc(event, rtime, ptime, ref, core, evt, epc_)
 
-    return EPC(
-            rcode,
+    return rcode, EPC(
             ffi.unpack(rtime, 1)[0],
             ffi.unpack(ptime, 1)[0],
             ffi.unpack(ref, 1)[0],
