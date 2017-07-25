@@ -162,7 +162,7 @@ def papi_error(function):
     def papi_error_wrapper(*args, **kwargs):
         rcode, rvalue = function(*args, **kwargs)
         if rcode < 0:
-            for name, object_ in globals().iteritems():
+            for name, object_ in globals().items():
                 if object_ and hasattr(object_, "c_value") and object_.c_value == rcode:  # noqa
                     raise object_()
             raise PapiMiscellaneousError()
