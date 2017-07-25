@@ -10,7 +10,7 @@ _PAPI_H = os.path.join(_ROOT, "papi.h")
 ffibuilder = FFI()
 ffibuilder.set_source(
         "pypapi._papi",
-        "",
+        '#include "papi.h"',
         extra_objects=[os.path.join(_ROOT, "..", "papi", "src", "libpapi.a")],
         )
 ffibuilder.cdef(open(_PAPI_H, "r").read())
