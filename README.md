@@ -34,10 +34,19 @@ system-wild.
 
 ## Hacking
 
+### Building PyPAPI For Local Development
+
 To work on PyPAPI, you have to build the C library inside the `pypapi` module.
 This can be done with the following command:
 
     python pypapi/papi_build.py
+
+### Generating Documentation
+
+From a virtualenv:
+
+    pip install -r requirements.txt
+    python setup.py build_sphinx
 
 
 [libpapi]: http://icl.cs.utk.edu/papi/index.html

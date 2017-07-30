@@ -28,12 +28,12 @@ setup(
     version="1.0.0",
     description="Python binding for the PAPI library",
     url="https://github.com/flozz/pypapi",
-    # license="",  # TODO
+    license="WTFPL",
 
     long_description=long_description,
     keywords="papi perf performance",
 
-    author="Fabien LOISON",
+    author="Fabien LOISON, Mathilde BOUTIGNY",
     # author_email="",
 
     packages=find_packages(),

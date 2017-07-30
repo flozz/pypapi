@@ -1,3 +1,5 @@
+import functools
+
 from ._papi import lib
 
 
@@ -159,6 +161,7 @@ class PapiCombinationError(PapiError):
 
 def papi_error(function):
     """Decorator to raise PAPI errors."""
+    @functools.wraps(function)
     def papi_error_wrapper(*args, **kwargs):
         rcode, rvalue = function(*args, **kwargs)
         if rcode < 0:

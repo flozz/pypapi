@@ -18,19 +18,27 @@ from .exceptions import papi_error
 
 def num_counters():
     """Get the number of hardware counters available on the system.
+
+    :rtype: int
     """
     return lib.PAPI_num_counters()
 
 
 def num_components():
     """Get the number of components available on the system.
+
+    :rtype: int
     """
     return lib.PAPI_num_components()
 
 
 @papi_error
 def start_counters(events):
-    """Start counting hardware events.
+    """start_counters(events)
+
+    Start counting hardware events.
+
+    :param list events: a list of events to count (from ``pypapi.events``)
     """
     events_ = ffi.new("int[]", events)
     array_len = len(events)
@@ -42,7 +50,13 @@ def start_counters(events):
 
 @papi_error
 def stop_counters(array_len=0):
-    """Stop counters and return current counts.
+    """stop_counters(array_len=0)
+
+    Stop counters and return current counts.
+
+    :param int array_len: number of counter started (default: 0, only usefull
+                          when you started counters manually with
+                          ``start_counters``)
     """
     values = ffi.new("long long[]", array_len)
 
@@ -53,8 +67,12 @@ def stop_counters(array_len=0):
 
 @papi_error
 def flips():
-    """Simplified call to get Mflips/s (floating point instruction rate), real
+    """flips()
+
+    Simplified call to get Mflips/s (floating point instruction rate), real
     and processor time.
+
+    :rtype: pypapi.types.Flips
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -73,8 +91,12 @@ def flips():
 
 @papi_error
 def flops():
-    """Simplified call to get Mflops/s (floating point operation rate), real
+    """flops()
+
+    Simplified call to get Mflops/s (floating point operation rate), real
     and processor time.
+
+    :rtype: pypapi.types.Flops
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -93,7 +115,11 @@ def flops():
 
 @papi_error
 def ipc():
-    """Gets instructions per cycle, real and processor time.
+    """ipc()
+
+    Gets instructions per cycle, real and processor time.
+
+    :rtype: pypapi.types.IPC
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -112,8 +138,14 @@ def ipc():
 
 @papi_error
 def epc(event=0):
-    """Gets (named) events per cycle, real and processor time, reference and
+    """epc(event=0)
+
+    Gets (named) events per cycle, real and processor time, reference and
     core cycles.
+
+    :param int event:
+
+    :rtype: pypapi.types.EPC
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
