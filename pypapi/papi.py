@@ -32,10 +32,6 @@ def num_components():
 def start_counters(events):
     """Start counting hardware events.
     """
-    for i in range(0, len(events)):
-        if events[i] & 0x80000000:
-            events[i] = events[i] | ~0x7FFFFFFF
-
     events_ = ffi.new("int[]", events)
     array_len = len(events)
 

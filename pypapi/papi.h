@@ -29,11 +29,6 @@
 #define PAPI_NUM_ERRORS  25    /**< Number of error messages specified in this API */
 
 
-// PAPI standard events (definitions from papiStdEventDefs.h)
-
-// TODO
-
-
 // PAPI HL from papi.h (definitions from papi.h)
 
 int PAPI_accum_counters(long long * values, int array_len); /**< add current counts to array and reset counters */
