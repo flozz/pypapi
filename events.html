@@ -1,0 +1,932 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Events &mdash; PyPAPI 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyPAPI 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Exceptions" href="exceptions.html"/>
+        <link rel="prev" title="Types" href="types.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyPAPI
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="papi_high_api.html">PAPI High API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pypapi.events">Event List</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyPAPI</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Events</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/events.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="events">
+<h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<p>Bellow the list of all events supported by PAPI. They can be used with the <code class="docutils literal"><span class="pre">start_counters</span></code> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span><span class="p">,</span> <span class="n">start_counters</span>
+
+<span class="n">start_counters</span><span class="p">([</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">PAPI_FP_INS</span><span class="p">,</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<div class="section" id="module-pypapi.events">
+<span id="event-list"></span><h2>Event List<a class="headerlink" href="#module-pypapi.events" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="pypapi.events.PAPI_BRU_IDL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BRU_IDL</code><em class="property"> = -2147483632</em><a class="headerlink" href="#pypapi.events.PAPI_BRU_IDL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles branch units are idle</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_CN">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_CN</code><em class="property"> = -2147483605</em><a class="headerlink" href="#pypapi.events.PAPI_BR_CN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conditional branch instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_INS</code><em class="property"> = -2147483593</em><a class="headerlink" href="#pypapi.events.PAPI_BR_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total branch instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_MSP">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_MSP</code><em class="property"> = -2147483602</em><a class="headerlink" href="#pypapi.events.PAPI_BR_MSP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conditional branch instructions mispred</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_NTK">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_NTK</code><em class="property"> = -2147483603</em><a class="headerlink" href="#pypapi.events.PAPI_BR_NTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conditional branch instructions not taken</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_PRC">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_PRC</code><em class="property"> = -2147483601</em><a class="headerlink" href="#pypapi.events.PAPI_BR_PRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conditional branch instructions corr. pred</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_TKN">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_TKN</code><em class="property"> = -2147483604</em><a class="headerlink" href="#pypapi.events.PAPI_BR_TKN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conditional branch instructions taken</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BR_UCN">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BR_UCN</code><em class="property"> = -2147483606</em><a class="headerlink" href="#pypapi.events.PAPI_BR_UCN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unconditional branch instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_BTAC_M">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_BTAC_M</code><em class="property"> = -2147483621</em><a class="headerlink" href="#pypapi.events.PAPI_BTAC_M" title="Permalink to this definition">¶</a></dt>
+<dd><p>BTAC miss</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CA_CLN">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CA_CLN</code><em class="property"> = -2147483637</em><a class="headerlink" href="#pypapi.events.PAPI_CA_CLN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request for clean cache line (SMP)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CA_INV">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CA_INV</code><em class="property"> = -2147483636</em><a class="headerlink" href="#pypapi.events.PAPI_CA_INV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request for cache line Invalidation (SMP)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CA_ITV">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CA_ITV</code><em class="property"> = -2147483635</em><a class="headerlink" href="#pypapi.events.PAPI_CA_ITV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request for cache line Intervention (SMP)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CA_SHR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CA_SHR</code><em class="property"> = -2147483638</em><a class="headerlink" href="#pypapi.events.PAPI_CA_SHR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request for shared cache line (SMP)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CA_SNP">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CA_SNP</code><em class="property"> = -2147483639</em><a class="headerlink" href="#pypapi.events.PAPI_CA_SNP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Snoops</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CSR_FAL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CSR_FAL</code><em class="property"> = -2147483617</em><a class="headerlink" href="#pypapi.events.PAPI_CSR_FAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Failed store conditional instructions</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CSR_SUC">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CSR_SUC</code><em class="property"> = -2147483616</em><a class="headerlink" href="#pypapi.events.PAPI_CSR_SUC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Successful store conditional instructions</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_CSR_TOT">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_CSR_TOT</code><em class="property"> = -2147483615</em><a class="headerlink" href="#pypapi.events.PAPI_CSR_TOT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total store conditional instructions</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_DP_OPS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_DP_OPS</code><em class="property"> = -2147483544</em><a class="headerlink" href="#pypapi.events.PAPI_DP_OPS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Floating point operations executed; optimized to count scaled double precision vector operations</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_END">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_END</code><em class="property"> = -2147483540</em><a class="headerlink" href="#pypapi.events.PAPI_END" title="Permalink to this definition">¶</a></dt>
+<dd><p>This should always be last!</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FAD_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FAD_INS</code><em class="property"> = -2147483550</em><a class="headerlink" href="#pypapi.events.PAPI_FAD_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>FA ins</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FDV_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FDV_INS</code><em class="property"> = -2147483549</em><a class="headerlink" href="#pypapi.events.PAPI_FDV_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>FD ins</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FMA_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FMA_INS</code><em class="property"> = -2147483600</em><a class="headerlink" href="#pypapi.events.PAPI_FMA_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>FMA instructions completed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FML_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FML_INS</code><em class="property"> = -2147483551</em><a class="headerlink" href="#pypapi.events.PAPI_FML_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>FM ins</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FNV_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FNV_INS</code><em class="property"> = -2147483547</em><a class="headerlink" href="#pypapi.events.PAPI_FNV_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finv ins</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FPU_IDL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FPU_IDL</code><em class="property"> = -2147483630</em><a class="headerlink" href="#pypapi.events.PAPI_FPU_IDL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles floating point units are idle</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FP_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FP_INS</code><em class="property"> = -2147483596</em><a class="headerlink" href="#pypapi.events.PAPI_FP_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Floating point instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FP_OPS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FP_OPS</code><em class="property"> = -2147483546</em><a class="headerlink" href="#pypapi.events.PAPI_FP_OPS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Floating point operations executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FP_STAL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FP_STAL</code><em class="property"> = -2147483590</em><a class="headerlink" href="#pypapi.events.PAPI_FP_STAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles any FP units are stalled</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FSQ_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FSQ_INS</code><em class="property"> = -2147483548</em><a class="headerlink" href="#pypapi.events.PAPI_FSQ_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>FSq ins</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FUL_CCY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FUL_CCY</code><em class="property"> = -2147483608</em><a class="headerlink" href="#pypapi.events.PAPI_FUL_CCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles with Maximum Instruction Completion</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FUL_ICY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FUL_ICY</code><em class="property"> = -2147483610</em><a class="headerlink" href="#pypapi.events.PAPI_FUL_ICY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles with Maximum Instruction Issue</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_FXU_IDL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_FXU_IDL</code><em class="property"> = -2147483631</em><a class="headerlink" href="#pypapi.events.PAPI_FXU_IDL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles integer units are idle</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_HW_INT">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_HW_INT</code><em class="property"> = -2147483607</em><a class="headerlink" href="#pypapi.events.PAPI_HW_INT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hardware interrupts</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_INT_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_INT_INS</code><em class="property"> = -2147483597</em><a class="headerlink" href="#pypapi.events.PAPI_INT_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integer instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_DCA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_DCA</code><em class="property"> = -2147483584</em><a class="headerlink" href="#pypapi.events.PAPI_L1_DCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 D Cache Access</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_DCH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_DCH</code><em class="property"> = -2147483586</em><a class="headerlink" href="#pypapi.events.PAPI_L1_DCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 D Cache Hit</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_DCM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_DCM</code><em class="property"> = -2147483648</em><a class="headerlink" href="#pypapi.events.PAPI_L1_DCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 1 data cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_DCR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_DCR</code><em class="property"> = -2147483581</em><a class="headerlink" href="#pypapi.events.PAPI_L1_DCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 D Cache Read</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_DCW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_DCW</code><em class="property"> = -2147483578</em><a class="headerlink" href="#pypapi.events.PAPI_L1_DCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 D Cache Write</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_ICA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_ICA</code><em class="property"> = -2147483572</em><a class="headerlink" href="#pypapi.events.PAPI_L1_ICA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 instruction cache accesses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_ICH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_ICH</code><em class="property"> = -2147483575</em><a class="headerlink" href="#pypapi.events.PAPI_L1_ICH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 instruction cache hits</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_ICM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_ICM</code><em class="property"> = -2147483647</em><a class="headerlink" href="#pypapi.events.PAPI_L1_ICM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 1 instruction cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_ICR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_ICR</code><em class="property"> = -2147483569</em><a class="headerlink" href="#pypapi.events.PAPI_L1_ICR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 instruction cache reads</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_ICW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_ICW</code><em class="property"> = -2147483566</em><a class="headerlink" href="#pypapi.events.PAPI_L1_ICW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 instruction cache writes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_LDM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_LDM</code><em class="property"> = -2147483625</em><a class="headerlink" href="#pypapi.events.PAPI_L1_LDM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 1 load misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_STM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_STM</code><em class="property"> = -2147483624</em><a class="headerlink" href="#pypapi.events.PAPI_L1_STM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 1 store misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_TCA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_TCA</code><em class="property"> = -2147483560</em><a class="headerlink" href="#pypapi.events.PAPI_L1_TCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 total cache accesses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_TCH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_TCH</code><em class="property"> = -2147483563</em><a class="headerlink" href="#pypapi.events.PAPI_L1_TCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 total cache hits</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_TCM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_TCM</code><em class="property"> = -2147483642</em><a class="headerlink" href="#pypapi.events.PAPI_L1_TCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 1 total cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_TCR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_TCR</code><em class="property"> = -2147483557</em><a class="headerlink" href="#pypapi.events.PAPI_L1_TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 total cache reads</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L1_TCW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L1_TCW</code><em class="property"> = -2147483554</em><a class="headerlink" href="#pypapi.events.PAPI_L1_TCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L1 total cache writes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_DCA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_DCA</code><em class="property"> = -2147483583</em><a class="headerlink" href="#pypapi.events.PAPI_L2_DCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 D Cache Access</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_DCH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_DCH</code><em class="property"> = -2147483585</em><a class="headerlink" href="#pypapi.events.PAPI_L2_DCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 D Cache Hit</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_DCM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_DCM</code><em class="property"> = -2147483646</em><a class="headerlink" href="#pypapi.events.PAPI_L2_DCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 2 data cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_DCR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_DCR</code><em class="property"> = -2147483580</em><a class="headerlink" href="#pypapi.events.PAPI_L2_DCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 D Cache Read</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_DCW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_DCW</code><em class="property"> = -2147483577</em><a class="headerlink" href="#pypapi.events.PAPI_L2_DCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 D Cache Write</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_ICA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_ICA</code><em class="property"> = -2147483571</em><a class="headerlink" href="#pypapi.events.PAPI_L2_ICA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 instruction cache accesses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_ICH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_ICH</code><em class="property"> = -2147483574</em><a class="headerlink" href="#pypapi.events.PAPI_L2_ICH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 instruction cache hits</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_ICM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_ICM</code><em class="property"> = -2147483645</em><a class="headerlink" href="#pypapi.events.PAPI_L2_ICM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 2 instruction cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_ICR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_ICR</code><em class="property"> = -2147483568</em><a class="headerlink" href="#pypapi.events.PAPI_L2_ICR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 instruction cache reads</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_ICW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_ICW</code><em class="property"> = -2147483565</em><a class="headerlink" href="#pypapi.events.PAPI_L2_ICW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 instruction cache writes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_LDM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_LDM</code><em class="property"> = -2147483623</em><a class="headerlink" href="#pypapi.events.PAPI_L2_LDM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 2 load misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_STM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_STM</code><em class="property"> = -2147483622</em><a class="headerlink" href="#pypapi.events.PAPI_L2_STM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 2 store misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_TCA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_TCA</code><em class="property"> = -2147483559</em><a class="headerlink" href="#pypapi.events.PAPI_L2_TCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 total cache accesses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_TCH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_TCH</code><em class="property"> = -2147483562</em><a class="headerlink" href="#pypapi.events.PAPI_L2_TCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 total cache hits</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_TCM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_TCM</code><em class="property"> = -2147483641</em><a class="headerlink" href="#pypapi.events.PAPI_L2_TCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 2 total cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_TCR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_TCR</code><em class="property"> = -2147483556</em><a class="headerlink" href="#pypapi.events.PAPI_L2_TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 total cache reads</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L2_TCW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L2_TCW</code><em class="property"> = -2147483553</em><a class="headerlink" href="#pypapi.events.PAPI_L2_TCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L2 total cache writes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_DCA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_DCA</code><em class="property"> = -2147483582</em><a class="headerlink" href="#pypapi.events.PAPI_L3_DCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 D Cache Access</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_DCH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_DCH</code><em class="property"> = -2147483619</em><a class="headerlink" href="#pypapi.events.PAPI_L3_DCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 3 Data Cache Hit</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_DCM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_DCM</code><em class="property"> = -2147483644</em><a class="headerlink" href="#pypapi.events.PAPI_L3_DCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 3 data cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_DCR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_DCR</code><em class="property"> = -2147483579</em><a class="headerlink" href="#pypapi.events.PAPI_L3_DCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 D Cache Read</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_DCW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_DCW</code><em class="property"> = -2147483576</em><a class="headerlink" href="#pypapi.events.PAPI_L3_DCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 D Cache Write</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_ICA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_ICA</code><em class="property"> = -2147483570</em><a class="headerlink" href="#pypapi.events.PAPI_L3_ICA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 instruction cache accesses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_ICH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_ICH</code><em class="property"> = -2147483573</em><a class="headerlink" href="#pypapi.events.PAPI_L3_ICH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 instruction cache hits</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_ICM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_ICM</code><em class="property"> = -2147483643</em><a class="headerlink" href="#pypapi.events.PAPI_L3_ICM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 3 instruction cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_ICR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_ICR</code><em class="property"> = -2147483567</em><a class="headerlink" href="#pypapi.events.PAPI_L3_ICR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 instruction cache reads</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_ICW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_ICW</code><em class="property"> = -2147483564</em><a class="headerlink" href="#pypapi.events.PAPI_L3_ICW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 instruction cache writes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_LDM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_LDM</code><em class="property"> = -2147483634</em><a class="headerlink" href="#pypapi.events.PAPI_L3_LDM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 3 load misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_STM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_STM</code><em class="property"> = -2147483633</em><a class="headerlink" href="#pypapi.events.PAPI_L3_STM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 3 store misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_TCA">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_TCA</code><em class="property"> = -2147483558</em><a class="headerlink" href="#pypapi.events.PAPI_L3_TCA" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 total cache accesses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_TCH">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_TCH</code><em class="property"> = -2147483561</em><a class="headerlink" href="#pypapi.events.PAPI_L3_TCH" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 total cache hits</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_TCM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_TCM</code><em class="property"> = -2147483640</em><a class="headerlink" href="#pypapi.events.PAPI_L3_TCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Level 3 total cache misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_TCR">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_TCR</code><em class="property"> = -2147483555</em><a class="headerlink" href="#pypapi.events.PAPI_L3_TCR" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 total cache reads</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_L3_TCW">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_L3_TCW</code><em class="property"> = -2147483552</em><a class="headerlink" href="#pypapi.events.PAPI_L3_TCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>L3 total cache writes</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_LD_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_LD_INS</code><em class="property"> = -2147483595</em><a class="headerlink" href="#pypapi.events.PAPI_LD_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_LST_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_LST_INS</code><em class="property"> = -2147483588</em><a class="headerlink" href="#pypapi.events.PAPI_LST_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total load/store inst. executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_LSU_IDL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_LSU_IDL</code><em class="property"> = -2147483629</em><a class="headerlink" href="#pypapi.events.PAPI_LSU_IDL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles load/store units are idle</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_MAX_PRESET_EVENTS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_MAX_PRESET_EVENTS</code><em class="property"> = 128</em><a class="headerlink" href="#pypapi.events.PAPI_MAX_PRESET_EVENTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maxmimum number of preset events</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_MAX_USER_EVENTS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_MAX_USER_EVENTS</code><em class="property"> = 50</em><a class="headerlink" href="#pypapi.events.PAPI_MAX_USER_EVENTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maxmimum number of user defined events</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_MEM_RCY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_MEM_RCY</code><em class="property"> = -2147483613</em><a class="headerlink" href="#pypapi.events.PAPI_MEM_RCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles Stalled Waiting for Memory Read</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_MEM_SCY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_MEM_SCY</code><em class="property"> = -2147483614</em><a class="headerlink" href="#pypapi.events.PAPI_MEM_SCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles Stalled Waiting for Memory Access</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_MEM_WCY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_MEM_WCY</code><em class="property"> = -2147483612</em><a class="headerlink" href="#pypapi.events.PAPI_MEM_WCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles Stalled Waiting for Memory Write</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_NATIVE_AND_MASK">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_NATIVE_AND_MASK</code><em class="property"> = 3221225471</em><a class="headerlink" href="#pypapi.events.PAPI_NATIVE_AND_MASK" title="Permalink to this definition">¶</a></dt>
+<dd><p>this masks just the native bit</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_PRF_DM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_PRF_DM</code><em class="property"> = -2147483620</em><a class="headerlink" href="#pypapi.events.PAPI_PRF_DM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prefetch data instruction caused a miss</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_REF_CYC">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_REF_CYC</code><em class="property"> = -2147483541</em><a class="headerlink" href="#pypapi.events.PAPI_REF_CYC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference clock cycles</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_RES_STL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_RES_STL</code><em class="property"> = -2147483591</em><a class="headerlink" href="#pypapi.events.PAPI_RES_STL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles processor is stalled on resource</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_SP_OPS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_SP_OPS</code><em class="property"> = -2147483545</em><a class="headerlink" href="#pypapi.events.PAPI_SP_OPS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Floating point operations executed; optimized to count scaled single precision vector operations</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_SR_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_SR_INS</code><em class="property"> = -2147483594</em><a class="headerlink" href="#pypapi.events.PAPI_SR_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_STL_CCY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_STL_CCY</code><em class="property"> = -2147483609</em><a class="headerlink" href="#pypapi.events.PAPI_STL_CCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles with No Instruction Completion</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_STL_ICY">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_STL_ICY</code><em class="property"> = -2147483611</em><a class="headerlink" href="#pypapi.events.PAPI_STL_ICY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cycles with No Instruction Issue</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_SYC_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_SYC_INS</code><em class="property"> = -2147483587</em><a class="headerlink" href="#pypapi.events.PAPI_SYC_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sync. inst. executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TLB_DM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TLB_DM</code><em class="property"> = -2147483628</em><a class="headerlink" href="#pypapi.events.PAPI_TLB_DM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data translation lookaside buffer misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TLB_IM">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TLB_IM</code><em class="property"> = -2147483627</em><a class="headerlink" href="#pypapi.events.PAPI_TLB_IM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instr translation lookaside buffer misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TLB_SD">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TLB_SD</code><em class="property"> = -2147483618</em><a class="headerlink" href="#pypapi.events.PAPI_TLB_SD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Xlation lookaside buffer shootdowns (SMP)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TLB_TL">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TLB_TL</code><em class="property"> = -2147483626</em><a class="headerlink" href="#pypapi.events.PAPI_TLB_TL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total translation lookaside buffer misses</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TOT_CYC">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TOT_CYC</code><em class="property"> = -2147483589</em><a class="headerlink" href="#pypapi.events.PAPI_TOT_CYC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total cycles executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TOT_IIS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TOT_IIS</code><em class="property"> = -2147483599</em><a class="headerlink" href="#pypapi.events.PAPI_TOT_IIS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total instructions issued</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_TOT_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_TOT_INS</code><em class="property"> = -2147483598</em><a class="headerlink" href="#pypapi.events.PAPI_TOT_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total instructions executed</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_VEC_DP">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_VEC_DP</code><em class="property"> = -2147483542</em><a class="headerlink" href="#pypapi.events.PAPI_VEC_DP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Double precision vector/SIMD instructions</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_VEC_INS">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_VEC_INS</code><em class="property"> = -2147483592</em><a class="headerlink" href="#pypapi.events.PAPI_VEC_INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vector/SIMD instructions executed (could include integer)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.PAPI_VEC_SP">
+<code class="descclassname">pypapi.events.</code><code class="descname">PAPI_VEC_SP</code><em class="property"> = -2147483543</em><a class="headerlink" href="#pypapi.events.PAPI_VEC_SP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single precision vector/SIMD instructions</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="pypapi.events.USER_EVENT_OPERATION_LEN">
+<code class="descclassname">pypapi.events.</code><code class="descname">USER_EVENT_OPERATION_LEN</code><em class="property"> = 512</em><a class="headerlink" href="#pypapi.events.USER_EVENT_OPERATION_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum length of the operation string for user defined events</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="types.html" class="btn btn-neutral" title="Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
