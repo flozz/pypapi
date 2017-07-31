@@ -16,6 +16,9 @@ from .exceptions import papi_error
 # [x] stop_counters
 
 
+_counter_count = 0
+
+
 def num_counters():
     """Get the number of hardware counters available on the system.
 
@@ -40,6 +43,9 @@ def start_counters(events):
 
     :param list events: a list of events to count (from ``pypapi.events``)
     """
+    global _counter_count
+    _counter_count = len(events)
+
     events_ = ffi.new("int[]", events)
     array_len = len(events)
 
@@ -49,15 +55,19 @@ def start_counters(events):
 
 
 @papi_error
-def stop_counters(array_len=0):
-    """stop_counters(array_len=0)
+def stop_counters():
+    """stop_counters()
 
     Stop counters and return current counts.
 
-    :param int array_len: number of counter started (default: 0, only usefull
-                          when you started counters manually with
-                          ``start_counters``)
+    :returns: the current counts (if counter started with
+              :py:func:`start_counters`)
+    :rtype: list
     """
+    global _counter_count
+    array_len = _counter_count
+    _counter_count = 0
+
     values = ffi.new("long long[]", array_len)
 
     rcode = lib.PAPI_stop_counters(values, array_len)
