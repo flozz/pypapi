@@ -50,7 +50,7 @@ def start_counters(events):
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     :raises PapiIsRunningError: Counters have already been started, you must
-        call :py:func:`_stop_counters` before you call this function again.
+        call :py:func:`stop_counters` before you call this function again.
     :raises PapiSystemError: A system or C library call failed inside PAPI.
     :raises PapiNoMemoryError: Insufficient memory to complete the operation.
     :raises PapiConflictError: The underlying counter hardware cannot count
@@ -80,7 +80,7 @@ def stop_counters():
     :rtype: list
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid
-        (this error should not happend with PyPAPI).
+        (this error should not happen with PyPAPI).
     :raises PapiNotRunningError: The EventSet is not started yet.
     :raise PapiNoEventSetError: The EventSet has not been added yet.
     """
