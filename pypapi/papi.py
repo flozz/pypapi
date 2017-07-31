@@ -23,6 +23,13 @@ def num_counters():
     """Get the number of hardware counters available on the system.
 
     :rtype: int
+
+    :raises pypapi.exceptions.PapiInvalidValueError: ``papi.h`` is different
+        from the version used to compile the PAPI library.
+    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
+        complete the operation.
+    :raises pypapi.exceptions.PapiSystemError: A system or C library call
+        failed inside PAPI.
     """
     return lib.PAPI_num_counters()
 
@@ -41,7 +48,22 @@ def start_counters(events):
 
     Start counting hardware events.
 
-    :param list events: a list of events to count (from ``pypapi.events``)
+    :param list events: a list of events to count (from :doc:`events`)
+
+    :raises pypapi.exceptions.PapiInvalidValueError: One or more of the
+        arguments is invalid.
+    :raises pypapi.exceptions.PapiIsRunningError: Counters have already been
+        started, you must call :py:func:`_stop_counters` before you call this
+        function again.
+    :raises pypapi.exceptions.PapiSystemError: A system or C library call
+        failed inside PAPI.
+    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
+        complete the operation.
+    :raises pypapi.exceptions.PapiConflictError: The underlying counter
+        hardware cannot count this event and other events in the EventSet
+        simultaneously.
+    :raises pypapi.exceptions.PapiNoEventError: The PAPI preset is not
+        available on the underlying hardware.
     """
     global _counter_count
     _counter_count = len(events)
@@ -63,6 +85,13 @@ def stop_counters():
     :returns: the current counts (if counter started with
               :py:func:`start_counters`)
     :rtype: list
+
+    :raises pypapi.exceptions.PapiInvalidValueError: One or more of the
+        arguments is invalid (this error should not happend with PyPAPI).
+    :raises pypapi.exceptions.PapiNotRunningError: The EventSet is not started
+        yet.
+    :raise pypapi.exceptions.PapiNoEventSetError: The EventSet has not been
+        added yet.
     """
     global _counter_count
     array_len = _counter_count
@@ -83,6 +112,13 @@ def flips():
     and processor time.
 
     :rtype: pypapi.types.Flips
+
+    :raises pypapi.exceptions.PapiInvalidValueError: The counters were already
+        started by something other than :py:func:`flips`.
+    :raises pypapi.exceptions.PapiNoEventError: The floating point operations
+        or total cycles event does not exist.
+    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
+        complete the operation.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -107,6 +143,13 @@ def flops():
     and processor time.
 
     :rtype: pypapi.types.Flops
+
+    :raises pypapi.exceptions.PapiInvalidValueError: The counters were already
+        started by something other than :py:func:`flops`.
+    :raises pypapi.exceptions.PapiNoEventError: The floating point
+        instructions or total cycles event does not exist.
+    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
+        complete the operation.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -130,6 +173,13 @@ def ipc():
     Gets instructions per cycle, real and processor time.
 
     :rtype: pypapi.types.IPC
+
+    :raises pypapi.exceptions.PapiInvalidValueError: The counters were already
+        started by something other than :py:func:`ipc`.
+    :raises pypapi.exceptions.PapiNoEventError: The total instructions or total
+        cycles event does not exist.
+    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
+        complete the operation.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -153,7 +203,8 @@ def epc(event=0):
     Gets (named) events per cycle, real and processor time, reference and
     core cycles.
 
-    :param int event:
+    :param int event: The target event (from :doc:`events`, default:
+        :py:const:`pypapi.events.PAPI_TOT_INS`)
 
     :rtype: pypapi.types.EPC
     """
