@@ -24,12 +24,10 @@ def num_counters():
 
     :rtype: int
 
-    :raises pypapi.exceptions.PapiInvalidValueError: ``papi.h`` is different
-        from the version used to compile the PAPI library.
-    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
-        complete the operation.
-    :raises pypapi.exceptions.PapiSystemError: A system or C library call
-        failed inside PAPI.
+    :raises PapiInvalidValueError: ``papi.h`` is different from the version
+        used to compile the PAPI library.
+    :raises PapiNoMemoryError: Insufficient memory to complete the operation.
+    :raises PapiSystemError: A system or C library call failed inside PAPI.
     """
     return lib.PAPI_num_counters()
 
@@ -50,20 +48,15 @@ def start_counters(events):
 
     :param list events: a list of events to count (from :doc:`events`)
 
-    :raises pypapi.exceptions.PapiInvalidValueError: One or more of the
-        arguments is invalid.
-    :raises pypapi.exceptions.PapiIsRunningError: Counters have already been
-        started, you must call :py:func:`_stop_counters` before you call this
-        function again.
-    :raises pypapi.exceptions.PapiSystemError: A system or C library call
-        failed inside PAPI.
-    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
-        complete the operation.
-    :raises pypapi.exceptions.PapiConflictError: The underlying counter
-        hardware cannot count this event and other events in the EventSet
-        simultaneously.
-    :raises pypapi.exceptions.PapiNoEventError: The PAPI preset is not
-        available on the underlying hardware.
+    :raises PapiInvalidValueError: One or more of the arguments is invalid.
+    :raises PapiIsRunningError: Counters have already been started, you must
+        call :py:func:`_stop_counters` before you call this function again.
+    :raises PapiSystemError: A system or C library call failed inside PAPI.
+    :raises PapiNoMemoryError: Insufficient memory to complete the operation.
+    :raises PapiConflictError: The underlying counter hardware cannot count
+        this event and other events in the EventSet simultaneously.
+    :raises PapiNoEventError: The PAPI preset is not available on the
+        underlying hardware.
     """
     global _counter_count
     _counter_count = len(events)
@@ -86,12 +79,10 @@ def stop_counters():
               :py:func:`start_counters`)
     :rtype: list
 
-    :raises pypapi.exceptions.PapiInvalidValueError: One or more of the
-        arguments is invalid (this error should not happend with PyPAPI).
-    :raises pypapi.exceptions.PapiNotRunningError: The EventSet is not started
-        yet.
-    :raise pypapi.exceptions.PapiNoEventSetError: The EventSet has not been
-        added yet.
+    :raises PapiInvalidValueError: One or more of the arguments is invalid
+        (this error should not happend with PyPAPI).
+    :raises PapiNotRunningError: The EventSet is not started yet.
+    :raise PapiNoEventSetError: The EventSet has not been added yet.
     """
     global _counter_count
     array_len = _counter_count
@@ -113,12 +104,11 @@ def flips():
 
     :rtype: pypapi.types.Flips
 
-    :raises pypapi.exceptions.PapiInvalidValueError: The counters were already
-        started by something other than :py:func:`flips`.
-    :raises pypapi.exceptions.PapiNoEventError: The floating point operations
-        or total cycles event does not exist.
-    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
-        complete the operation.
+    :raises PapiInvalidValueError: The counters were already started by
+        something other than :py:func:`flips`.
+    :raises PapiNoEventError: The floating point operations or total cycles
+        event does not exist.
+    :raises PapiNoMemoryError: Insufficient memory to complete the operation.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -144,12 +134,11 @@ def flops():
 
     :rtype: pypapi.types.Flops
 
-    :raises pypapi.exceptions.PapiInvalidValueError: The counters were already
-        started by something other than :py:func:`flops`.
-    :raises pypapi.exceptions.PapiNoEventError: The floating point
-        instructions or total cycles event does not exist.
-    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
-        complete the operation.
+    :raises PapiInvalidValueError: The counters were already started by
+        something other than :py:func:`flops`.
+    :raises PapiNoEventError: The floating point instructions or total cycles
+        event does not exist.
+    :raises PapiNoMemoryError: Insufficient memory to complete the operation.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
@@ -174,12 +163,11 @@ def ipc():
 
     :rtype: pypapi.types.IPC
 
-    :raises pypapi.exceptions.PapiInvalidValueError: The counters were already
-        started by something other than :py:func:`ipc`.
-    :raises pypapi.exceptions.PapiNoEventError: The total instructions or total
-        cycles event does not exist.
-    :raises pypapi.exceptions.PapiNoMemoryError: Insufficient memory to
-        complete the operation.
+    :raises PapiInvalidValueError: The counters were already started by
+        something other than :py:func:`ipc`.
+    :raises PapiNoEventError: The total instructions or total cycles event does
+        not exist.
+    :raises PapiNoMemoryError: Insufficient memory to complete the operation.
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
