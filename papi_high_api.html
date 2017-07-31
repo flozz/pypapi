@@ -170,7 +170,8 @@ core cycles.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>int</em>) – </td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>int</em>) – The target event (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>, default:
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal"><span class="pre">pypapi.events.PAPI_TOT_INS</span></code></a>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types.html#pypapi.types.EPC" title="pypapi.types.EPC">pypapi.types.EPC</a></td>
 </tr>
@@ -187,7 +188,18 @@ and processor time.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types.html#pypapi.types.Flips" title="pypapi.types.Flips">pypapi.types.Flips</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types.html#pypapi.types.Flips" title="pypapi.types.Flips">pypapi.types.Flips</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>pypapi.exceptions.PapiInvalidValueError</strong></a> – The counters were already
+started by something other than <a class="reference internal" href="#pypapi.papi.flips" title="pypapi.papi.flips"><code class="xref py py-func docutils literal"><span class="pre">flips()</span></code></a>.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>pypapi.exceptions.PapiNoEventError</strong></a> – The floating point operations
+or total cycles event does not exist.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>pypapi.exceptions.PapiNoMemoryError</strong></a> – Insufficient memory to
+complete the operation.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -202,7 +214,18 @@ and processor time.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types.html#pypapi.types.Flops" title="pypapi.types.Flops">pypapi.types.Flops</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types.html#pypapi.types.Flops" title="pypapi.types.Flops">pypapi.types.Flops</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>pypapi.exceptions.PapiInvalidValueError</strong></a> – The counters were already
+started by something other than <a class="reference internal" href="#pypapi.papi.flops" title="pypapi.papi.flops"><code class="xref py py-func docutils literal"><span class="pre">flops()</span></code></a>.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>pypapi.exceptions.PapiNoEventError</strong></a> – The floating point
+instructions or total cycles event does not exist.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>pypapi.exceptions.PapiNoMemoryError</strong></a> – Insufficient memory to
+complete the operation.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -216,7 +239,18 @@ and processor time.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types.html#pypapi.types.IPC" title="pypapi.types.IPC">pypapi.types.IPC</a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types.html#pypapi.types.IPC" title="pypapi.types.IPC">pypapi.types.IPC</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>pypapi.exceptions.PapiInvalidValueError</strong></a> – The counters were already
+started by something other than <a class="reference internal" href="#pypapi.papi.ipc" title="pypapi.papi.ipc"><code class="xref py py-func docutils literal"><span class="pre">ipc()</span></code></a>.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>pypapi.exceptions.PapiNoEventError</strong></a> – The total instructions or total
+cycles event does not exist.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>pypapi.exceptions.PapiNoMemoryError</strong></a> – Insufficient memory to
+complete the operation.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -244,7 +278,18 @@ and processor time.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>pypapi.exceptions.PapiInvalidValueError</strong></a> – <code class="docutils literal"><span class="pre">papi.h</span></code> is different
+from the version used to compile the PAPI library.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>pypapi.exceptions.PapiNoMemoryError</strong></a> – Insufficient memory to
+complete the operation.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>pypapi.exceptions.PapiSystemError</strong></a> – A system or C library call
+failed inside PAPI.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -258,7 +303,26 @@ and processor time.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>events</strong> (<em>list</em>) – a list of events to count (from <code class="docutils literal"><span class="pre">pypapi.events</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>events</strong> (<em>list</em>) – a list of events to count (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>pypapi.exceptions.PapiInvalidValueError</strong></a> – One or more of the
+arguments is invalid.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>pypapi.exceptions.PapiIsRunningError</strong></a> – Counters have already been
+started, you must call <code class="xref py py-func docutils literal"><span class="pre">_stop_counters()</span></code> before you call this
+function again.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>pypapi.exceptions.PapiSystemError</strong></a> – A system or C library call
+failed inside PAPI.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>pypapi.exceptions.PapiNoMemoryError</strong></a> – Insufficient memory to
+complete the operation.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>pypapi.exceptions.PapiConflictError</strong></a> – The underlying counter
+hardware cannot count this event and other events in the EventSet
+simultaneously.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>pypapi.exceptions.PapiNoEventError</strong></a> – The PAPI preset is not
+available on the underlying hardware.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -266,15 +330,28 @@ and processor time.</p>
 
 <dl class="function">
 <dt id="pypapi.papi.stop_counters">
-<code class="descclassname">pypapi.papi.</code><code class="descname">stop_counters</code><span class="sig-paren">(</span><em>array_len=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi.stop_counters" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">pypapi.papi.</code><code class="descname">stop_counters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi.stop_counters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop counters and return current counts.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>array_len</strong> (<em>int</em>) – number of counter started (default: 0, only usefull
-when you started counters manually with
-<code class="docutils literal"><span class="pre">start_counters</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the current counts (if counter started with
+<a class="reference internal" href="#pypapi.papi.start_counters" title="pypapi.papi.start_counters"><code class="xref py py-func docutils literal"><span class="pre">start_counters()</span></code></a>)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>pypapi.exceptions.PapiInvalidValueError</strong></a> – One or more of the
+arguments is invalid (this error should not happend with PyPAPI).</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotRunningError" title="pypapi.exceptions.PapiNotRunningError"><strong>pypapi.exceptions.PapiNotRunningError</strong></a> – The EventSet is not started
+yet.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>pypapi.exceptions.PapiNoEventSetError</strong></a> – The EventSet has not been
+added yet.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
