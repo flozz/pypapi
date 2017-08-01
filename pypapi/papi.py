@@ -3,20 +3,26 @@ from .types import Flips, Flops, IPC, EPC
 from .exceptions import papi_error
 
 
-# TODO (high api):
-# [ ] accum_counters
-# [x] epc
-# [x] flips
-# [x] flops
-# [x] ipc
-# [x] num_components
-# [x] num_counters
-# [ ] read_counters
-# [x] start_counters
-# [x] stop_counters
-
-
 _counter_count = 0
+
+
+@papi_error
+def accum_counters(values):
+    """accum_counters(values)
+
+    Add current counts to the given list and reset counters.
+
+    :param list values: Values to which the counts will be added.
+
+    :returns: A new list with added counts.
+    :rtype: list
+
+    :raises PapiInvalidValueError: One or more of the arguments is invalid.
+    :raises PapiSystemError: A system or C library call failed inside PAPI.
+    """
+    cvalues = ffi.new("long long[]", values)
+    rcode = lib.PAPI_accum_counters(cvalues, len(values))
+    return rcode, ffi.unpack(cvalues, len(values))
 
 
 def num_counters():
@@ -38,6 +44,23 @@ def num_components():
     :rtype: int
     """
     return lib.PAPI_num_components()
+
+
+@papi_error
+def read_counters():
+    """read_counters()
+
+    Get current counts and reset counters.
+
+    :rtype: list
+
+    :raises PapiInvalidValueError: One or more of the arguments is invalid
+        (this error should not happen with PyPAPI).
+    :raises PapiSystemError: A system or C library call failed inside PAPI.
+    """
+    values = ffi.new("long long[]", _counter_count)
+    rcode = lib.PAPI_read_counters(values, _counter_count)
+    return rcode, ffi.unpack(values, _counter_count)
 
 
 @papi_error
@@ -192,7 +215,7 @@ def epc(event=0):
     core cycles.
 
     :param int event: The target event (from :doc:`events`, default:
-        :py:const:`pypapi.events.PAPI_TOT_INS`)
+        :py:const:`pypapi.events.PAPI_TOT_INS`).
 
     :rtype: pypapi.types.EPC
     """
