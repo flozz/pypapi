@@ -1,3 +1,50 @@
+"""
+This modules binds `PAPI High Level API
+<http://icl.cs.utk.edu/projects/papi/wiki/PAPIC:PAPI.3#High_Level_Functions>`_.
+
+Despite our desire to stay as close as possible as the original C API, we had
+to make a lot of change to make this API more *pythonic*. If you are used to
+the C API, please read carefully this documentation.
+
+Example using :py:func:`flops`:
+
+::
+
+    from pypapi import papi_high
+
+    # Starts counters
+    papi_high.flops()  # -> Flops(0, 0, 0, 0)
+
+    # Read values
+    result = papi_high.flops()  # -> Flops(rtime, ptime, flpops, mflops)
+    print(result.mflops)
+
+    # Stop counters
+    papi_high.stop()   # -> []
+
+
+Example counting some events:
+
+::
+
+    from pypapi import papi_high
+    from pypapi import events as papi_events
+
+    # Starts some counters
+    papi_high.start([
+        papi_events.PAPI_FP_OPS,
+        papi_events.PAPI_TOT_CYC
+    ])
+
+    # Reads values from counters and reset them
+    results = papi_high.read_counters()  # -> [int, int]
+
+    # Reads values from counters and stop them
+    results = papi_high.stop()  # -> [int, int]
+
+"""
+
+
 from ._papi import lib, ffi
 from .types import Flips, Flops, IPC, EPC
 from .exceptions import papi_error

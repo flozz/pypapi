@@ -1,14 +1,41 @@
 Welcome to PyPAPI's documentation!
 ==================================
 
+PyPAPI is a Python binding for the PAPI (Performance Application Programming
+Interface) library. PyPAPI only implements the PAPI High Level API but feel
+free to let us know if you require access to the low-level API.
+
+Example usage:
+--------------
+
+::
+
+    from pypapi import papi_high
+    from pypapi import events as papi_events
+
+    # Starts some counters
+    papi_high.start([
+        papi_events.PAPI_FP_OPS,
+        papi_events.PAPI_TOT_CYC
+    ])
+
+    # Reads values from counters and reset them
+    results = papi_high.read_counters()  # -> [int, int]
+
+    # Reads values from counters and stop them
+    results = papi_high.stop()  # -> [int, int]
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   install
    papi_high
    types
    events
    exceptions
+   licenses
 
 * :ref:`genindex`
 * :ref:`modindex`
