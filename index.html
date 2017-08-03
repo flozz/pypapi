@@ -36,7 +36,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="PyPAPI 1.0.0 documentation" href="#"/>
-        <link rel="next" title="PAPI High API" href="papi_high_api.html"/> 
+        <link rel="next" title="Installing PyPAPI" href="install.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -91,10 +91,12 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="papi_high_api.html">PAPI High API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
             
@@ -160,22 +162,50 @@
             
   <div class="section" id="welcome-to-pypapi-s-documentation">
 <h1>Welcome to PyPAPI’s documentation!<a class="headerlink" href="#welcome-to-pypapi-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>PyPAPI is a Python binding for the PAPI (Performance Application Programming
+Interface) library. PyPAPI only implements the PAPI High Level API but feel
+free to let us know if you require access to the low-level API.</p>
+<div class="section" id="example-usage">
+<h2>Example usage:<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">papi_high</span>
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span> <span class="k">as</span> <span class="n">papi_events</span>
+
+<span class="c1"># Starts some counters</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">start</span><span class="p">([</span>
+    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
+    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
+<span class="p">])</span>
+
+<span class="c1"># Reads values from counters and reset them</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">read_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+
+<span class="c1"># Reads values from counters and stop them</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="papi_high_api.html">PAPI High API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#from-pypi">From PYPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#from-source">From Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="events.html#module-pypapi.events">Event List</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 </div>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
 <li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
 </ul>
+</div>
 </div>
 
 
@@ -188,7 +218,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="papi_high_api.html" class="btn btn-neutral float-right" title="PAPI High API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Installing PyPAPI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>

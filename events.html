@@ -92,13 +92,15 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="papi_high_api.html">PAPI High API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-pypapi.events">Event List</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
             
@@ -164,14 +166,15 @@
             
   <div class="section" id="events">
 <h1>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
-<p>Bellow the list of all events supported by PAPI. They can be used with the <code class="docutils literal"><span class="pre">start_counters</span></code> function:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span><span class="p">,</span> <span class="n">start_counters</span>
+<p>Bellow the list of all events supported by PAPI. They can be used with the
+<code class="xref py py-func docutils literal"><span class="pre">start_counters()</span></code> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">papi_high</span>
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span> <span class="k">as</span> <span class="n">papi_events</span>
 
-<span class="n">start_counters</span><span class="p">([</span>
-    <span class="n">events</span><span class="o">.</span><span class="n">PAPI_FP_INS</span><span class="p">,</span>
-    <span class="n">events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
-    <span class="n">events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
-    <span class="p">])</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">start</span><span class="p">([</span>
+    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
+    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 <div class="section" id="module-pypapi.events">

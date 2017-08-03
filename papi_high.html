@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PAPI High API &mdash; PyPAPI 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyPAPI 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Types" href="types.html"/>
+        <link rel="prev" title="Installing PyPAPI" href="install.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyPAPI
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PAPI High API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyPAPI</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>PAPI High API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/papi_high.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pypapi.papi_high">
+<span id="papi-high-api"></span><h1>PAPI High API<a class="headerlink" href="#module-pypapi.papi_high" title="Permalink to this headline">¶</a></h1>
+<p>This modules binds <a class="reference external" href="http://icl.cs.utk.edu/projects/papi/wiki/PAPIC:PAPI.3#High_Level_Functions">PAPI High Level API</a>.</p>
+<p>Despite our desire to stay as close as possible as the original C API, we had
+to make a lot of change to make this API more <em>pythonic</em>. If you are used to
+the C API, please read carefully this documentation.</p>
+<p>Example using <a class="reference internal" href="#pypapi.papi_high.flops" title="pypapi.papi_high.flops"><code class="xref py py-func docutils literal"><span class="pre">flops()</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">papi_high</span>
+
+<span class="c1"># Starts counters</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">flops</span><span class="p">()</span>  <span class="c1"># -&gt; Flops(0, 0, 0, 0)</span>
+
+<span class="c1"># Read values</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">flops</span><span class="p">()</span>  <span class="c1"># -&gt; Flops(rtime, ptime, flpops, mflops)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">mflops</span><span class="p">)</span>
+
+<span class="c1"># Stop counters</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>   <span class="c1"># -&gt; []</span>
+</pre></div>
+</div>
+<p>Example counting some events:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">papi_high</span>
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span> <span class="k">as</span> <span class="n">papi_events</span>
+
+<span class="c1"># Starts some counters</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">start</span><span class="p">([</span>
+    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
+    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
+<span class="p">])</span>
+
+<span class="c1"># Reads values from counters and reset them</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">read_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+
+<span class="c1"># Reads values from counters and stop them</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="pypapi.papi_high.accum_counters">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">accum_counters</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.accum_counters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add current counts to the given list and reset counters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>values</strong> (<em>list</em>) – Values to which the counts will be added.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new list with added counts.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.epc">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">epc</code><span class="sig-paren">(</span><em>event=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.epc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets (named) events per cycle, real and processor time, reference and
+core cycles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>event</strong> (<em>int</em>) – The target event (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>, default:
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal"><span class="pre">pypapi.events.PAPI_TOT_INS</span></code></a>).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types.html#pypapi.types.EPC" title="pypapi.types.EPC">pypapi.types.EPC</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.flips">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">flips</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.flips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplified call to get Mflips/s (floating point instruction rate), real
+and processor time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types.html#pypapi.types.Flips" title="pypapi.types.Flips">pypapi.types.Flips</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_high.flips" title="pypapi.papi_high.flips"><code class="xref py py-func docutils literal"><span class="pre">flips()</span></code></a>.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The floating point operations or total cycles
+event does not exist.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.flops">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">flops</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.flops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplified call to get Mflops/s (floating point operation rate), real
+and processor time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types.html#pypapi.types.Flops" title="pypapi.types.Flops">pypapi.types.Flops</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_high.flops" title="pypapi.papi_high.flops"><code class="xref py py-func docutils literal"><span class="pre">flops()</span></code></a>.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The floating point instructions or total cycles
+event does not exist.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.ipc">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">ipc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.ipc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets instructions per cycle, real and processor time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types.html#pypapi.types.IPC" title="pypapi.types.IPC">pypapi.types.IPC</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_high.ipc" title="pypapi.papi_high.ipc"><code class="xref py py-func docutils literal"><span class="pre">ipc()</span></code></a>.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The total instructions or total cycles event does
+not exist.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.num_components">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">num_components</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.num_components" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of components available on the system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.num_counters">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">num_counters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.num_counters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of hardware counters available on the system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – <code class="docutils literal"><span class="pre">papi.h</span></code> is different from the version
+used to compile the PAPI library.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.read_counters">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">read_counters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.read_counters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current counts and reset counters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid
+(this error should not happen with PyPAPI).</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.start_counters">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">start_counters</code><span class="sig-paren">(</span><em>events</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.start_counters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start counting hardware events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>events</strong> (<em>list</em>) – a list of events to count (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – Counters have already been started, you must
+call <a class="reference internal" href="#pypapi.papi_high.stop_counters" title="pypapi.papi_high.stop_counters"><code class="xref py py-func docutils literal"><span class="pre">stop_counters()</span></code></a> before you call this function again.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware cannot count
+this event and other events in the EventSet simultaneously.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the
+underlying hardware.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pypapi.papi_high.stop_counters">
+<code class="descclassname">pypapi.papi_high.</code><code class="descname">stop_counters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_high.stop_counters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop counters and return current counts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the current counts (if counter started with
+<a class="reference internal" href="#pypapi.papi_high.start_counters" title="pypapi.papi_high.start_counters"><code class="xref py py-func docutils literal"><span class="pre">start_counters()</span></code></a>)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid
+(this error should not happen with PyPAPI).</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotRunningError" title="pypapi.exceptions.PapiNotRunningError"><strong>PapiNotRunningError</strong></a> – The EventSet is not started yet.</li>
+<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The EventSet has not been added yet.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="types.html" class="btn btn-neutral float-right" title="Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="Installing PyPAPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

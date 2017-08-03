@@ -2,17 +2,18 @@ Events
 ======
 
 
-Bellow the list of all events supported by PAPI. They can be used with the ``start_counters`` function:
+Bellow the list of all events supported by PAPI. They can be used with the
+:py:func:`~pypapi.papi.start_counters` function:
 
 ::
 
-    from pypapi import events, start_counters
+    from pypapi import papi_high
+    from pypapi import events as papi_events
 
-    start_counters([
-        events.PAPI_FP_INS,
-        events.PAPI_FP_OPS,
-        events.PAPI_TOT_CYC
-        ])
+    papi_high.start([
+        papi_events.PAPI_FP_OPS,
+        papi_events.PAPI_TOT_CYC
+    ])
 
 
 Event List
