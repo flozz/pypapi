@@ -5,7 +5,7 @@ Welcome to PyPAPI's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   papi_high_api
+   papi_high
    types
    events
    exceptions

@@ -1,5 +1,5 @@
 PAPI High API
 =============
 
-.. automodule:: pypapi.papi
+.. automodule:: pypapi.papi_high
     :members:
