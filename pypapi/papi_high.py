@@ -1,5 +1,5 @@
 """
-This modules binds `PAPI High Level API
+This module binds `PAPI High Level API
 <http://icl.cs.utk.edu/projects/papi/wiki/PAPIC:PAPI.3#High_Level_Functions>`_.
 
 Despite our desire to stay as close as possible as the original C API, we had
