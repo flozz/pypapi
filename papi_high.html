@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>PAPI High API &mdash; PyPAPI 1.0.0 documentation</title>
+  <title>PAPI High Level API &mdash; PyPAPI 5.5.1.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="PyPAPI 1.0.0 documentation" href="index.html"/>
+    <link rel="top" title="PyPAPI 5.5.1.1 documentation" href="index.html"/>
         <link rel="next" title="Types" href="types.html"/>
         <link rel="prev" title="Installing PyPAPI" href="install.html"/> 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                1.0.0
+                5.5.1
               </div>
             
           
@@ -93,7 +93,7 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PAPI High API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PAPI High Level API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
@@ -142,7 +142,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>PAPI High API</li>
+      <li>PAPI High Level API</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -162,8 +162,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-pypapi.papi_high">
-<span id="papi-high-api"></span><h1>PAPI High API<a class="headerlink" href="#module-pypapi.papi_high" title="Permalink to this headline">¶</a></h1>
-<p>This modules binds <a class="reference external" href="http://icl.cs.utk.edu/projects/papi/wiki/PAPIC:PAPI.3#High_Level_Functions">PAPI High Level API</a>.</p>
+<span id="papi-high-level-api"></span><h1>PAPI High Level API<a class="headerlink" href="#module-pypapi.papi_high" title="Permalink to this headline">¶</a></h1>
+<p>This module binds <a class="reference external" href="http://icl.cs.utk.edu/projects/papi/wiki/PAPIC:PAPI.3#High_Level_Functions">PAPI High Level API</a>.</p>
 <p>Despite our desire to stay as close as possible as the original C API, we had
 to make a lot of change to make this API more <em>pythonic</em>. If you are used to
 the C API, please read carefully this documentation.</p>
@@ -178,7 +178,7 @@ the C API, please read carefully this documentation.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">mflops</span><span class="p">)</span>
 
 <span class="c1"># Stop counters</span>
-<span class="n">papi_high</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>   <span class="c1"># -&gt; []</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">stop_counters</span><span class="p">()</span>   <span class="c1"># -&gt; []</span>
 </pre></div>
 </div>
 <p>Example counting some events:</p>
@@ -186,7 +186,7 @@ the C API, please read carefully this documentation.</p>
 <span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span> <span class="k">as</span> <span class="n">papi_events</span>
 
 <span class="c1"># Starts some counters</span>
-<span class="n">papi_high</span><span class="o">.</span><span class="n">start</span><span class="p">([</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">start_counters</span><span class="p">([</span>
     <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
     <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
 <span class="p">])</span>
@@ -195,7 +195,7 @@ the C API, please read carefully this documentation.</p>
 <span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">read_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
 
 <span class="c1"># Reads values from counters and stop them</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
 </pre></div>
 </div>
 <dl class="function">
@@ -477,7 +477,7 @@ underlying hardware.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.0',
+            VERSION:'5.5.1.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

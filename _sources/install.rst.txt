@@ -8,29 +8,25 @@ install the ``build-essential`` package.
 From PYPI
 ---------
 
-TODO: Not yet available on PYPI
+To install PyPAPI from PYPI, simply use pip::
+
+    pip install python_papi
 
 
 From Source
 -----------
 
-First clone the project's repository and go into it:
-
-::
+First clone the project's repository and go into it::
 
     git clone https://github.com/flozz/pypapi.git
     cd pypapi
 
-Then initialize and update git sub-modules:
-
-::
+Then initialize and update git sub-modules::
 
     git submodule init
     git submodule update
 
-Finally, execute the following command:
-
-::
+Finally, execute the following command::
 
     python setup.py install
 
