@@ -10,7 +10,7 @@ From PYPI
 
 To install PyPAPI from PYPI, simply use pip::
 
-    pip install pypapi
+    pip install python_papi
 
 
 From Source
