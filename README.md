@@ -36,4 +36,5 @@ From a virtualenv:
 
 ## Changelog
 
+* **5.5.1.1:** Adds missing files to build PAPI
 * **5.5.1.0:** Initial release (binding for papy 5.5.1)

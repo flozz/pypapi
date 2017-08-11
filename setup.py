@@ -25,7 +25,7 @@ elif os.path.isfile("README.md"):
 
 setup(
     name="python_papi",
-    version="5.5.1.0",
+    version="5.5.1.1",
     description="Python binding for the PAPI library",
     url="https://github.com/flozz/pypapi",
     license="WTFPL",
