@@ -23,4 +23,7 @@ IPC = namedtuple("IPC", "rtime ptime ins ipc")
 
 
 #: Results tuple for the :py:func:`~pypapi.papi_high.epc` function
+#: See PAPI documentation for more informations:
+#:
+#: * http://icl.cs.utk.edu/papi/docs/da/d4e/classPAPI__epc.html
 EPC = namedtuple("EPC", "rtime ptime ref core evt epc")
