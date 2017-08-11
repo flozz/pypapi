@@ -16,7 +16,4 @@ find pypapi -name "*.[hc]*" -exec echo "include" "{}" ";"
 
 echo
 
-find papi -type f -exec echo "include" "{}" ";" \
-    | grep -Ev "^include papi/(Change.*\.txt)" \
-    | grep -Ev "\.(ya?ml|o|a|html|git*)$" \
-    | grep -Ev "(docs?/|man.?/)"
+find papi -type f -exec echo "include" "{}" ";"
