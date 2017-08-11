@@ -20,7 +20,7 @@ Example using :py:func:`flops`:
     print(result.mflops)
 
     # Stop counters
-    papi_high.stop()   # -> []
+    papi_high.stop_counters()   # -> []
 
 
 Example counting some events:
@@ -31,7 +31,7 @@ Example counting some events:
     from pypapi import events as papi_events
 
     # Starts some counters
-    papi_high.start([
+    papi_high.start_counters([
         papi_events.PAPI_FP_OPS,
         papi_events.PAPI_TOT_CYC
     ])
@@ -40,7 +40,7 @@ Example counting some events:
     results = papi_high.read_counters()  # -> [int, int]
 
     # Reads values from counters and stop them
-    results = papi_high.stop()  # -> [int, int]
+    results = papi_high.stop_counters()  # -> [int, int]
 
 """
 
