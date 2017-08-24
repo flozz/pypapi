@@ -171,7 +171,7 @@ free to let us know if you require access to the low-level API.</p>
 <span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span> <span class="k">as</span> <span class="n">papi_events</span>
 
 <span class="c1"># Starts some counters</span>
-<span class="n">papi_high</span><span class="o">.</span><span class="n">start</span><span class="p">([</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">start_counters</span><span class="p">([</span>
     <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
     <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
 <span class="p">])</span>
@@ -180,7 +180,7 @@ free to let us know if you require access to the low-level API.</p>
 <span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">read_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
 
 <span class="c1"># Reads values from counters and stop them</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
@@ -204,6 +204,7 @@ free to let us know if you require access to the low-level API.</p>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
 <li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference external" href="https://github.com/flozz/pypapi">Github</a></li>
 </ul>
 </div>
 </div>
