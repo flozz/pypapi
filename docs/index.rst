@@ -14,7 +14,7 @@ Example usage:
     from pypapi import events as papi_events
 
     # Starts some counters
-    papi_high.start([
+    papi_high.start_counters([
         papi_events.PAPI_FP_OPS,
         papi_events.PAPI_TOT_CYC
     ])
@@ -23,7 +23,7 @@ Example usage:
     results = papi_high.read_counters()  # -> [int, int]
 
     # Reads values from counters and stop them
-    results = papi_high.stop()  # -> [int, int]
+    results = papi_high.stop_counters()  # -> [int, int]
 
 
 .. toctree::
@@ -39,3 +39,5 @@ Example usage:
 
 * :ref:`genindex`
 * :ref:`modindex`
+
+* `Github <https://github.com/flozz/pypapi>`_
