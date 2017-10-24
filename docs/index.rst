@@ -32,6 +32,7 @@ Example usage:
 
    install
    papi_high
+   papi_low
    types
    events
    exceptions
