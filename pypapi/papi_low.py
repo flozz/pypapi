@@ -140,7 +140,7 @@ def destroy_eventset(eventSet):
         user should turn off profiling on the Events before destroying the
         EventSet to prevent this behavior.
     """
-    eventSet_p = ffi.new("int*", eventSet)
+    eventSet_p = ffi.new("int*", 0)
     rcode = lib.PAPI_destroy_eventset(eventSet_p)
     return rcode, None
 
@@ -203,7 +203,19 @@ def list_events(eventSet):
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiNoEventSetError: The event set specified does not exist.
     """
-    pass  # TODO
+    number = ffi.new("int*", 0)
+
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, number)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(number, 1)[0]
+    events = ffi.new("int[]", eventCount)
+
+    rcode = lib.PAPI_list_events(eventSet, events, number)
+
+    return rcode, ffi.unpack(events, eventCount)
 
 
 # int PAPI_remove_event(int EventSet, int EventCode);
