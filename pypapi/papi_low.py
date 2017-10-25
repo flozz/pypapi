@@ -63,7 +63,7 @@ def add_events(eventSet, eventCodes):
     """
     number = len(eventCodes)
     eventCodes_p = ffi.new("int[]", eventCodes)
-    rcode = lib.PAPI(eventSet, eventCodes_p, number)
+    rcode = lib.PAPI_add_events(eventSet, eventCodes_p, number)
     return rcode, rcode
 
 
