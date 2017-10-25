@@ -129,12 +129,11 @@ def destroy_eventset(eventSet):
         :py:func:`create_eventset`.
 
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
+        Attempting to destroy a non-empty event set or passing in a null
+        pointer to be destroyed.
     :raise PapiNoEventSetError: The event set specified does not exist.
     :raise PapiIsRunningError: The event set is currently counting events.
     :raise PapiBugError: Internal error, please send mail to the developers.
-    :raise PapiInvalidValueError: One or more of the arguments is invalid.
-        Attempting to destroy a non-empty event set or passing in a null
-        pointer to be destroyed.
 
     .. WARNING::
 
