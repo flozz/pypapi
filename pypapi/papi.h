@@ -29,6 +29,14 @@
 #define PAPI_NUM_ERRORS  25    /**< Number of error messages specified in this API */
 
 
+// PAPI initialization state
+
+#define PAPI_NOT_INITED           0
+#define PAPI_LOW_LEVEL_INITED     1      /* Low level has called library init */
+#define PAPI_HIGH_LEVEL_INITED    2      /* High level has called library init */
+#define PAPI_THREAD_LEVEL_INITED  4      /* Threads have been inited */
+
+
 // PAPI HIGH (definitions from papi.h)
 
 int PAPI_accum_counters(long long * values, int array_len); /**< add current counts to array and reset counters */
@@ -77,8 +85,8 @@ int PAPI_destroy_eventset(int *EventSet); /**< deallocates memory associated wit
 // long long PAPI_get_virt_cyc(void); /**< return the process cycles since some arbitrary starting point */
 // long long PAPI_get_virt_nsec(void); /**< return the process nanoseconds since some arbitrary starting point */
 // long long PAPI_get_virt_usec(void); /**< return the process microseconds since some arbitrary starting point */
-// int PAPI_is_initialized(void); /**< return the initialized state of the PAPI library */
-// int PAPI_library_init(int version); /**< initialize the PAPI library */
+int PAPI_is_initialized(void); /**< return the initialized state of the PAPI library */
+int PAPI_library_init(int version); /**< initialize the PAPI library */
 int PAPI_list_events(int EventSet, int *Events, int *number); /**< list the events that are members of an event set */
 // int PAPI_list_threads(unsigned long *tids, int *number); /**< list the thread ids currently known to PAPI */
 // int PAPI_lock(int); /**< lock one of two PAPI internal user mutex variables */

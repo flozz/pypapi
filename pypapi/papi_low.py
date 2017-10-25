@@ -7,6 +7,17 @@ from ._papi import lib, ffi
 from .exceptions import papi_error
 
 
+# TODO turn this as enum?
+#: PAPI is not initilized
+PAPI_NOT_INITED = lib.PAPI_NOT_INITED
+#: Low level has called library init
+PAPI_LOW_LEVEL_INITED = lib.PAPI_LOW_LEVEL_INITED
+#: High level has called library init
+PAPI_HIGH_LEVEL_INITED = lib.PAPI_HIGH_LEVEL_INITED
+#: Threads have been inited
+PAPI_THREAD_LEVEL_INITED = lib.PAPI_THREAD_LEVEL_INITED
+
+
 # int PAPI_add_event(int EventSet, int Event);
 @papi_error
 def add_event(eventSet, eventCode):
@@ -106,7 +117,9 @@ def create_eventset():
         :py:func:`assign_eventset_component` or implicitly by calling
         :py:func:`add_event` or similar routines.
     """
-    pass  # TODO
+    eventSet = ffi.new("int*", 0)
+    rcode = lib.PAPI_create_eventset(eventSet)
+    return rcode, ffi.unpack(eventSet, 1)[0]
 
 
 # int PAPI_destroy_eventset(int *EventSet);
@@ -132,6 +145,42 @@ def destroy_eventset(eventSet):
         EventSet to prevent this behavior.
     """
     pass  # TODO  /!\ pointer param /!\
+
+
+# int PAPI_is_initialized(void);
+@papi_error
+def is_initialized():
+    """is_initialized()
+
+    Return the initialized state of the PAPI library.
+
+    :returns: the initialized state of the PAPI library.
+    :rtype: int
+    """
+    # TODO update doc
+    pass  # TODO  /!\ Multiple const values, not bool /!\
+
+
+# int PAPI_library_init(int version);
+@papi_error
+def library_init(version):
+    """library_init(version)
+
+    Initialize the PAPI library.
+
+    :param int version: upon initialization, PAPI checks the argument against
+        the internal value of PAPI_VER_CURRENT when the library was compiled.
+        This guards against portability problems when updating the PAPI shared
+        libraries on your system.
+
+    .. WARNING::
+
+            If you don't call this before using any of the low level PAPI
+            calls, your application could core dump.
+    """
+    # TODO add the PAPI_VER_CURRENT const
+    # TODO Maybe make the verison param optional?
+    pass  # TODO
 
 
 # int PAPI_list_events(int EventSet, int *Events, int *number);
