@@ -219,7 +219,8 @@ def remove_event(eventSet, eventCode):
     :raise PapiNoEventError: The PAPI preset is not available on the underlying
         hardware.
     """
-    pass  # TODO
+    rcode = lib.PAPI_remove_event(eventSet, eventCode)
+    return rcode, None
 
 
 # int PAPI_remove_events(int EventSet, int *Events, int number);
