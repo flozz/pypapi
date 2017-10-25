@@ -140,7 +140,7 @@ def destroy_eventset(eventSet):
         user should turn off profiling on the Events before destroying the
         EventSet to prevent this behavior.
     """
-    eventSet_p = ffi.new("int*", 0)
+    eventSet_p = ffi.new("int*", eventSet)
     rcode = lib.PAPI_destroy_eventset(eventSet_p)
     return rcode, None
 
