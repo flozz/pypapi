@@ -96,7 +96,6 @@ def create_eventset():
     :returns: the event set handle.
     :rtype: int
 
-    :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiInvalidValueError: The argument handle has not been initialized
         to PAPI_NULL or the argument is a NULL pointer.
     :raise PapiNoMemoryError: Insufficient memory to complete the operation.
@@ -137,7 +136,9 @@ def destroy_eventset(eventSet):
         user should turn off profiling on the Events before destroying the
         EventSet to prevent this behavior.
     """
-    pass  # TODO  /!\ pointer param /!\
+    eventSet_p = ffi.new("int*", eventSet)
+    rcode = lib.PAPI_destroy_eventset(eventSet_p)
+    return rcode, None
 
 
 # int PAPI_is_initialized(void);
