@@ -147,7 +147,7 @@ def is_initialized():
         :ref:`consts_init`).
     :rtype: int
     """
-    pass  # TODO  /!\ Multiple const values, not bool /!\
+    return lib.PAPI_is_initialized()
 
 
 # int PAPI_library_init(int version);
@@ -175,7 +175,8 @@ def library_init(version=PAPI_VER_CURRENT):
             If you don't call this before using any of the low level PAPI
             calls, your application could core dump.
     """
-    pass  # TODO
+    rcode = lib.PAPI_library_init(version)
+    return rcode, None
 
 
 # int PAPI_list_events(int EventSet, int *Events, int *number);
