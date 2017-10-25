@@ -30,7 +30,8 @@ def add_event(eventSet, eventCode):
         hardware.
     :raise PapiBugError: Internal error, please send mail to the developers.
     """
-    pass  # TODO
+    rcode = lib.PAPI_add_event(eventSet, eventCode)
+    return rcode, None
 
 
 # int PAPI_add_events(int EventSet, int *Events, int number);
