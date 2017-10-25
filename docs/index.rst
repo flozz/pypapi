@@ -35,6 +35,7 @@ Example usage:
    papi_low
    types
    events
+   consts
    exceptions
    licenses
 

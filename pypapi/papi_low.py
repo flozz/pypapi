@@ -5,17 +5,7 @@ TODO
 
 from ._papi import lib, ffi
 from .exceptions import papi_error
-
-
-# TODO turn this as enum?
-#: PAPI is not initilized
-PAPI_NOT_INITED = lib.PAPI_NOT_INITED
-#: Low level has called library init
-PAPI_LOW_LEVEL_INITED = lib.PAPI_LOW_LEVEL_INITED
-#: High level has called library init
-PAPI_HIGH_LEVEL_INITED = lib.PAPI_HIGH_LEVEL_INITED
-#: Threads have been inited
-PAPI_THREAD_LEVEL_INITED = lib.PAPI_THREAD_LEVEL_INITED
+from .consts import PAPI_VER_CURRENT
 
 
 # int PAPI_add_event(int EventSet, int Event);
@@ -148,38 +138,43 @@ def destroy_eventset(eventSet):
 
 
 # int PAPI_is_initialized(void);
-@papi_error
 def is_initialized():
     """is_initialized()
 
     Return the initialized state of the PAPI library.
 
-    :returns: the initialized state of the PAPI library.
+    :returns: the initialized state of the PAPI library (one of the
+        :ref:`consts_init`).
     :rtype: int
     """
-    # TODO update doc
     pass  # TODO  /!\ Multiple const values, not bool /!\
 
 
 # int PAPI_library_init(int version);
 @papi_error
-def library_init(version):
-    """library_init(version)
+def library_init(version=PAPI_VER_CURRENT):
+    """library_init(version=pypapi.consts.PAPI_VER_CURRENT)
 
     Initialize the PAPI library.
 
     :param int version: upon initialization, PAPI checks the argument against
-        the internal value of PAPI_VER_CURRENT when the library was compiled.
-        This guards against portability problems when updating the PAPI shared
-        libraries on your system.
+        the internal value of ``PAPI_VER_CURRENT`` when the library was
+        compiled.  This guards against portability problems when updating the
+        PAPI shared libraries on your system (optional, default:
+        :py:data:`pypapi.consts.PAPI_VER_CURRENT`).
+
+    :raise PapiInvalidValueError: papi.h is different from the version used to
+        compile the PAPI library.
+    :raise PapiNoMemoryError: Insufficient memory to complete the operation.
+    :raise PapiComponentError: This component does not support the underlying
+        hardware.
+    :raise PapiSystemError: A system or C library call failed inside PAPI.
 
     .. WARNING::
 
             If you don't call this before using any of the low level PAPI
             calls, your application could core dump.
     """
-    # TODO add the PAPI_VER_CURRENT const
-    # TODO Maybe make the verison param optional?
     pass  # TODO
 
 
