@@ -97,6 +97,8 @@ def create_eventset():
     :rtype: int
 
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiInvalidValueError: The argument handle has not been initialized
+        to PAPI_NULL or the argument is a NULL pointer.
     :raise PapiNoMemoryError: Insufficient memory to complete the operation.
 
     .. NOTE::
