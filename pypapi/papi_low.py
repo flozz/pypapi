@@ -82,7 +82,8 @@ def cleanup_eventset(eventSet):
         user should turn off profiling on the Events before destroying the
         EventSet to prevent this behavior.
     """
-    pass  # TODO
+    rcode = lib.PAPI_cleanup_eventset(eventSet)
+    return rcode, None
 
 
 # int PAPI_create_eventset(int *EventSet);
