@@ -4,7 +4,7 @@ TODO
 
 
 from ._papi import lib, ffi
-from .exceptions import papi_error
+from .exceptions import papi_error, PapiError
 from .consts import PAPI_VER_CURRENT, PAPI_NULL
 
 
@@ -20,9 +20,6 @@ def add_event(eventSet, eventCode):
     :param int eventCode: A defined event such as ``PAPI_TOT_INS`` (from
         :doc:`events`).
 
-    :returns: the number of consecutive elements that succeeded.
-    :rtype: int
-
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiNoMemoryError: Insufficient memory to complete the operation.
     :raise PapiNoEventSetError: The event set specified does not exist.
@@ -34,7 +31,12 @@ def add_event(eventSet, eventCode):
     :raise PapiBugError: Internal error, please send mail to the developers.
     """
     rcode = lib.PAPI_add_event(eventSet, eventCode)
-    return rcode, rcode
+
+    if rcode > 0:
+        raise PapiError(message="Unable to add some of the given events: %i of"
+                        " 1 event added to the event set" % rcode)
+
+    return rcode, None
 
 
 # int PAPI_add_events(int EventSet, int *Events, int number);
@@ -58,7 +60,15 @@ def add_events(eventSet, eventCodes):
         hardware.
     :raise PapiBugError: Internal error, please send mail to the developers.
     """
-    pass  # TODO
+    number = len(eventCodes)
+    eventCodes_p = ffi.new("int[]", eventCodes)
+    rcode = lib.PAPI_add_events(eventSet, eventCodes_p, number)
+
+    if rcode > 0:
+        raise PapiError(message="Unable to add some of the given events: %i of"
+                        " %i events added to the event set" % (rcode, number))
+
+    return rcode, None
 
 
 # int PAPI_cleanup_eventset(int EventSet);
