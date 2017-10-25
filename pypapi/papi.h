@@ -37,6 +37,11 @@
 #define PAPI_THREAD_LEVEL_INITED  4      /* Threads have been inited */
 
 
+// Other PAPI constants
+
+#define PAPI_NULL       -1      /**<A nonexistent hardware event used as a placeholder */
+
+
 // PAPI HIGH (definitions from papi.h)
 
 int PAPI_accum_counters(long long * values, int array_len); /**< add current counts to array and reset counters */

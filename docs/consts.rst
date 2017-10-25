@@ -18,3 +18,9 @@ PAPI Initialization Constants
 .. autodata:: pypapi.consts.PAPI_LOW_LEVEL_INITED
 .. autodata:: pypapi.consts.PAPI_HIGH_LEVEL_INITED
 .. autodata:: pypapi.consts.PAPI_THREAD_LEVEL_INITED
+
+
+Other PAPI Constants
+--------------------
+
+.. autodata:: pypapi.consts.PAPI_NULL

@@ -5,7 +5,7 @@ TODO
 
 from ._papi import lib, ffi
 from .exceptions import papi_error
-from .consts import PAPI_VER_CURRENT
+from .consts import PAPI_VER_CURRENT, PAPI_NULL
 
 
 # int PAPI_add_event(int EventSet, int Event);
@@ -108,7 +108,7 @@ def create_eventset():
         :py:func:`assign_eventset_component` or implicitly by calling
         :py:func:`add_event` or similar routines.
     """
-    eventSet = ffi.new("int*", 0)
+    eventSet = ffi.new("int*", PAPI_NULL)
     rcode = lib.PAPI_create_eventset(eventSet)
     return rcode, ffi.unpack(eventSet, 1)[0]
 

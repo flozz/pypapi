@@ -36,3 +36,9 @@ PAPI_HIGH_LEVEL_INITED = lib.PAPI_HIGH_LEVEL_INITED
 
 #: Threads have been inited
 PAPI_THREAD_LEVEL_INITED = lib.PAPI_THREAD_LEVEL_INITED
+
+
+# Others
+
+#: A nonexistent hardware event used as a placeholder
+PAPI_NULL = lib.PAPI_NULL
