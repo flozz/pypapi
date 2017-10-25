@@ -48,6 +48,9 @@ def add_events(eventSet, eventCodes):
         :py:func:`create_eventset`.
     :param list(int) eventCodes: A list of defined events (from :doc:`events`).
 
+    :returns: the number of consecutive elements that succeeded.
+    :rtype: int
+
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiNoMemoryError: Insufficient memory to complete the operation.
     :raise PapiNoEventSetError: The event set specified does not exist.
@@ -58,7 +61,10 @@ def add_events(eventSet, eventCodes):
         hardware.
     :raise PapiBugError: Internal error, please send mail to the developers.
     """
-    pass  # TODO
+    number = len(eventCodes)
+    eventCodes_p = ffi.new("int[]", eventCodes)
+    rcode = lib.PAPI(eventSet, eventCodes_p, number)
+    return rcode, rcode
 
 
 # int PAPI_cleanup_eventset(int EventSet);
