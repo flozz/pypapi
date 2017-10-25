@@ -20,6 +20,9 @@ def add_event(eventSet, eventCode):
     :param int eventCode: A defined event such as ``PAPI_TOT_INS`` (from
         :doc:`events`).
 
+    :returns: the number of consecutive elements that succeeded.
+    :rtype: int
+
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiNoMemoryError: Insufficient memory to complete the operation.
     :raise PapiNoEventSetError: The event set specified does not exist.
@@ -31,7 +34,7 @@ def add_event(eventSet, eventCode):
     :raise PapiBugError: Internal error, please send mail to the developers.
     """
     rcode = lib.PAPI_add_event(eventSet, eventCode)
-    return rcode, None
+    return rcode, rcode
 
 
 # int PAPI_add_events(int EventSet, int *Events, int number);
