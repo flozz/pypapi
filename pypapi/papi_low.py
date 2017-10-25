@@ -20,8 +20,8 @@ def add_event(eventSet, eventCode):
     :param int eventCode: A defined event such as ``PAPI_TOT_INS`` (from
         :doc:`events`).
 
-    :returns the number of consecutive elements that succeeded.
-    :rtype int
+    :returns: the number of consecutive elements that succeeded.
+    :rtype: int
 
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiNoMemoryError: Insufficient memory to complete the operation.
