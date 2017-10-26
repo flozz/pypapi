@@ -351,7 +351,8 @@ def start(eventSet):
     :raise PapiNoEventError: The PAPI preset is not available on the underlying
         hardware.
     """
-    raise NotImplementedError()  # TODO
+    rcode = lib.PAPI_start(eventSet)
+    return rcode, None
 
 
 # int PAPI_state(int EventSet, int *status);
