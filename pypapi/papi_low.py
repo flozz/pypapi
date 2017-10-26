@@ -395,4 +395,15 @@ def stop(eventSet):
     :raise PapiNoEventSetError: The event set specified does not exist.
     :raise PapiNotRunningError: The EventSet is currently not running.
     """
-    raise NotImplementedError()  # TODO
+    eventCount_p = ffi.new("int*", 0)
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, eventCount_p)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(eventCount_p, 1)[0]
+    values = ffi.new("int[]", eventCount)
+
+    rcode = lib.PAPI_stop(eventSet, values)
+
+    return rcode, ffi.unpack(values, eventCount)
