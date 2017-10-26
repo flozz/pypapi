@@ -272,7 +272,18 @@ def read(eventSet):
         the errno variable.
     :raise PapiNoEventSetError: The event set specified does not exist.
     """
-    raise NotImplementedError()  # TODO
+    eventCount_p = ffi.new("int*", 0)
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, eventCount_p)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(eventCount_p, 1)[0]
+    values = ffi.new("long long[]", eventCount)
+
+    rcode = lib.PAPI_read(eventSet, values)
+
+    return rcode, ffi.unpack(values, eventCount)
 
 
 # int PAPI_remove_event(int EventSet, int EventCode);
@@ -402,7 +413,6 @@ def stop(eventSet):
         return rcode, None
 
     eventCount = ffi.unpack(eventCount_p, 1)[0]
-    values = ffi.new("int[]", eventCount)
     values = ffi.new("long long[]", eventCount)
 
     rcode = lib.PAPI_stop(eventSet, values)
