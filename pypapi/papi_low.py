@@ -273,4 +273,13 @@ def remove_events(eventSet, eventCodes):
     :raise PapiNoEventError: The PAPI preset is not available on the underlying
         hardware.
     """
-    pass  # TODO
+    number = len(eventCodes)
+    eventCodes_p = ffi.new("int[]", eventCodes)
+    rcode = lib.PAPI_remove_events(eventSet, eventCodes_p, number)
+
+    if rcode > 0:
+        raise PapiError(message="Unable to remove some of the given events: "
+                        "%i of %i events added to the event set"
+                        % (rcode, number))
+
+    return rcode, None
