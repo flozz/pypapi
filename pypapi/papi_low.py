@@ -403,6 +403,7 @@ def stop(eventSet):
 
     eventCount = ffi.unpack(eventCount_p, 1)[0]
     values = ffi.new("int[]", eventCount)
+    values = ffi.new("long long[]", eventCount)
 
     rcode = lib.PAPI_stop(eventSet, values)
 
