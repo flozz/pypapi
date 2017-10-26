@@ -357,7 +357,7 @@ def start(eventSet):
 
 # int PAPI_state(int EventSet, int *status);
 @papi_error
-def state(eventState):
+def state(eventSet):
     """state(eventSet)
 
     Returns the counting state of the specified event set.
@@ -372,7 +372,9 @@ def state(eventState):
     :raise PapiInvalidValueError: One or more of the arguments is invalid.
     :raise PapiNoEventSetError: The event set specified does not exist.
     """
-    raise NotImplementedError()  # TODO
+    status = ffi.new("int*", 0)
+    rcode = lib.PAPI_state(eventSet, status)
+    return rcode, ffi.unpack(status, 1)[0]
 
 
 # int PAPI_stop(int EventSet, long long * values);
