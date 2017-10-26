@@ -4,7 +4,7 @@ TODO
 
 
 from ._papi import lib, ffi
-from .exceptions import papi_error, PapiError
+from .exceptions import papi_error, PapiError, PapiInvalidValueError
 from .consts import PAPI_VER_CURRENT, PAPI_NULL
 
 
@@ -28,8 +28,26 @@ def accum(eventSet, values):
         the errno variable.
     :raise PapiNoEventSetError: The event set specified does not exist.
     """
-    # XXX   /!\ value lenght should be equal to eventSet length
-    raise NotImplementedError()  # TODO
+    eventCount_p = ffi.new("int*", 0)
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, eventCount_p)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(eventCount_p, 1)[0]
+
+    if len(values) != eventCount:
+        raise PapiInvalidValueError(message="the length of the 'value' list "
+                                            "(%i) is different of the one of "
+                                            "the event set (%i)" % (
+                                                len(values),
+                                                eventCount))
+
+    values = ffi.new("long long[]", values)
+
+    rcode = lib.PAPI_accum(eventSet, values)
+
+    return rcode, ffi.unpack(values, eventCount)
 
 
 # int PAPI_add_event(int EventSet, int Event);
