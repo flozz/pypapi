@@ -60,10 +60,10 @@ def accum_counters(values):
 
     Add current counts to the given list and reset counters.
 
-    :param list values: Values to which the counts will be added.
+    :param list(int) values: Values to which the counts will be added.
 
     :returns: A new list with added counts.
-    :rtype: list
+    :rtype: list(int)
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     :raises PapiSystemError: A system or C library call failed inside PAPI.
@@ -103,7 +103,7 @@ def read_counters():
 
     Get current counts and reset counters.
 
-    :rtype: list
+    :rtype: list(int)
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid
         (this error should not happen with PyPAPI).

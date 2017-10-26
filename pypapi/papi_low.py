@@ -8,6 +8,30 @@ from .exceptions import papi_error, PapiError
 from .consts import PAPI_VER_CURRENT, PAPI_NULL
 
 
+# int PAPI_accum(int EventSet, long long * values);
+@papi_error
+def accum(eventSet, values):
+    """accum(eventSet, values)
+
+    Adds the counters of the indicated event set into the array values. The
+    counters are zeroed and continue counting after the operation.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+    :param list(int) values: A list to hold the counter values of the counting
+        events.
+
+    :rtype: list(int)
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    """
+    # XXX   /!\ value lenght should be equal to eventSet length
+    raise NotImplementedError()  # TODO
+
+
 # int PAPI_add_event(int EventSet, int Event);
 @papi_error
 def add_event(eventSet, eventCode):
@@ -230,6 +254,27 @@ def list_events(eventSet):
     return rcode, ffi.unpack(events, eventCount)
 
 
+# int PAPI_read(int EventSet, long long * values);
+@papi_error
+def read(eventSet):
+    """read(eventSet)
+
+    Copies the counters of the indicated event set into the provided array. The
+    counters continue counting after the read and are not reseted.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :rtype: list(int)
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    """
+    raise NotImplementedError()  # TODO
+
+
 # int PAPI_remove_event(int EventSet, int EventCode);
 @papi_error
 def remove_event(eventSet, eventCode):
@@ -283,3 +328,68 @@ def remove_events(eventSet, eventCodes):
                         % (rcode, number))
 
     return rcode, None
+
+
+# int PAPI_start(int EventSet);
+@papi_error
+def start(eventSet):
+    """start(eventSet)
+
+    Starts counting all of the hardware events contained in the EventSet. All
+    counters are implicitly set to zero before counting.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    :raise PapiIsRunningError: The event set is currently counting events.
+    :raise PapiConflictError: The underlying counter hardware can not count
+        this event and other events in the event set simultaneously.
+    :raise PapiNoEventError: The PAPI preset is not available on the underlying
+        hardware.
+    """
+    raise NotImplementedError()  # TODO
+
+
+# int PAPI_state(int EventSet, int *status);
+@papi_error
+def state(eventState):
+    """state(eventSet)
+
+    Returns the counting state of the specified event set.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :returns: the initialized state of the PAPI library (one of the
+        :ref:`consts_state`).
+    :rtype: int
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    """
+    raise NotImplementedError()  # TODO
+
+
+# int PAPI_stop(int EventSet, long long * values);
+@papi_error
+def stop(eventSet):
+    """stop(eventSet)
+
+    Stop counting hardware events in an event set and return current values.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :rtype: list(int)
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    :raise PapiNotRunningError: The EventSet is currently not running.
+    """
+    raise NotImplementedError()  # TODO
