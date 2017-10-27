@@ -190,6 +190,26 @@ def create_eventset():
     return rcode, ffi.unpack(eventSet, 1)[0]
 
 
+# int PAPI_detach(int EventSet);
+@papi_error
+def detach(eventSet):
+    """detach(eventSet)
+
+    Detach specified event set from a previously specified process or
+    thread id.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :raise PapiComponentError: This feature is unsupported on this component.
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    :raise PapiIsRunningError: The event set is currently counting events.
+    """
+    rcode = lib.PAPI_detach(eventSet)
+    return rcode, None
+
+
 # int PAPI_destroy_eventset(int *EventSet);
 @papi_error
 def destroy_eventset(eventSet):
@@ -216,26 +236,6 @@ def destroy_eventset(eventSet):
     """
     eventSet_p = ffi.new("int*", eventSet)
     rcode = lib.PAPI_destroy_eventset(eventSet_p)
-    return rcode, None
-
-
-# int PAPI_detach(int EventSet);
-@papi_error
-def detach(eventSet):
-    """detach(eventSet)
-
-    Detach specified event set from a previously specified process or
-    thread id.
-
-    :param int eventSet: An integer handle for a PAPI Event Set as created by
-        :py:func:`create_eventset`.
-
-    :raise PapiComponentError: This feature is unsupported on this component.
-    :raise PapiInvalidValueError: One or more of the arguments is invalid.
-    :raise PapiNoEventSetError: The event set specified does not exist.
-    :raise PapiIsRunningError: The event set is currently counting events.
-    """
-    rcode = lib.PAPI_detach(eventSet)
     return rcode, None
 
 
