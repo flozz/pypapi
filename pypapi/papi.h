@@ -77,7 +77,7 @@ int PAPI_add_event(int EventSet, int Event); /**< add single PAPI preset or nati
 // int PAPI_add_named_event(int EventSet, char *EventName); /**< add an event by name to a PAPI event set */
 int PAPI_add_events(int EventSet, int *Events, int number); /**< add array of PAPI preset or native hardware events to an event set */
 // int PAPI_assign_eventset_component(int EventSet, int cidx); /**< assign a component index to an existing but empty eventset */
-// int PAPI_attach(int EventSet, unsigned long tid); /**< attach specified event set to a specific process or thread id */
+int PAPI_attach(int EventSet, unsigned long tid); /**< attach specified event set to a specific process or thread id */
 int PAPI_cleanup_eventset(int EventSet); /**< remove all PAPI events from an event set */
 int PAPI_create_eventset(int *EventSet); /**< create a new empty PAPI event set */
 // int PAPI_detach(int EventSet); /**< detach specified event set from a previously specified process or thread id */
