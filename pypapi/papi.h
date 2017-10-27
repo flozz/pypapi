@@ -29,7 +29,7 @@
 #define PAPI_NUM_ERRORS  25    /**< Number of error messages specified in this API */
 
 
-// PAPI initialization state
+// PAPI initialization state (definitions from papi.h)
 
 #define PAPI_NOT_INITED           0
 #define PAPI_LOW_LEVEL_INITED     1      /* Low level has called library init */
@@ -37,7 +37,20 @@
 #define PAPI_THREAD_LEVEL_INITED  4      /* Threads have been inited */
 
 
-// Other PAPI constants
+// PAPI states (definitions from papi.h)
+
+#define PAPI_STOPPED      0x01  /**< EventSet stopped */
+#define PAPI_RUNNING      0x02  /**< EventSet running */
+#define PAPI_PAUSED       0x04  /**< EventSet temp. disabled by the library */
+#define PAPI_NOT_INIT     0x08  /**< EventSet defined, but not initialized */
+#define PAPI_OVERFLOWING  0x10  /**< EventSet has overflowing enabled */
+#define PAPI_PROFILING    0x20  /**< EventSet has profiling enabled */
+#define PAPI_MULTIPLEXING 0x40  /**< EventSet has multiplexing enabled */
+#define PAPI_ATTACHED     0x80  /**< EventSet is attached to another thread/process */
+#define PAPI_CPU_ATTACHED 0x100 /**< EventSet is attached to a specific cpu (not counting thread of execution) */
+
+
+// Other PAPI constants (definitions from papi.h)
 
 #define PAPI_NULL       -1      /**<A nonexistent hardware event used as a placeholder */
 
@@ -59,7 +72,7 @@ int PAPI_epc(int event, float *rtime, float *ptime, long long *ref, long long *c
 // PAPI LOW (definitions from papi.h)
 // (commented definitions are not (yet?) binded)
 
-// int PAPI_accum(int EventSet, long long * values); /**< accumulate and reset hardware events from an event set */
+int PAPI_accum(int EventSet, long long * values); /**< accumulate and reset hardware events from an event set */
 int PAPI_add_event(int EventSet, int Event); /**< add single PAPI preset or native hardware event to an event set */
 // int PAPI_add_named_event(int EventSet, char *EventName); /**< add an event by name to a PAPI event set */
 int PAPI_add_events(int EventSet, int *Events, int number); /**< add array of PAPI preset or native hardware events to an event set */
@@ -103,7 +116,7 @@ int PAPI_list_events(int EventSet, int *Events, int *number); /**< list the even
 // int PAPI_profil(void *buf, unsigned bufsiz, caddr_t offset, unsigned scale, int EventSet, int EventCode, int threshold, int flags); /**< generate PC histogram data where hardware counter overflow occurs */
 // int PAPI_query_event(int EventCode); /**< query if a PAPI event exists */
 // int PAPI_query_named_event(char *EventName); /**< query if a named PAPI event exists */
-// int PAPI_read(int EventSet, long long * values); /**< read hardware events from an event set with no reset */
+int PAPI_read(int EventSet, long long * values); /**< read hardware events from an event set with no reset */
 // int PAPI_read_ts(int EventSet, long long * values, long long *cyc); /**< read from an eventset with a real-time cycle timestamp */
 // int PAPI_register_thread(void); /**< inform PAPI of the existence of a new thread */
 int PAPI_remove_event(int EventSet, int EventCode); /**< remove a hardware event from a PAPI event set */
@@ -120,9 +133,9 @@ int PAPI_remove_events(int EventSet, int *Events, int number); /**< remove an ar
 // int PAPI_set_thr_specific(int tag, void *ptr); /**< save a pointer as a thread specific stored data structure */
 // void PAPI_shutdown(void); /**< finish using PAPI and free all related resources */
 // int PAPI_sprofil(PAPI_sprofil_t * prof, int profcnt, int EventSet, int EventCode, int threshold, int flags); /**< generate hardware counter profiles from multiple code regions */
-// int PAPI_start(int EventSet); /**< start counting hardware events in an event set */
-// int PAPI_state(int EventSet, int *status); /**< return the counting state of an event set */
-// int PAPI_stop(int EventSet, long long * values); /**< stop counting hardware events in an event set and return current events */
+int PAPI_start(int EventSet); /**< start counting hardware events in an event set */
+int PAPI_state(int EventSet, int *status); /**< return the counting state of an event set */
+int PAPI_stop(int EventSet, long long * values); /**< stop counting hardware events in an event set and return current events */
 // char* PAPI_strerror(int); /**< return a pointer to the error name corresponding to a specified error code */
 // unsigned long PAPI_thread_id(void); /**< get the thread identifier of the current thread */
 // int PAPI_thread_init(unsigned long (*id_fn) (void)); /**< initialize thread support in the PAPI library */

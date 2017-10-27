@@ -4,8 +4,50 @@ TODO
 
 
 from ._papi import lib, ffi
-from .exceptions import papi_error, PapiError
+from .exceptions import papi_error, PapiError, PapiInvalidValueError
 from .consts import PAPI_VER_CURRENT, PAPI_NULL
+
+
+# int PAPI_accum(int EventSet, long long * values);
+@papi_error
+def accum(eventSet, values):
+    """accum(eventSet, values)
+
+    Adds the counters of the indicated event set into the array values. The
+    counters are zeroed and continue counting after the operation.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+    :param list(int) values: A list to hold the counter values of the counting
+        events.
+
+    :rtype: list(int)
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    """
+    eventCount_p = ffi.new("int*", 0)
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, eventCount_p)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(eventCount_p, 1)[0]
+
+    if len(values) != eventCount:
+        raise PapiInvalidValueError(message="the length of the 'value' list "
+                                            "(%i) is different of the one of "
+                                            "the event set (%i)" % (
+                                                len(values),
+                                                eventCount))
+
+    values = ffi.new("long long[]", values)
+
+    rcode = lib.PAPI_accum(eventSet, values)
+
+    return rcode, ffi.unpack(values, eventCount)
 
 
 # int PAPI_add_event(int EventSet, int Event);
@@ -230,6 +272,38 @@ def list_events(eventSet):
     return rcode, ffi.unpack(events, eventCount)
 
 
+# int PAPI_read(int EventSet, long long * values);
+@papi_error
+def read(eventSet):
+    """read(eventSet)
+
+    Copies the counters of the indicated event set into the provided array. The
+    counters continue counting after the read and are not reseted.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :rtype: list(int)
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    """
+    eventCount_p = ffi.new("int*", 0)
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, eventCount_p)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(eventCount_p, 1)[0]
+    values = ffi.new("long long[]", eventCount)
+
+    rcode = lib.PAPI_read(eventSet, values)
+
+    return rcode, ffi.unpack(values, eventCount)
+
+
 # int PAPI_remove_event(int EventSet, int EventCode);
 @papi_error
 def remove_event(eventSet, eventCode):
@@ -283,3 +357,82 @@ def remove_events(eventSet, eventCodes):
                         % (rcode, number))
 
     return rcode, None
+
+
+# int PAPI_start(int EventSet);
+@papi_error
+def start(eventSet):
+    """start(eventSet)
+
+    Starts counting all of the hardware events contained in the EventSet. All
+    counters are implicitly set to zero before counting.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    :raise PapiIsRunningError: The event set is currently counting events.
+    :raise PapiConflictError: The underlying counter hardware can not count
+        this event and other events in the event set simultaneously.
+    :raise PapiNoEventError: The PAPI preset is not available on the underlying
+        hardware.
+    """
+    rcode = lib.PAPI_start(eventSet)
+    return rcode, None
+
+
+# int PAPI_state(int EventSet, int *status);
+@papi_error
+def state(eventSet):
+    """state(eventSet)
+
+    Returns the counting state of the specified event set.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :returns: the initialized state of the PAPI library (one of the
+        :ref:`consts_state`).
+    :rtype: int
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    """
+    status = ffi.new("int*", 0)
+    rcode = lib.PAPI_state(eventSet, status)
+    return rcode, ffi.unpack(status, 1)[0]
+
+
+# int PAPI_stop(int EventSet, long long * values);
+@papi_error
+def stop(eventSet):
+    """stop(eventSet)
+
+    Stop counting hardware events in an event set and return current values.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :rtype: list(int)
+
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiSystemError: A system or C library call failed inside PAPI, see
+        the errno variable.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    :raise PapiNotRunningError: The EventSet is currently not running.
+    """
+    eventCount_p = ffi.new("int*", 0)
+    rcode = lib.PAPI_list_events(eventSet, ffi.NULL, eventCount_p)
+
+    if rcode < 0:
+        return rcode, None
+
+    eventCount = ffi.unpack(eventCount_p, 1)[0]
+    values = ffi.new("long long[]", eventCount)
+
+    rcode = lib.PAPI_stop(eventSet, values)
+
+    return rcode, ffi.unpack(values, eventCount)

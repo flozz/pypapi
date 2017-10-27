@@ -23,7 +23,7 @@ PAPI_VERSION = _papi_version_number(5, 5, 1, 0)
 PAPI_VER_CURRENT = PAPI_VERSION & 0xFFFF0000
 
 
-# PAPI Instialization
+# PAPI Initialization
 
 #: PAPI is not initilized
 PAPI_NOT_INITED = lib.PAPI_NOT_INITED
@@ -36,6 +36,36 @@ PAPI_HIGH_LEVEL_INITED = lib.PAPI_HIGH_LEVEL_INITED
 
 #: Threads have been inited
 PAPI_THREAD_LEVEL_INITED = lib.PAPI_THREAD_LEVEL_INITED
+
+
+# PAPI State
+
+#: EventSet stopped
+PAPI_STOPPED = lib.PAPI_STOPPED
+
+#: EventSet running
+PAPI_RUNNING = lib.PAPI_RUNNING
+
+#: EventSet temp. disabled by the library
+PAPI_PAUSED = lib.PAPI_PAUSED
+
+#: EventSet defined, but not initialized
+PAPI_NOT_INIT = lib.PAPI_NOT_INIT
+
+#: EventSet has overflowing enabled
+PAPI_OVERFLOWING = lib.PAPI_OVERFLOWING
+
+#: EventSet has profiling enabled
+PAPI_PROFILING = lib.PAPI_PROFILING
+
+#: EventSet has multiplexing enabled
+PAPI_MULTIPLEXING = lib.PAPI_MULTIPLEXING
+
+#: EventSet is attached to another thread/process
+PAPI_ATTACHED = lib.PAPI_ATTACHED
+
+#: EventSet is attached to a specific cpu (not counting thread of execution)
+PAPI_CPU_ATTACHED = lib.PAPI_CPU_ATTACHED
 
 
 # Others
