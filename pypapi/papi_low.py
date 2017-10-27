@@ -116,7 +116,7 @@ def add_events(eventSet, eventCodes):
 # int PAPI_attach(int EventSet, unsigned long tid);
 @papi_error
 def attach(eventSet, pid):
-    """attach(eventSet, eventCodes)
+    """attach(eventSet, pid)
 
     Attach specified event set to a specific process or thread id
 
