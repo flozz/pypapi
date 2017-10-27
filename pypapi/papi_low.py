@@ -148,7 +148,7 @@ def add_events(eventSet, eventCodes):
 def attach(eventSet, pid):
     """attach(eventSet, pid)
 
-    Attach specified event set to a specific process or thread id
+    Attach specified event set to a specific process or thread id.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -218,6 +218,26 @@ def create_eventset():
     eventSet = ffi.new("int*", PAPI_NULL)
     rcode = lib.PAPI_create_eventset(eventSet)
     return rcode, ffi.unpack(eventSet, 1)[0]
+
+
+# int PAPI_detach(int EventSet);
+@papi_error
+def detach(eventSet):
+    """detach(eventSet)
+
+    Detach specified event set from a previously specified process or
+    thread id.
+
+    :param int eventSet: An integer handle for a PAPI Event Set as created by
+        :py:func:`create_eventset`.
+
+    :raise PapiComponentError: This feature is unsupported on this component.
+    :raise PapiInvalidValueError: One or more of the arguments is invalid.
+    :raise PapiNoEventSetError: The event set specified does not exist.
+    :raise PapiIsRunningError: The event set is currently counting events.
+    """
+    rcode = lib.PAPI_detach(eventSet)
+    return rcode, None
 
 
 # int PAPI_destroy_eventset(int *EventSet);
