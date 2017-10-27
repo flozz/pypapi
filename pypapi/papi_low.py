@@ -1,5 +1,35 @@
 """
-TODO
+This module binds the PAPI Low Level API.
+
+Despite our desire to stay as close as possible as the original C API, we had
+to make a lot of change to make this API more *pythonic*. If you are used to
+the C API, please read carefully this documentation.
+
+Simple example::
+
+    from pypapi import papi_low as papi
+    from pypapi import events
+
+    papi.library_init()
+
+    evs = papi.create_eventset()
+    papi.add_event(evs, events.PAPI_FP_OPS)
+
+    papi.start(evs)
+
+    # Do some computation here
+
+    result = papi.stop(evs)
+    print(result)
+
+    papi.cleanup_eventset(evs)
+    papi.destroy_eventset(evs)
+
+.. NOTE::
+
+    This binding is currently very partial, there is a lot of missing function.
+    If you need one of the missing functions, please `fill an issue on Github
+    <https://github.com/flozz/pypapi/issues>`_.
 """
 
 
