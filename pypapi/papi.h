@@ -80,7 +80,7 @@ int PAPI_add_events(int EventSet, int *Events, int number); /**< add array of PA
 int PAPI_attach(int EventSet, unsigned long tid); /**< attach specified event set to a specific process or thread id */
 int PAPI_cleanup_eventset(int EventSet); /**< remove all PAPI events from an event set */
 int PAPI_create_eventset(int *EventSet); /**< create a new empty PAPI event set */
-// int PAPI_detach(int EventSet); /**< detach specified event set from a previously specified process or thread id */
+int PAPI_detach(int EventSet); /**< detach specified event set from a previously specified process or thread id */
 int PAPI_destroy_eventset(int *EventSet); /**< deallocates memory associated with an empty PAPI event set */
 // int PAPI_enum_event(int *EventCode, int modifier); /**< return the event code for the next available preset or natvie event */
 // int PAPI_enum_cmp_event(int *EventCode, int modifier, int cidx); /**< return the event code for the next available component event */
