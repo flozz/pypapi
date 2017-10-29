@@ -93,8 +93,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papi_low.html">PAPI Low Level API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consts.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
@@ -164,9 +166,11 @@
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
@@ -178,7 +182,17 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.accum">accum() (in module pypapi.papi_low)</a>
+</li>
       <li><a href="papi_high.html#pypapi.papi_high.accum_counters">accum_counters() (in module pypapi.papi_high)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.add_event">add_event() (in module pypapi.papi_low)</a>
+</li>
+      <li><a href="papi_low.html#pypapi.papi_low.add_events">add_events() (in module pypapi.papi_low)</a>
+</li>
+      <li><a href="papi_low.html#pypapi.papi_low.attach">attach() (in module pypapi.papi_low)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -186,7 +200,25 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.cleanup_eventset">cleanup_eventset() (in module pypapi.papi_low)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="types.html#pypapi.types.EPC.core">core (pypapi.types.EPC attribute)</a>
+</li>
+      <li><a href="papi_low.html#pypapi.papi_low.create_eventset">create_eventset() (in module pypapi.papi_low)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.destroy_eventset">destroy_eventset() (in module pypapi.papi_low)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.detach">detach() (in module pypapi.papi_low)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -240,6 +272,20 @@
 </li>
       <li><a href="papi_high.html#pypapi.papi_high.ipc">ipc() (in module pypapi.papi_high)</a>
 </li>
+      <li><a href="papi_low.html#pypapi.papi_low.is_initialized">is_initialized() (in module pypapi.papi_low)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.library_init">library_init() (in module pypapi.papi_low)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.list_events">list_events() (in module pypapi.papi_low)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -270,6 +316,8 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="consts.html#pypapi.consts.PAPI_ATTACHED">PAPI_ATTACHED (in module pypapi.consts)</a>
+</li>
       <li><a href="events.html#pypapi.events.PAPI_BR_CN">PAPI_BR_CN (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_BR_INS">PAPI_BR_INS (in module pypapi.events)</a>
@@ -297,6 +345,8 @@
       <li><a href="events.html#pypapi.events.PAPI_CA_SHR">PAPI_CA_SHR (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_CA_SNP">PAPI_CA_SNP (in module pypapi.events)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_CPU_ATTACHED">PAPI_CPU_ATTACHED (in module pypapi.consts)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_CSR_FAL">PAPI_CSR_FAL (in module pypapi.events)</a>
 </li>
@@ -335,6 +385,8 @@
       <li><a href="events.html#pypapi.events.PAPI_FUL_ICY">PAPI_FUL_ICY (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_FXU_IDL">PAPI_FXU_IDL (in module pypapi.events)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_HIGH_LEVEL_INITED">PAPI_HIGH_LEVEL_INITED (in module pypapi.consts)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_HW_INT">PAPI_HW_INT (in module pypapi.events)</a>
 </li>
@@ -416,8 +468,6 @@
 </li>
       <li><a href="events.html#pypapi.events.PAPI_L3_DCR">PAPI_L3_DCR (in module pypapi.events)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="events.html#pypapi.events.PAPI_L3_DCW">PAPI_L3_DCW (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_L3_ICA">PAPI_L3_ICA (in module pypapi.events)</a>
@@ -428,6 +478,8 @@
 </li>
       <li><a href="events.html#pypapi.events.PAPI_L3_ICR">PAPI_L3_ICR (in module pypapi.events)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="events.html#pypapi.events.PAPI_L3_ICW">PAPI_L3_ICW (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_L3_LDM">PAPI_L3_LDM (in module pypapi.events)</a>
@@ -446,6 +498,8 @@
 </li>
       <li><a href="events.html#pypapi.events.PAPI_LD_INS">PAPI_LD_INS (in module pypapi.events)</a>
 </li>
+      <li><a href="consts.html#pypapi.consts.PAPI_LOW_LEVEL_INITED">PAPI_LOW_LEVEL_INITED (in module pypapi.consts)</a>
+</li>
       <li><a href="events.html#pypapi.events.PAPI_LST_INS">PAPI_LST_INS (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_LSU_IDL">PAPI_LSU_IDL (in module pypapi.events)</a>
@@ -460,13 +514,29 @@
 </li>
       <li><a href="events.html#pypapi.events.PAPI_MEM_WCY">PAPI_MEM_WCY (in module pypapi.events)</a>
 </li>
+      <li><a href="consts.html#pypapi.consts.PAPI_MULTIPLEXING">PAPI_MULTIPLEXING (in module pypapi.consts)</a>
+</li>
       <li><a href="events.html#pypapi.events.PAPI_NATIVE_AND_MASK">PAPI_NATIVE_AND_MASK (in module pypapi.events)</a>
 </li>
+      <li><a href="consts.html#pypapi.consts.PAPI_NOT_INIT">PAPI_NOT_INIT (in module pypapi.consts)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_NOT_INITED">PAPI_NOT_INITED (in module pypapi.consts)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_NULL">PAPI_NULL (in module pypapi.consts)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_OVERFLOWING">PAPI_OVERFLOWING (in module pypapi.consts)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_PAUSED">PAPI_PAUSED (in module pypapi.consts)</a>
+</li>
       <li><a href="events.html#pypapi.events.PAPI_PRF_DM">PAPI_PRF_DM (in module pypapi.events)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_PROFILING">PAPI_PROFILING (in module pypapi.consts)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_REF_CYC">PAPI_REF_CYC (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_RES_STL">PAPI_RES_STL (in module pypapi.events)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_RUNNING">PAPI_RUNNING (in module pypapi.consts)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_SP_OPS">PAPI_SP_OPS (in module pypapi.events)</a>
 </li>
@@ -476,7 +546,11 @@
 </li>
       <li><a href="events.html#pypapi.events.PAPI_STL_ICY">PAPI_STL_ICY (in module pypapi.events)</a>
 </li>
+      <li><a href="consts.html#pypapi.consts.PAPI_STOPPED">PAPI_STOPPED (in module pypapi.consts)</a>
+</li>
       <li><a href="events.html#pypapi.events.PAPI_SYC_INS">PAPI_SYC_INS (in module pypapi.events)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_THREAD_LEVEL_INITED">PAPI_THREAD_LEVEL_INITED (in module pypapi.consts)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_TLB_DM">PAPI_TLB_DM (in module pypapi.events)</a>
 </li>
@@ -497,6 +571,10 @@
       <li><a href="events.html#pypapi.events.PAPI_VEC_INS">PAPI_VEC_INS (in module pypapi.events)</a>
 </li>
       <li><a href="events.html#pypapi.events.PAPI_VEC_SP">PAPI_VEC_SP (in module pypapi.events)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_VER_CURRENT">PAPI_VER_CURRENT (in module pypapi.consts)</a>
+</li>
+      <li><a href="consts.html#pypapi.consts.PAPI_VERSION">PAPI_VERSION (in module pypapi.consts)</a>
 </li>
       <li><a href="exceptions.html#pypapi.exceptions.PapiAttributeError">PapiAttributeError</a>
 </li>
@@ -564,6 +642,8 @@
 </li>
       <li><a href="papi_high.html#module-pypapi.papi_high">pypapi.papi_high (module)</a>
 </li>
+      <li><a href="papi_low.html#module-pypapi.papi_low">pypapi.papi_low (module)</a>
+</li>
       <li><a href="types.html#module-pypapi.types">pypapi.types (module)</a>
 </li>
   </ul></td>
@@ -572,9 +652,17 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.read">read() (in module pypapi.papi_low)</a>
+</li>
       <li><a href="papi_high.html#pypapi.papi_high.read_counters">read_counters() (in module pypapi.papi_high)</a>
 </li>
       <li><a href="types.html#pypapi.types.EPC.ref">ref (pypapi.types.EPC attribute)</a>
+</li>
+      <li><a href="papi_low.html#pypapi.papi_low.remove_event">remove_event() (in module pypapi.papi_low)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.remove_events">remove_events() (in module pypapi.papi_low)</a>
 </li>
       <li><a href="types.html#pypapi.types.EPC.rtime">rtime (pypapi.types.EPC attribute)</a>
 
@@ -592,10 +680,16 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.start">start() (in module pypapi.papi_low)</a>
+</li>
       <li><a href="papi_high.html#pypapi.papi_high.start_counters">start_counters() (in module pypapi.papi_high)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="papi_low.html#pypapi.papi_low.state">state() (in module pypapi.papi_low)</a>
+</li>
+      <li><a href="papi_low.html#pypapi.papi_low.stop">stop() (in module pypapi.papi_low)</a>
+</li>
       <li><a href="papi_high.html#pypapi.papi_high.stop_counters">stop_counters() (in module pypapi.papi_high)</a>
 </li>
   </ul></td>
