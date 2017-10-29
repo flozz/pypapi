@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/pypi/l/python_papi.svg)](https://flozz.github.io/pypapi/licenses.html)
 
 PyPAPI is a Python binding for the [PAPI (Performance Application Programming
-Interface)][libpapi] library. PyPAPI only implements the PAPI High Level API but feel
-free to let us know if you require access to the low-level API.
+Interface)][libpapi] library. PyPAPI implements the whole PAPI High Level API
+and partially the Low Level API.
 
 
 ## Documentation:

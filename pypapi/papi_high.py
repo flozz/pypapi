@@ -53,16 +53,17 @@ from .exceptions import papi_error
 _counter_count = 0
 
 
+# int PAPI_accum_counters(long long *values, int array_len);
 @papi_error
 def accum_counters(values):
     """accum_counters(values)
 
     Add current counts to the given list and reset counters.
 
-    :param list values: Values to which the counts will be added.
+    :param list(int) values: Values to which the counts will be added.
 
     :returns: A new list with added counts.
-    :rtype: list
+    :rtype: list(int)
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     :raises PapiSystemError: A system or C library call failed inside PAPI.
@@ -72,6 +73,7 @@ def accum_counters(values):
     return rcode, ffi.unpack(cvalues, len(values))
 
 
+# int PAPI_num_counters(void);
 def num_counters():
     """Get the number of hardware counters available on the system.
 
@@ -85,6 +87,7 @@ def num_counters():
     return lib.PAPI_num_counters()
 
 
+# int PAPI_num_components(void);
 def num_components():
     """Get the number of components available on the system.
 
@@ -93,13 +96,14 @@ def num_components():
     return lib.PAPI_num_components()
 
 
+# int PAPI_read_counters(long long * values, int array_len);
 @papi_error
 def read_counters():
     """read_counters()
 
     Get current counts and reset counters.
 
-    :rtype: list
+    :rtype: list(int)
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid
         (this error should not happen with PyPAPI).
@@ -110,6 +114,7 @@ def read_counters():
     return rcode, ffi.unpack(values, _counter_count)
 
 
+# int PAPI_start_counters(int *events, int array_len);
 @papi_error
 def start_counters(events):
     """start_counters(events)
@@ -139,6 +144,7 @@ def start_counters(events):
     return rcode, None
 
 
+# int PAPI_stop_counters(long long * values, int array_len);
 @papi_error
 def stop_counters():
     """stop_counters()
@@ -165,6 +171,7 @@ def stop_counters():
     return rcode, ffi.unpack(values, array_len)
 
 
+# int PAPI_flips(float *rtime, float *ptime, long long *flpins, float *mflips);
 @papi_error
 def flips():
     """flips()
@@ -195,6 +202,7 @@ def flips():
             )
 
 
+# int PAPI_flops(float *rtime, float *ptime, long long *flpops, float *mflops);
 @papi_error
 def flops():
     """flops()
@@ -225,6 +233,7 @@ def flops():
             )
 
 
+# int PAPI_ipc(float *rtime, float *ptime, long long *ins, float *ipc);
 @papi_error
 def ipc():
     """ipc()
@@ -254,6 +263,8 @@ def ipc():
             )
 
 
+# int PAPI_epc(int event, float *rtime, float *ptime, long long *ref,
+#              long long *core, long long *evt, float *epc);
 @papi_error
 def epc(event=0):
     """epc(event=0)

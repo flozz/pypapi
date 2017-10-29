@@ -2,8 +2,8 @@ Welcome to PyPAPI's documentation!
 ==================================
 
 PyPAPI is a Python binding for the PAPI (Performance Application Programming
-Interface) library. PyPAPI only implements the PAPI High Level API but feel
-free to let us know if you require access to the low-level API.
+Interface) library. PyPAPI implements the whole PAPI High Level API and
+partially the Low Level API.
 
 Example usage:
 --------------
@@ -32,8 +32,10 @@ Example usage:
 
    install
    papi_high
+   papi_low
    types
    events
+   consts
    exceptions
    licenses
 
