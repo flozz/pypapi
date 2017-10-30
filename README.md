@@ -36,6 +36,7 @@ From a virtualenv:
 
 ## Changelog
 
+* **5.5.1.3:** Remove .o, .lo and other generated objects from the package
 * **5.5.1.2:** Partial bindings for the low level API
 * **5.5.1.1:** Adds missing files to build PAPI
 * **5.5.1.0:** Initial release (binding for papy 5.5.1)
