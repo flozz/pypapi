@@ -7,12 +7,16 @@
 ##     tools/generate_manifest_in.sh > MANIFEST.in
 ##
 
+cd papi/src > /dev/null
+make clean > /dev/null
+cd - > /dev/null
+
 echo "include README.md"
 echo "include README.rst"
 
 echo
 
-find pypapi -name "*.[hc]*" -exec echo "include" "{}" ";"
+find pypapi -name "*.h" -exec echo "include" "{}" ";"
 
 echo
 
