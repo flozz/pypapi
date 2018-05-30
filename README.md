@@ -14,14 +14,33 @@ and partially the Low Level API.
 * https://flozz.github.io/pypapi/
 
 
+## Installing PyPAPI
+
+See this page of the documentation:
+
+* https://flozz.github.io/pypapi/install.html
+
+
 ## Hacking
 
 ### Building PyPAPI For Local Development
 
-To work on PyPAPI, you have to build the C library inside the `pypapi` module.
-This can be done with the following command:
+To work on PyPAPI, you first have to clone this repositiory and initialize and
+update submodules:
 
+    git clone https://github.com/flozz/pypapi.git
+    cd pypapi
+
+    git submodule init
+    git submodule update
+
+Then you have to build both PAPI and the C library inside the `pypapi` module.
+This can be done with the following commands:
+
+    python setup.py build
     python pypapi/papi_build.py
+
+
 
 ### Generating Documentation
 
