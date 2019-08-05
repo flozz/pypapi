@@ -11,7 +11,7 @@ from setuptools.command.build_py import build_py
 class CustomBuildPy(build_py):
 
     def run(self):
-        os.environ["CFLAGS"] = "%s -fPIC" % os.environ.get("CFLAGS", "")
+        os.environ["CFLAGS"] = "%s -fPIC -Werror=format-truncation=0" % os.environ.get("CFLAGS", "")
         subprocess.call("cd papi/src/ && ./configure", shell=True)  # noqa
         subprocess.call("cd papi/src/ && make", shell=True)  # noqa
         build_py.run(self)
