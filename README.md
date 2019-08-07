@@ -8,6 +8,7 @@ PyPAPI is a Python binding for the [PAPI (Performance Application Programming
 Interface)][libpapi] library. PyPAPI implements the whole PAPI High Level API
 and partially the Low Level API.
 
+Starting with **v5.5.1.4**, PyPAPI is only compatible with GCC 7.0 or higher. Please use previous releases for older GCC version.
 
 ## Documentation:
 
