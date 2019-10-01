@@ -46,7 +46,7 @@ Example counting some events:
 
 
 from ._papi import lib, ffi
-from .types import Flips, Flops, IPC, EPC
+from .papi_high_types import Flips, Flops, IPC, EPC
 from .exceptions import papi_error
 
 
@@ -179,7 +179,7 @@ def flips():
     Simplified call to get Mflips/s (floating point instruction rate), real
     and processor time.
 
-    :rtype: pypapi.types.Flips
+    :rtype: pypapi.papi_high_types.Flips
 
     :raises PapiInvalidValueError: The counters were already started by
         something other than :py:func:`flips`.
@@ -210,7 +210,7 @@ def flops():
     Simplified call to get Mflops/s (floating point operation rate), real
     and processor time.
 
-    :rtype: pypapi.types.Flops
+    :rtype: pypapi.papi_high_types.Flops
 
     :raises PapiInvalidValueError: The counters were already started by
         something other than :py:func:`flops`.
@@ -240,7 +240,7 @@ def ipc():
 
     Gets instructions per cycle, real and processor time.
 
-    :rtype: pypapi.types.IPC
+    :rtype: pypapi.papi_high_types.IPC
 
     :raises PapiInvalidValueError: The counters were already started by
         something other than :py:func:`ipc`.
@@ -275,7 +275,7 @@ def epc(event=0):
     :param int event: The target event (from :doc:`events`, default:
         :py:const:`pypapi.events.PAPI_TOT_INS`).
 
-    :rtype: pypapi.types.EPC
+    :rtype: pypapi.papi_high_types.EPC
     """
     rtime = ffi.new("float*", 0)
     ptime = ffi.new("float*", 0)
