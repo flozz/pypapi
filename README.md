@@ -56,6 +56,7 @@ From a virtualenv:
 
 ## Changelog
 
+* **5.5.1.5:** Fixes issue with module named `types.py` (#19, thx @mcopik)
 * **5.5.1.4:** Fixes compilation with GCC 8 and newer (#18)
 * **5.5.1.3:** Removes .o, .lo and other generated objects from the package
 * **5.5.1.2:** Partial bindings for the low level API
