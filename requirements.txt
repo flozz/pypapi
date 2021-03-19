@@ -9,7 +9,7 @@ enum34==1.1.6
 flake8==3.3.0
 idna==2.5
 imagesize==0.7.1
-Jinja2==2.9.6
+Jinja2==2.11.3
 MarkupSafe==1.0
 mccabe==0.6.1
 pycodestyle==2.3.1
