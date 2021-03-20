@@ -17,7 +17,7 @@ pycparser==2.18
 pyflakes==1.5.0
 Pygments==2.2.0
 pytz==2017.2
-requests==2.18.2
+requests==2.20.0
 six==1.10.0
 snowballstemmer==1.2.1
 Sphinx==1.6.3
