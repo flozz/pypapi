@@ -23,10 +23,11 @@
 #define PAPI_ENOIMPL    -19    /**< Not implemented */
 #define PAPI_EBUF       -20    /**< Buffer size exceeded */
 #define PAPI_EINVAL_DOM -21    /**< EventSet domain is not supported for the operation */
-#define PAPI_EATTR      -22    /**< Invalid or missing event attributes */
-#define PAPI_ECOUNT     -23    /**< Too many events or attributes */
-#define PAPI_ECOMBO     -24    /**< Bad combination of features */
-#define PAPI_NUM_ERRORS  25    /**< Number of error messages specified in this API */
+#define PAPI_EATTR		-22    /**< Invalid or missing event attributes */
+#define PAPI_ECOUNT		-23    /**< Too many events or attributes */
+#define PAPI_ECOMBO		-24    /**< Bad combination of features */
+#define PAPI_ECMP_DISABLED	-25    /**< Component containing event is disabled */
+#define PAPI_NUM_ERRORS	 26    /**< Number of error messages specified in this API */
 
 
 // PAPI initialization state (definitions from papi.h)
@@ -57,17 +58,10 @@
 
 // PAPI HIGH (definitions from papi.h)
 
-int PAPI_accum_counters(long long * values, int array_len); /**< add current counts to array and reset counters */
-int PAPI_num_counters(void); /**< get the number of hardware counters available on the system */
-int PAPI_num_components(void); /**< get the number of components available on the system */
-int PAPI_read_counters(long long * values, int array_len); /**< copy current counts to array and reset counters */
-int PAPI_start_counters(int *events, int array_len); /**< start counting hardware events */
-int PAPI_stop_counters(long long * values, int array_len); /**< stop counters and return current counts */
-int PAPI_flips(float *rtime, float *ptime, long long * flpins, float *mflips); /**< simplified call to get Mflips/s (floating point instruction rate), real and processor time */
-int PAPI_flops(float *rtime, float *ptime, long long * flpops, float *mflops); /**< simplified call to get Mflops/s (floating point operation rate), real and processor time */
-int PAPI_ipc(float *rtime, float *ptime, long long * ins, float *ipc); /**< gets instructions per cycle, real and processor time */
-int PAPI_epc(int event, float *rtime, float *ptime, long long *ref, long long *core, long long *evt, float *epc); /**< gets (named) events per cycle, real and processor time, reference and core cycles */
-
+int PAPI_hl_region_begin(const char* region); /**< read performance events at the beginning of a region */
+int PAPI_hl_read(const char* region); /**< read performance events inside of a region and store the difference to the corresponding beginning of the region */
+int PAPI_hl_region_end(const char* region); /**< read performance events at the end of a region and store the difference to the corresponding beginning of the region */
+int PAPI_hl_stop(); /**< stops a running high-level event set */
 
 // PAPI LOW (definitions from papi.h)
 // (commented definitions are not (yet?) binded)
