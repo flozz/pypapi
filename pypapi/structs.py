@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 import numpy as np
 
 from ._papi import ffi
@@ -41,11 +43,8 @@ class PAPI_Base:
         return None
 
     def special_cdata_to_python(self, cdata, level, data_type):
-        if isinstance(level, str): # dynamic array
-            return [
-                data_type(cdata[i])
-                for i in range(getattr(self, level))
-            ]
+        if isinstance(level, str):  # dynamic array
+            return [data_type(cdata[i]) for i in range(getattr(self, level))]
         if level == 0:
             return data_type(cdata)
 
@@ -158,6 +157,7 @@ class HARDWARE_info(PAPI_Base):
 
     s_field = {"mem_hierarchy": (MH_info, 1)}
 
+
 class ADDR_p(PAPI_Base):
     def __init__(self, cdata):
         if cdata == ffi.NULL:
@@ -166,12 +166,11 @@ class ADDR_p(PAPI_Base):
             self.addr = int(cdata.__repr__().split()[-1].strip()[:-1], base=16)
 
     def __repr__(self):
-        return (f"ADDR_p(addr={hex(self.addr) if self.addr is not None else 'NULL'})")
+        return f"ADDR_p(addr={hex(self.addr) if self.addr is not None else 'NULL'})"
+
 
 class ADDR_map(PAPI_Base):
-    fields = {
-        "name": "str:"
-    }
+    fields = {"name": "str:"}
     s_fields = {
         "text_start": (ADDR_p, 0),
         "text_end": (ADDR_p, 0),
@@ -188,6 +187,7 @@ class EXECUTABLE_info(PAPI_Base):
     }
 
     s_field = {"address_info": (ADDR_map, 0)}
+
 
 class COMPONENT_info(PAPI_Base):
     fields = {
@@ -228,9 +228,19 @@ class COMPONENT_info(PAPI_Base):
         "reserved_bits": "num:uintc",
     }
 
+
 class SHARED_LIB_info(PAPI_Base):
     fields = {
         "count": "num:intc",
     }
 
     s_fields = {"map": (ADDR_map, "count")}
+
+
+Flips = namedtuple("Flips", "event rtime ptime flpins mflips")
+
+Flops = namedtuple("Flops", "event rtime ptime flpops mflops")
+
+IPC = namedtuple("IPC", "rtime ptime ins ipc")
+
+EPC = namedtuple("EPC", "rtime ptime ref core evt epc")
