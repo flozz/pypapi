@@ -34,7 +34,6 @@ To change where results are stored or which events to record is achieved with en
 from ._papi import lib, ffi
 
 
-
 # int PAPI_hl_region_begin(const char* region); /**< read performance events at the beginning of a region */
 def hl_region_begin(region):
     """hl_region_begin(region):
@@ -58,7 +57,7 @@ def hl_region_begin(region):
 def hl_read(region):
     """hl_read(region):
 
-    Read performance events inside of a region and store the difference to the corresponding beginning of the region 
+    Read performance events inside of a region and store the difference to the corresponding beginning of the region
 
     :param (string) region: name of instrumented region
 
@@ -71,6 +70,7 @@ def hl_read(region):
     cregion = ffi.new("char[]", region.encode("ascii"))
     rcode = lib.PAPI_hl_region(cregion)
     return rcode
+
 
 # int PAPI_hl_region_end(const char* region);
 def hl_region_end(region):
@@ -89,6 +89,7 @@ def hl_region_end(region):
     cregion = ffi.new("char[]", region.encode("ascii"))
     rcode = lib.PAPI_hl_region_end(cregion)
     return rcode
+
 
 # int PAPI_hl_stop();
 def hl_stop():
