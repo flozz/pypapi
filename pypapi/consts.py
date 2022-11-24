@@ -6,6 +6,9 @@ Some constants used by PAPI.
     Event contants are located in an other file, see :doc:events
 """
 
+
+import numpy as np
+
 from ._papi import lib
 
 
@@ -17,7 +20,7 @@ def _papi_version_number(maj, min_, rev, inc):
 
 
 #: PAPI version, as used internaly
-PAPI_VERSION = _papi_version_number(5, 5, 1, 0)
+PAPI_VERSION = _papi_version_number(6, 0, 0, 1)
 
 #: PAPI version, without the revision and increment part
 PAPI_VER_CURRENT = PAPI_VERSION & 0xFFFF0000
@@ -72,3 +75,55 @@ PAPI_CPU_ATTACHED = lib.PAPI_CPU_ATTACHED
 
 #: A nonexistent hardware event used as a placeholder
 PAPI_NULL = lib.PAPI_NULL
+
+# Masks
+PAPI_NATIVE_MASK = np.intc(lib.PAPI_NATIVE_MASK)
+PAPI_PRESET_MASK = np.intc(lib.PAPI_PRESET_MASK)
+
+# Option definitions
+PAPI_MIN_STR_LEN = lib.PAPI_MIN_STR_LEN
+PAPI_MAX_STR_LEN = lib.PAPI_MAX_STR_LEN
+PAPI_2MAX_STR_LEN = lib.PAPI_2MAX_STR_LEN
+PAPI_HUGE_STR_LEN = lib.PAPI_HUGE_STR_LEN
+
+PAPI_MAX_INFO_TERMS = lib.PAPI_MAX_INFO_TERMS	
+
+# Debug Level
+PAPI_QUIET = lib.PAPI_QUIET
+PAPI_VERB_ECONT = lib.PAPI_VERB_ECONT
+PAPI_VERB_ESTOP = lib.PAPI_VERB_ESTOP
+
+# Domain definitions
+PAPI_DOM_USER = lib.PAPI_DOM_USER
+PAPI_DOM_MIN = PAPI_DOM_USER
+PAPI_DOM_KERNEL = lib.PAPI_DOM_KERNEL
+PAPI_DOM_OTHER = lib.PAPI_DOM_OTHER
+PAPI_DOM_SUPERVISOR = lib.PAPI_DOM_SUPERVISOR
+PAPI_DOM_ALL = (lib.PAPI_DOM_USER|lib.PAPI_DOM_KERNEL|lib.PAPI_DOM_OTHER|lib.PAPI_DOM_SUPERVISOR)
+PAPI_DOM_MAX = PAPI_DOM_ALL
+PAPI_DOM_HWSPEC = lib.PAPI_DOM_HWSPEC
+
+# Granularity definitions
+PAPI_GRN_THR = lib.PAPI_GRN_THR
+PAPI_GRN_MIN = PAPI_GRN_THR
+PAPI_GRN_PROC = lib.PAPI_GRN_PROC
+PAPI_GRN_PROCG = lib.PAPI_GRN_PROCG
+PAPI_GRN_SYS = lib.PAPI_GRN_SYS
+PAPI_GRN_SYS_CPU = lib.PAPI_GRN_SYS_CPU
+PAPI_GRN_MAX = PAPI_GRN_SYS_CPU
+
+# Locking Mechanisms
+PAPI_USR1_LOCK = lib.PAPI_USR1_LOCK
+PAPI_USR2_LOCK = lib.PAPI_USR2_LOCK
+PAPI_NUM_LOCK = lib.PAPI_NUM_LOCK
+PAPI_LOCK_USR1 = PAPI_USR1_LOCK
+PAPI_LOCK_USR2 = PAPI_USR2_LOCK
+PAPI_LOCK_NUM = PAPI_NUM_LOCK
+
+# Flops values
+PAPI_FP_INS = lib.PAPI_FP_INS|PAPI_PRESET_MASK
+PAPI_VEC_SP = lib.PAPI_VEC_SP|PAPI_PRESET_MASK
+PAPI_VEC_DP = lib.PAPI_VEC_DP|PAPI_PRESET_MASK
+PAPI_FP_OPS = lib.PAPI_FP_OPS|PAPI_PRESET_MASK
+PAPI_SP_OPS = lib.PAPI_SP_OPS|PAPI_PRESET_MASK
+PAPI_DP_OPS = lib.PAPI_DP_OPS|PAPI_PRESET_MASK
