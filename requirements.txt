@@ -23,6 +23,7 @@ mccabe==0.7.0
 multidict==6.0.4
 mypy-extensions==1.0.0
 nox==2023.4.22
+numpy==1.23.5
 packaging==23.2
 pathspec==0.12.1
 platformdirs==4.1.0
