@@ -5,6 +5,7 @@ RUN apt-get update && \
         build-essential \
         python3 \
         python3-pip \
+        libffi-dev \
         && \
     rm -rf /var/lib/apt/lists/*
 
@@ -17,7 +18,7 @@ COPY papi papi
 WORKDIR /pypapi/papi/src
 
 ENV CFLAGS="-fPIC -Werror=format-truncation=0"
-ENV PAPI_COMPONENTS="net perf_event perf_event_uncore powercap rapl"
+ENV PAPI_COMPONENTS="net powercap rapl"
 RUN ./configure --with-components=${PAPI_COMPONENTS} && \
     make
 

@@ -47,7 +47,7 @@ from .structs import (
     EVENT_info,
     HARDWARE_info,
     DMEM_info,
-    # EXECUTABLE_info,
+    EXECUTABLE_info,
     COMPONENT_info,
     SHARED_LIB_info,
     Flips,
@@ -493,7 +493,7 @@ def get_executable_info():
     """
     info_p = lib.PAPI_get_executable_info()
 
-    return None if info_p == ffi.NULL else info_p
+    return None if info_p == ffi.NULL else EXECUTABLE_info(info_p)
 
 
 # const PAPI_hw_info_t *PAPI_get_hardware_info(void);
