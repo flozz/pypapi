@@ -32,6 +32,8 @@ class PAPI_Base:
         data_type, nested_type = data_type[:split], data_type[split + 1 :]
 
         if data_type == "num":
+            if nested_type == "intc":
+                return np.uintc(cdata).astype(np.intc)
             return getattr(np, nested_type)(cdata)
         if data_type == "str":
             return ffi.string(cdata).decode("ascii") if cdata != ffi.NULL else None

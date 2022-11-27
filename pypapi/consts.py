@@ -78,7 +78,7 @@ PAPI_NULL = lib.PAPI_NULL
 
 # Masks
 PAPI_NATIVE_MASK = np.intc(lib.PAPI_NATIVE_MASK)
-PAPI_PRESET_MASK = np.intc(lib.PAPI_PRESET_MASK)
+PAPI_PRESET_MASK = np.uintc(lib.PAPI_PRESET_MASK).astype(np.intc)
 
 # Option definitions
 PAPI_MIN_STR_LEN = lib.PAPI_MIN_STR_LEN
