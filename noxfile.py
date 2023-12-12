@@ -19,3 +19,10 @@ def lint(session):
 def black_fix(session):
     session.install("black")
     session.run("black", *PYTHON_FILES)
+
+
+@nox.session(reuse_venv=True)
+def gendoc(session):
+    session.install("sphinx", "sphinx-rtd-theme")
+    session.install("-e", ".")
+    session.run("sphinx-build", "-M", "html", "docs", "build")
