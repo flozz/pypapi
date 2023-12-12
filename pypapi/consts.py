@@ -12,6 +12,7 @@ from ._papi import lib
 
 # Version
 
+
 def _papi_version_number(maj, min_, rev, inc):
     return maj << 24 | min_ << 16 | rev << 8 | inc
 
