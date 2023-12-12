@@ -41,6 +41,8 @@ setup(
             "nox",
             "flake8",
             "black",
+            "sphinx",
+            "sphinx-rtd-theme",
         ]
     },
     cffi_modules=["pypapi/papi_build.py:ffibuilder"],
