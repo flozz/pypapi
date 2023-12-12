@@ -1,100 +1,76 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PAPI Low Level API &mdash; PyPAPI 5.5.1.1 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="PyPAPI 5.5.1.1 documentation" href="index.html"/>
-        <link rel="next" title="PAPI High Types" href="types.html"/>
-        <link rel="prev" title="PAPI High Level API" href="papi_high.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=00535e24"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PAPI High Types" href="types.html" />
+    <link rel="prev" title="PAPI High Level API" href="papi_high.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+        <div class="wy-side-nav-search" >
 
           
-            <a href="index.html" class="icon icon-home"> PyPAPI
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            PyPAPI
           </a>
-
-          
-            
-            
               <div class="version">
                 5.5.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PAPI Low Level API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PAPI Low Level API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.accum"><code class="docutils literal notranslate"><span class="pre">accum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.add_event"><code class="docutils literal notranslate"><span class="pre">add_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.add_events"><code class="docutils literal notranslate"><span class="pre">add_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.attach"><code class="docutils literal notranslate"><span class="pre">attach()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.cleanup_eventset"><code class="docutils literal notranslate"><span class="pre">cleanup_eventset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.create_eventset"><code class="docutils literal notranslate"><span class="pre">create_eventset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.destroy_eventset"><code class="docutils literal notranslate"><span class="pre">destroy_eventset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.detach"><code class="docutils literal notranslate"><span class="pre">detach()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.is_initialized"><code class="docutils literal notranslate"><span class="pre">is_initialized()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.library_init"><code class="docutils literal notranslate"><span class="pre">library_init()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.list_events"><code class="docutils literal notranslate"><span class="pre">list_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.remove_event"><code class="docutils literal notranslate"><span class="pre">remove_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.remove_events"><code class="docutils literal notranslate"><span class="pre">remove_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.start"><code class="docutils literal notranslate"><span class="pre">start()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.state"><code class="docutils literal notranslate"><span class="pre">state()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="consts.html">Constants</a></li>
@@ -102,76 +78,39 @@
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">PyPAPI</a>
-        
       </nav>
 
-
-      
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>PAPI Low Level API</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PAPI Low Level API</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/papi_low.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-pypapi.papi_low">
-<span id="papi-low-level-api"></span><h1>PAPI Low Level API<a class="headerlink" href="#module-pypapi.papi_low" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-pypapi.papi_low">
+<span id="papi-low-level-api"></span><h1>PAPI Low Level API<a class="headerlink" href="#module-pypapi.papi_low" title="Link to this heading"></a></h1>
 <p>This module binds the PAPI Low Level API.</p>
 <p>Despite our desire to stay as close as possible as the original C API, we had
 to make a lot of change to make this API more <em>pythonic</em>. If you are used to
 the C API, please read carefully this documentation.</p>
 <p>Simple example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">papi_low</span> <span class="k">as</span> <span class="n">papi</span>
-<span class="kn">from</span> <span class="nn">pypapi</span> <span class="k">import</span> <span class="n">events</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">papi_low</span> <span class="k">as</span> <span class="n">papi</span>
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">events</span>
 
 <span class="n">papi</span><span class="o">.</span><span class="n">library_init</span><span class="p">()</span>
 
@@ -190,587 +129,480 @@ the C API, please read carefully this documentation.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This binding is currently very partial, there is a lot of missing function.
+<p class="admonition-title">Note</p>
+<p>This binding is currently very partial, there is a lot of missing function.
 If you need one of the missing functions, please <a class="reference external" href="https://github.com/flozz/pypapi/issues">fill an issue on Github</a>.</p>
 </div>
-<dl class="function">
-<dt id="pypapi.papi_low.accum">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">accum</code><span class="sig-paren">(</span><em>eventSet</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.accum" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.accum">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">accum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.accum" title="Link to this definition"></a></dt>
 <dd><p>Adds the counters of the indicated event set into the array values. The
 counters are zeroed and continue counting after the operation.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</li>
-<li><strong>values</strong> (<em>list</em><em>(</em><em>int</em><em>)</em>) – A list to hold the counter values of the counting
-events.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>values</strong> (<em>list</em><em>(</em><em>int</em><em>)</em>) – A list to hold the counter values of the counting
+events.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list(int)</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
-the errno variable.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list(int)</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
+the errno variable.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.add_event">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">add_event</code><span class="sig-paren">(</span><em>eventSet</em>, <em>eventCode</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.add_event" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.add_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">add_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.add_event" title="Link to this definition"></a></dt>
 <dd><p>Add single PAPI preset or native hardware event to an event set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</li>
-<li><strong>eventCode</strong> (<em>int</em>) – A defined event such as <code class="docutils literal"><span class="pre">PAPI_TOT_INS</span></code> (from
-<a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>eventCode</strong> (<em>int</em>) – A defined event such as <code class="docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code> (from
+<a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
-this event and other events in the event set simultaneously.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
-hardware.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</li>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.add_events">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">add_events</code><span class="sig-paren">(</span><em>eventSet</em>, <em>eventCodes</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.add_events" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.add_events">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">add_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventCodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.add_events" title="Link to this definition"></a></dt>
 <dd><p>Add list of PAPI preset or native hardware events to an event set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</li>
-<li><strong>eventCodes</strong> (<em>list</em><em>(</em><em>int</em><em>)</em>) – A list of defined events (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>eventCodes</strong> (<em>list</em><em>(</em><em>int</em><em>)</em>) – A list of defined events (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
-this event and other events in the event set simultaneously.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
-hardware.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</li>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.attach">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">attach</code><span class="sig-paren">(</span><em>eventSet</em>, <em>pid</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.attach" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.attach">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">attach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.attach" title="Link to this definition"></a></dt>
 <dd><p>Attach specified event set to a specific process or thread id.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</li>
-<li><strong>pid</strong> (<em>int</em>) – A process id.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>pid</strong> (<em>int</em>) – A process id.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – This feature is unsupported on this component.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – This feature is unsupported on this component.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.cleanup_eventset">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">cleanup_eventset</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.cleanup_eventset" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.cleanup_eventset">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">cleanup_eventset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.cleanup_eventset" title="Link to this definition"></a></dt>
 <dd><p>Remove all PAPI events from an event set  and turns off profiling and
 overflow for all events in the EventSet. This can not be called if the
 EventSet is not stopped.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">If the user has set profile on an event with the call, then when
+<p class="admonition-title">Warning</p>
+<p>If the user has set profile on an event with the call, then when
 destroying the EventSet the memory allocated by will not be freed. The
 user should turn off profiling on the Events before destroying the
 EventSet to prevent this behavior.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.create_eventset">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">create_eventset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.create_eventset" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.create_eventset">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">create_eventset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.create_eventset" title="Link to this definition"></a></dt>
 <dd><p>Create a new empty PAPI event set. The user may then add hardware events to
-the event set by calling <a class="reference internal" href="#pypapi.papi_low.add_event" title="pypapi.papi_low.add_event"><code class="xref py py-func docutils literal"><span class="pre">add_event()</span></code></a> or similar routines.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the event set handle.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The argument handle has not been initialized
-to PAPI_NULL or the argument is a NULL pointer.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
+the event set by calling <a class="reference internal" href="#pypapi.papi_low.add_event" title="pypapi.papi_low.add_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_event()</span></code></a> or similar routines.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the event set handle.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The argument handle has not been initialized
+to PAPI_NULL or the argument is a NULL pointer.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">PAPI-C uses a late binding model to bind EventSets to components. When
+<p class="admonition-title">Note</p>
+<p>PAPI-C uses a late binding model to bind EventSets to components. When
 an EventSet is first created it is not bound to a component. This will
 cause some API calls that modify EventSet options to fail. An EventSet
 can be bound to a component explicitly by calling
-<code class="xref py py-func docutils literal"><span class="pre">assign_eventset_component()</span></code> or implicitly by calling
-<a class="reference internal" href="#pypapi.papi_low.add_event" title="pypapi.papi_low.add_event"><code class="xref py py-func docutils literal"><span class="pre">add_event()</span></code></a> or similar routines.</p>
+<code class="xref py py-func docutils literal notranslate"><span class="pre">assign_eventset_component()</span></code> or implicitly by calling
+<a class="reference internal" href="#pypapi.papi_low.add_event" title="pypapi.papi_low.add_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_event()</span></code></a> or similar routines.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.destroy_eventset">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">destroy_eventset</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.destroy_eventset" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.destroy_eventset">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">destroy_eventset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.destroy_eventset" title="Link to this definition"></a></dt>
 <dd><p>Deallocates memory associated with an empty PAPI event set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.
 Attempting to destroy a non-empty event set or passing in a null
-pointer to be destroyed.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</li>
+pointer to be destroyed.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">If the user has set profile on an event with the call, then when
+<p class="admonition-title">Warning</p>
+<p>If the user has set profile on an event with the call, then when
 destroying the EventSet the memory allocated by will not be freed. The
 user should turn off profiling on the Events before destroying the
 EventSet to prevent this behavior.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.detach">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">detach</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.detach" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.detach">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">detach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.detach" title="Link to this definition"></a></dt>
 <dd><p>Detach specified event set from a previously specified process or
 thread id.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – This feature is unsupported on this component.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – This feature is unsupported on this component.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.is_initialized">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">is_initialized</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.is_initialized" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.is_initialized">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">is_initialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.is_initialized" title="Link to this definition"></a></dt>
 <dd><p>Return the initialized state of the PAPI library.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the initialized state of the PAPI library (one of the
-<a class="reference internal" href="consts.html#consts-init"><span class="std std-ref">PAPI Initialization Constants</span></a>).</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the initialized state of the PAPI library (one of the
+<a class="reference internal" href="consts.html#consts-init"><span class="std std-ref">PAPI Initialization Constants</span></a>).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.library_init">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">library_init</code><span class="sig-paren">(</span><em>version=pypapi.consts.PAPI_VER_CURRENT</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.library_init" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.library_init">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">library_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pypapi.consts.PAPI_VER_CURRENT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.library_init" title="Link to this definition"></a></dt>
 <dd><p>Initialize the PAPI library.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>version</strong> (<em>int</em>) – upon initialization, PAPI checks the argument against
-the internal value of <code class="docutils literal"><span class="pre">PAPI_VER_CURRENT</span></code> when the library was
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>version</strong> (<em>int</em>) – upon initialization, PAPI checks the argument against
+the internal value of <code class="docutils literal notranslate"><span class="pre">PAPI_VER_CURRENT</span></code> when the library was
 compiled.  This guards against portability problems when updating the
 PAPI shared libraries on your system (optional, default:
-<a class="reference internal" href="consts.html#pypapi.consts.PAPI_VER_CURRENT" title="pypapi.consts.PAPI_VER_CURRENT"><code class="xref py py-data docutils literal"><span class="pre">pypapi.consts.PAPI_VER_CURRENT</span></code></a>).</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – papi.h is different from the version used to
-compile the PAPI library.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – This component does not support the underlying
-hardware.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI.</li>
+<a class="reference internal" href="consts.html#pypapi.consts.PAPI_VER_CURRENT" title="pypapi.consts.PAPI_VER_CURRENT"><code class="xref py py-data docutils literal notranslate"><span class="pre">pypapi.consts.PAPI_VER_CURRENT</span></code></a>).</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – papi.h is different from the version used to
+compile the PAPI library.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – This component does not support the underlying
+hardware.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">If you don’t call this before using any of the low level PAPI
+<p class="admonition-title">Warning</p>
+<p>If you don’t call this before using any of the low level PAPI
 calls, your application could core dump.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.list_events">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">list_events</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.list_events" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.list_events">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">list_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.list_events" title="Link to this definition"></a></dt>
 <dd><p>List the events that are members of an event set</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the list of events.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list(int)</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of events.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list(int)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.read">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">read</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.read" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.read">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.read" title="Link to this definition"></a></dt>
 <dd><p>Copies the counters of the indicated event set into the provided array. The
 counters continue counting after the read and are not reseted.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list(int)</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
-the errno variable.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list(int)</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
+the errno variable.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.remove_event">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">remove_event</code><span class="sig-paren">(</span><em>eventSet</em>, <em>eventCode</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_event" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.remove_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">remove_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_event" title="Link to this definition"></a></dt>
 <dd><p>Remove a hardware event from a PAPI event set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</li>
-<li><strong>eventCode</strong> (<em>int</em>) – A defined event such as <code class="docutils literal"><span class="pre">PAPI_TOT_INS</span></code> or a native
-event. (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>eventCode</strong> (<em>int</em>) – A defined event such as <code class="docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code> or a native
+event. (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
-this event and other events in the event set simultaneously.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
-hardware.</li>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.remove_events">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">remove_events</code><span class="sig-paren">(</span><em>eventSet</em>, <em>eventCodes</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_events" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.remove_events">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">remove_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventCodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_events" title="Link to this definition"></a></dt>
 <dd><p>Remove an list of hardware events from a PAPI event set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</li>
-<li><strong>eventCodes</strong> (<em>int</em>) – A list of defined event (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>eventCodes</strong> (<em>int</em>) – A list of defined event (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
-this event and other events in the event set simultaneously.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
-hardware.</li>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.start">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">start</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.start" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.start">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.start" title="Link to this definition"></a></dt>
 <dd><p>Starts counting all of the hardware events contained in the EventSet. All
 counters are implicitly set to zero before counting.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
-the errno variable.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
-this event and other events in the event set simultaneously.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
-hardware.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
+the errno variable.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.state">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">state</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.state" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.state">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.state" title="Link to this definition"></a></dt>
 <dd><p>Returns the counting state of the specified event set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the initialized state of the PAPI library (one of the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the initialized state of the PAPI library (one of the
 <a class="reference internal" href="consts.html#consts-state"><span class="std std-ref">PAPI State Constants</span></a>).</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">int</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.papi_low.stop">
-<code class="descclassname">pypapi.papi_low.</code><code class="descname">stop</code><span class="sig-paren">(</span><em>eventSet</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.stop" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.stop">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.stop" title="Link to this definition"></a></dt>
 <dd><p>Stop counting hardware events in an event set and return current values.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
-<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal"><span class="pre">create_eventset()</span></code></a>.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list(int)</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
-the errno variable.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</li>
-<li><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotRunningError" title="pypapi.exceptions.PapiNotRunningError"><strong>PapiNotRunningError</strong></a> – The EventSet is currently not running.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list(int)</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see
+the errno variable.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotRunningError" title="pypapi.exceptions.PapiNotRunningError"><strong>PapiNotRunningError</strong></a> – The EventSet is currently not running.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
+</section>
 
 
-           </div>
-           <div class="articleComments">
-            
            </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="types.html" class="btn btn-neutral float-right" title="PAPI High Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="papi_high.html" class="btn btn-neutral" title="PAPI High Level API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="papi_high.html" class="btn btn-neutral float-left" title="PAPI High Level API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="types.html" class="btn btn-neutral float-right" title="PAPI High Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.
-
-    </p>
+    <p>&#169; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'5.5.1.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

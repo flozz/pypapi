@@ -1,96 +1,53 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Constants &mdash; PyPAPI 5.5.1.1 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="PyPAPI 5.5.1.1 documentation" href="index.html"/>
-        <link rel="next" title="Exceptions" href="exceptions.html"/>
-        <link rel="prev" title="Events" href="events.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=00535e24"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions" href="exceptions.html" />
+    <link rel="prev" title="Events" href="events.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+        <div class="wy-side-nav-search" >
 
           
-            <a href="index.html" class="icon icon-home"> PyPAPI
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            PyPAPI
           </a>
-
-          
-            
-            
               <div class="version">
                 5.5.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
@@ -98,259 +55,205 @@
 <li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Constants</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#papi-version-constants">PAPI Version Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#papi-initialization-constants">PAPI Initialization Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#papi-state-constants">PAPI State Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-papi-constants">Other PAPI Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-version-constants">PAPI Version Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_VERSION"><code class="docutils literal notranslate"><span class="pre">PAPI_VERSION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_VER_CURRENT"><code class="docutils literal notranslate"><span class="pre">PAPI_VER_CURRENT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-initialization-constants">PAPI Initialization Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_NOT_INITED"><code class="docutils literal notranslate"><span class="pre">PAPI_NOT_INITED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_LOW_LEVEL_INITED"><code class="docutils literal notranslate"><span class="pre">PAPI_LOW_LEVEL_INITED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_HIGH_LEVEL_INITED"><code class="docutils literal notranslate"><span class="pre">PAPI_HIGH_LEVEL_INITED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_THREAD_LEVEL_INITED"><code class="docutils literal notranslate"><span class="pre">PAPI_THREAD_LEVEL_INITED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-state-constants">PAPI State Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_STOPPED"><code class="docutils literal notranslate"><span class="pre">PAPI_STOPPED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_RUNNING"><code class="docutils literal notranslate"><span class="pre">PAPI_RUNNING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_PAUSED"><code class="docutils literal notranslate"><span class="pre">PAPI_PAUSED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_NOT_INIT"><code class="docutils literal notranslate"><span class="pre">PAPI_NOT_INIT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_OVERFLOWING"><code class="docutils literal notranslate"><span class="pre">PAPI_OVERFLOWING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_PROFILING"><code class="docutils literal notranslate"><span class="pre">PAPI_PROFILING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_MULTIPLEXING"><code class="docutils literal notranslate"><span class="pre">PAPI_MULTIPLEXING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_ATTACHED"><code class="docutils literal notranslate"><span class="pre">PAPI_ATTACHED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_CPU_ATTACHED"><code class="docutils literal notranslate"><span class="pre">PAPI_CPU_ATTACHED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-papi-constants">Other PAPI Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_NULL"><code class="docutils literal notranslate"><span class="pre">PAPI_NULL</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">PyPAPI</a>
-        
       </nav>
 
-
-      
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Constants</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Constants</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/consts.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="constants">
-<h1>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="papi-version-constants">
-<h2>PAPI Version Constants<a class="headerlink" href="#papi-version-constants" title="Permalink to this headline">¶</a></h2>
-<dl class="data">
-<dt id="pypapi.consts.PAPI_VERSION">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_VERSION</code><em class="property"> = 84214016</em><a class="headerlink" href="#pypapi.consts.PAPI_VERSION" title="Permalink to this definition">¶</a></dt>
+             
+  <section id="constants">
+<h1>Constants<a class="headerlink" href="#constants" title="Link to this heading"></a></h1>
+<section id="papi-version-constants">
+<h2>PAPI Version Constants<a class="headerlink" href="#papi-version-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_VERSION">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84214016</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VERSION" title="Link to this definition"></a></dt>
 <dd><p>PAPI version, as used internaly</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_VER_CURRENT">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_VER_CURRENT</code><em class="property"> = 84213760</em><a class="headerlink" href="#pypapi.consts.PAPI_VER_CURRENT" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_VER_CURRENT">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VER_CURRENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84213760</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VER_CURRENT" title="Link to this definition"></a></dt>
 <dd><p>PAPI version, without the revision and increment part</p>
 </dd></dl>
 
-</div>
-<div class="section" id="papi-initialization-constants">
-<span id="consts-init"></span><h2>PAPI Initialization Constants<a class="headerlink" href="#papi-initialization-constants" title="Permalink to this headline">¶</a></h2>
-<dl class="data">
-<dt id="pypapi.consts.PAPI_NOT_INITED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_NOT_INITED</code><em class="property"> = 0</em><a class="headerlink" href="#pypapi.consts.PAPI_NOT_INITED" title="Permalink to this definition">¶</a></dt>
+</section>
+<section id="papi-initialization-constants">
+<span id="consts-init"></span><h2>PAPI Initialization Constants<a class="headerlink" href="#papi-initialization-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_NOT_INITED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_NOT_INITED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pypapi.consts.PAPI_NOT_INITED" title="Link to this definition"></a></dt>
 <dd><p>PAPI is not initilized</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_LOW_LEVEL_INITED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_LOW_LEVEL_INITED</code><em class="property"> = 1</em><a class="headerlink" href="#pypapi.consts.PAPI_LOW_LEVEL_INITED" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_LOW_LEVEL_INITED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_LOW_LEVEL_INITED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_LOW_LEVEL_INITED" title="Link to this definition"></a></dt>
 <dd><p>Low level has called library init</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_HIGH_LEVEL_INITED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_HIGH_LEVEL_INITED</code><em class="property"> = 2</em><a class="headerlink" href="#pypapi.consts.PAPI_HIGH_LEVEL_INITED" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_HIGH_LEVEL_INITED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_HIGH_LEVEL_INITED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_HIGH_LEVEL_INITED" title="Link to this definition"></a></dt>
 <dd><p>High level has called library init</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_THREAD_LEVEL_INITED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_THREAD_LEVEL_INITED</code><em class="property"> = 4</em><a class="headerlink" href="#pypapi.consts.PAPI_THREAD_LEVEL_INITED" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_THREAD_LEVEL_INITED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_THREAD_LEVEL_INITED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pypapi.consts.PAPI_THREAD_LEVEL_INITED" title="Link to this definition"></a></dt>
 <dd><p>Threads have been inited</p>
 </dd></dl>
 
-</div>
-<div class="section" id="papi-state-constants">
-<span id="consts-state"></span><h2>PAPI State Constants<a class="headerlink" href="#papi-state-constants" title="Permalink to this headline">¶</a></h2>
-<dl class="data">
-<dt id="pypapi.consts.PAPI_STOPPED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_STOPPED</code><em class="property"> = 1</em><a class="headerlink" href="#pypapi.consts.PAPI_STOPPED" title="Permalink to this definition">¶</a></dt>
+</section>
+<section id="papi-state-constants">
+<span id="consts-state"></span><h2>PAPI State Constants<a class="headerlink" href="#papi-state-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_STOPPED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_STOPPED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_STOPPED" title="Link to this definition"></a></dt>
 <dd><p>EventSet stopped</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_RUNNING">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_RUNNING</code><em class="property"> = 2</em><a class="headerlink" href="#pypapi.consts.PAPI_RUNNING" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_RUNNING">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_RUNNING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_RUNNING" title="Link to this definition"></a></dt>
 <dd><p>EventSet running</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_PAUSED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_PAUSED</code><em class="property"> = 4</em><a class="headerlink" href="#pypapi.consts.PAPI_PAUSED" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_PAUSED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_PAUSED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pypapi.consts.PAPI_PAUSED" title="Link to this definition"></a></dt>
 <dd><p>EventSet temp. disabled by the library</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_NOT_INIT">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_NOT_INIT</code><em class="property"> = 8</em><a class="headerlink" href="#pypapi.consts.PAPI_NOT_INIT" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_NOT_INIT">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_NOT_INIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pypapi.consts.PAPI_NOT_INIT" title="Link to this definition"></a></dt>
 <dd><p>EventSet defined, but not initialized</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_OVERFLOWING">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_OVERFLOWING</code><em class="property"> = 16</em><a class="headerlink" href="#pypapi.consts.PAPI_OVERFLOWING" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_OVERFLOWING">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_OVERFLOWING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pypapi.consts.PAPI_OVERFLOWING" title="Link to this definition"></a></dt>
 <dd><p>EventSet has overflowing enabled</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_PROFILING">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_PROFILING</code><em class="property"> = 32</em><a class="headerlink" href="#pypapi.consts.PAPI_PROFILING" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_PROFILING">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_PROFILING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></em><a class="headerlink" href="#pypapi.consts.PAPI_PROFILING" title="Link to this definition"></a></dt>
 <dd><p>EventSet has profiling enabled</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_MULTIPLEXING">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_MULTIPLEXING</code><em class="property"> = 64</em><a class="headerlink" href="#pypapi.consts.PAPI_MULTIPLEXING" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_MULTIPLEXING">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_MULTIPLEXING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#pypapi.consts.PAPI_MULTIPLEXING" title="Link to this definition"></a></dt>
 <dd><p>EventSet has multiplexing enabled</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_ATTACHED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_ATTACHED</code><em class="property"> = 128</em><a class="headerlink" href="#pypapi.consts.PAPI_ATTACHED" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_ATTACHED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_ATTACHED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#pypapi.consts.PAPI_ATTACHED" title="Link to this definition"></a></dt>
 <dd><p>EventSet is attached to another thread/process</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pypapi.consts.PAPI_CPU_ATTACHED">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_CPU_ATTACHED</code><em class="property"> = 256</em><a class="headerlink" href="#pypapi.consts.PAPI_CPU_ATTACHED" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_CPU_ATTACHED">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_CPU_ATTACHED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">256</span></em><a class="headerlink" href="#pypapi.consts.PAPI_CPU_ATTACHED" title="Link to this definition"></a></dt>
 <dd><p>EventSet is attached to a specific cpu (not counting thread of execution)</p>
 </dd></dl>
 
-</div>
-<div class="section" id="other-papi-constants">
-<h2>Other PAPI Constants<a class="headerlink" href="#other-papi-constants" title="Permalink to this headline">¶</a></h2>
-<dl class="data">
-<dt id="pypapi.consts.PAPI_NULL">
-<code class="descclassname">pypapi.consts.</code><code class="descname">PAPI_NULL</code><em class="property"> = -1</em><a class="headerlink" href="#pypapi.consts.PAPI_NULL" title="Permalink to this definition">¶</a></dt>
+</section>
+<section id="other-papi-constants">
+<h2>Other PAPI Constants<a class="headerlink" href="#other-papi-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_NULL">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_NULL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_NULL" title="Link to this definition"></a></dt>
 <dd><p>A nonexistent hardware event used as a placeholder</p>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           <div class="articleComments">
-            
            </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="events.html" class="btn btn-neutral" title="Events" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="events.html" class="btn btn-neutral float-left" title="Events" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.
-
-    </p>
+    <p>&#169; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'5.5.1.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

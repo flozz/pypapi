@@ -1,96 +1,53 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exceptions &mdash; PyPAPI 5.5.1.1 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
   
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="PyPAPI 5.5.1.1 documentation" href="index.html"/>
-        <link rel="next" title="Licenses" href="licenses.html"/>
-        <link rel="prev" title="Constants" href="consts.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=00535e24"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Licenses" href="licenses.html" />
+    <link rel="prev" title="Constants" href="consts.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+        <div class="wy-side-nav-search" >
 
           
-            <a href="index.html" class="icon icon-home"> PyPAPI
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            PyPAPI
           </a>
-
-          
-            
-            
               <div class="version">
                 5.5.1
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
@@ -98,301 +55,251 @@
 <li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="consts.html">Constants</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Exceptions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiAttributeError"><code class="docutils literal notranslate"><span class="pre">PapiAttributeError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiBufferError"><code class="docutils literal notranslate"><span class="pre">PapiBufferError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiBugError"><code class="docutils literal notranslate"><span class="pre">PapiBugError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiCombinationError"><code class="docutils literal notranslate"><span class="pre">PapiCombinationError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiComponentError"><code class="docutils literal notranslate"><span class="pre">PapiComponentError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiConflictError"><code class="docutils literal notranslate"><span class="pre">PapiConflictError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiCountError"><code class="docutils literal notranslate"><span class="pre">PapiCountError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiCountersLost"><code class="docutils literal notranslate"><span class="pre">PapiCountersLost</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiError"><code class="docutils literal notranslate"><span class="pre">PapiError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiInitializationError"><code class="docutils literal notranslate"><span class="pre">PapiInitializationError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiInvalidDomainError"><code class="docutils literal notranslate"><span class="pre">PapiInvalidDomainError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiInvalidValueError"><code class="docutils literal notranslate"><span class="pre">PapiInvalidValueError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiIsRunningError"><code class="docutils literal notranslate"><span class="pre">PapiIsRunningError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiMiscellaneousError"><code class="docutils literal notranslate"><span class="pre">PapiMiscellaneousError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNoComponentError"><code class="docutils literal notranslate"><span class="pre">PapiNoComponentError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNoCounterError"><code class="docutils literal notranslate"><span class="pre">PapiNoCounterError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNoEventError"><code class="docutils literal notranslate"><span class="pre">PapiNoEventError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNoEventSetError"><code class="docutils literal notranslate"><span class="pre">PapiNoEventSetError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNoMemoryError"><code class="docutils literal notranslate"><span class="pre">PapiNoMemoryError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNotImplementedError"><code class="docutils literal notranslate"><span class="pre">PapiNotImplementedError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNotPresetError"><code class="docutils literal notranslate"><span class="pre">PapiNotPresetError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNotRunningError"><code class="docutils literal notranslate"><span class="pre">PapiNotRunningError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiNotSupportedError"><code class="docutils literal notranslate"><span class="pre">PapiNotSupportedError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiPermissionError"><code class="docutils literal notranslate"><span class="pre">PapiPermissionError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.PapiSystemError"><code class="docutils literal notranslate"><span class="pre">PapiSystemError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.exceptions.papi_error"><code class="docutils literal notranslate"><span class="pre">papi_error()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">PyPAPI</a>
-        
       </nav>
 
-
-      
       <div class="wy-nav-content">
         <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Exceptions</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Exceptions</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/exceptions.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-pypapi.exceptions">
-<span id="exceptions"></span><h1>Exceptions<a class="headerlink" href="#module-pypapi.exceptions" title="Permalink to this headline">¶</a></h1>
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiAttributeError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiAttributeError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiAttributeError" title="Permalink to this definition">¶</a></dt>
+             
+  <section id="module-pypapi.exceptions">
+<span id="exceptions"></span><h1>Exceptions<a class="headerlink" href="#module-pypapi.exceptions" title="Link to this heading"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiAttributeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiAttributeError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiAttributeError" title="Link to this definition"></a></dt>
 <dd><p>Invalid or missing event attributes.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiBufferError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiBufferError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiBufferError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiBufferError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiBufferError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiBufferError" title="Link to this definition"></a></dt>
 <dd><p>Buffer size exceeded.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiBugError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiBugError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiBugError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiBugError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiBugError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiBugError" title="Link to this definition"></a></dt>
 <dd><p>Internal error, please send mail to the developers.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiCombinationError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiCombinationError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiCombinationError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiCombinationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiCombinationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiCombinationError" title="Link to this definition"></a></dt>
 <dd><p>Bad combination of feature.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiComponentError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiComponentError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiComponentError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiComponentError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiComponentError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiComponentError" title="Link to this definition"></a></dt>
 <dd><p>Not supported by component.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiConflictError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiConflictError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiConflictError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiConflictError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiConflictError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiConflictError" title="Link to this definition"></a></dt>
 <dd><p>Event exists, but cannot be counted due to counter resource limitations.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiCountError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiCountError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiCountError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiCountError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiCountError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiCountError" title="Link to this definition"></a></dt>
 <dd><p>Too many events or attributes.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiCountersLost">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiCountersLost</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiCountersLost" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiCountersLost">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiCountersLost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiCountersLost" title="Link to this definition"></a></dt>
 <dd><p>Access to the counters was lost or interrupted.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiError" title="Link to this definition"></a></dt>
 <dd><p>Base classe for PAPI exceptions.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiInitializationError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiInitializationError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiInitializationError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiInitializationError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiInitializationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiInitializationError" title="Link to this definition"></a></dt>
 <dd><p>PAPI hasn’t been initialized yet.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiInvalidDomainError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiInvalidDomainError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiInvalidDomainError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiInvalidDomainError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiInvalidDomainError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiInvalidDomainError" title="Link to this definition"></a></dt>
 <dd><p>EventSet domain is not supported for the operation.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiInvalidValueError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiInvalidValueError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiInvalidValueError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiInvalidValueError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiInvalidValueError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiInvalidValueError" title="Link to this definition"></a></dt>
 <dd><p>Invalid Argument.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiIsRunningError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiIsRunningError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiIsRunningError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiIsRunningError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiIsRunningError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiIsRunningError" title="Link to this definition"></a></dt>
 <dd><p>EventSet is currently counting.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiMiscellaneousError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiMiscellaneousError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiMiscellaneousError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiMiscellaneousError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiMiscellaneousError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiMiscellaneousError" title="Link to this definition"></a></dt>
 <dd><p>Unknown error code.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNoComponentError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNoComponentError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoComponentError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNoComponentError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNoComponentError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoComponentError" title="Link to this definition"></a></dt>
 <dd><p>Component Index isn’t set.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNoCounterError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNoCounterError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoCounterError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNoCounterError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNoCounterError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoCounterError" title="Link to this definition"></a></dt>
 <dd><p>Hardware does not support performance counters.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNoEventError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNoEventError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoEventError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNoEventError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNoEventError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoEventError" title="Link to this definition"></a></dt>
 <dd><p>Event does not exist.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNoEventSetError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNoEventSetError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoEventSetError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNoEventSetError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNoEventSetError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoEventSetError" title="Link to this definition"></a></dt>
 <dd><p>No such EventSet Available.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNoMemoryError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNoMemoryError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoMemoryError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNoMemoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNoMemoryError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNoMemoryError" title="Link to this definition"></a></dt>
 <dd><p>Insufficient memory.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNotImplementedError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNotImplementedError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotImplementedError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNotImplementedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNotImplementedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotImplementedError" title="Link to this definition"></a></dt>
 <dd><p>Not implemented.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNotPresetError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNotPresetError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotPresetError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNotPresetError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNotPresetError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotPresetError" title="Link to this definition"></a></dt>
 <dd><p>Event in argument is not a valid preset.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNotRunningError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNotRunningError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotRunningError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNotRunningError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNotRunningError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotRunningError" title="Link to this definition"></a></dt>
 <dd><p>EventSet is currently not running.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiNotSupportedError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiNotSupportedError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotSupportedError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiNotSupportedError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiNotSupportedError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiNotSupportedError" title="Link to this definition"></a></dt>
 <dd><p>Not supported.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiPermissionError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiPermissionError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiPermissionError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiPermissionError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiPermissionError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiPermissionError" title="Link to this definition"></a></dt>
 <dd><p>Permission level does not permit operation.</p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="pypapi.exceptions.PapiSystemError">
-<em class="property">exception </em><code class="descclassname">pypapi.exceptions.</code><code class="descname">PapiSystemError</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiSystemError" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pypapi.exceptions.PapiSystemError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">PapiSystemError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.PapiSystemError" title="Link to this definition"></a></dt>
 <dd><p>A System/C library call failed.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="pypapi.exceptions.papi_error">
-<code class="descclassname">pypapi.exceptions.</code><code class="descname">papi_error</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.papi_error" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.exceptions.papi_error">
+<span class="sig-prename descclassname"><span class="pre">pypapi.exceptions.</span></span><span class="sig-name descname"><span class="pre">papi_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.exceptions.papi_error" title="Link to this definition"></a></dt>
 <dd><p>Decorator to raise PAPI errors.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
-           </div>
-           <div class="articleComments">
-            
            </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="licenses.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="consts.html" class="btn btn-neutral" title="Constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="consts.html" class="btn btn-neutral float-left" title="Constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="licenses.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.
-
-    </p>
+    <p>&#169; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'5.5.1.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
