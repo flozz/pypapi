@@ -1,0 +1,134 @@
+PyPAPI
+======
+
+|GitHub| |PyPI| |License| |Discord| |Github Actions| |Black|
+
+PyPAPI is a Python binding for the `PAPI (Performance Application Programming
+Interface) <http://icl.cs.utk.edu/papi/index.html>`__ library. PyPAPI
+implements the whole PAPI High Level API and partially the Low Level API.
+
+.. NOTE::
+
+    Starting with **v5.5.1.4**, PyPAPI is only compatible with GCC 7.0 or
+    higher. Please use previous releases for older GCC version.
+
+
+Documentation:
+--------------
+
+* https://flozz.github.io/pypapi/
+
+
+Installing PyPAPI
+-----------------
+
+See this page of the documentation:
+
+* https://flozz.github.io/pypapi/install.html
+
+
+Hacking
+-------
+
+Building PyPAPI For Local Development
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To work on PyPAPI, you first have to clone this repositiory and
+initialize and update submodules::
+
+    git clone https://github.com/flozz/pypapi.git
+    cd pypapi
+
+    git submodule init
+    git submodule update
+
+Then you have to build both PAPI and the C library inside the ``pypapi``
+module. This can be done with the following commands::
+
+    python setup.py build
+    python pypapi/papi_build.py
+
+
+Linting and Code formatting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To build lint the code, you first need to install Nox::
+
+    pip install nox
+
+Then, run the following command::
+
+    nox -s lint
+
+To automatically coding style issues, run::
+
+    nox -s black_fix
+
+
+Generating Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To build the Sphinx documentation, you first need to install Nox::
+
+    pip install nox
+
+Then, run the following command::
+
+    nox -s gendoc
+
+
+Changelog
+---------
+
+
+* **[NEXT]** (changes on ``master``, but not released yet):
+
+  * chore: Added code linting (Flake8)
+  * chore: Added code formatter and reformatted all files (Black)
+  * chore: Added Nox to run code linting, code formatting, doc building tasks
+  * chore: Updated dev dependnecies
+  * docs: Updated documentation
+
+* **v5.5.1.5:**
+
+  * fix: Fixed issue with module named ``types.py`` (@mcopik, #19)
+
+* **v5.5.1.4:**
+
+  * chore: Fixed compilation with GCC 8 and newer (@maresmar, #18)
+  * chore!: PyPAPI is no more compatible with GCC < 7.0
+
+* **v5.5.1.3:**
+
+  * chore: Removed ``.o``, ``.lo`` and other generated objects from the package
+
+* **v5.5.1.2:**
+
+  * feat: Partial bindings for the low level API
+
+* **v5.5.1.1:**
+
+  * chore: Added missing files to build PAPI
+
+* **v5.5.1.0:**
+
+  * feat: Initial release (binding for papy 5.5.1)
+
+
+.. |GitHub| image:: https://img.shields.io/github/stars/flozz/pypapi?label=GitHub&logo=github
+   :target: https://github.com/flozz/pypapi
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/python_papi.svg
+   :target: https://pypi.python.org/pypi/python_papi
+
+.. |License| image:: https://img.shields.io/github/license/flozz/pypapi
+   :target: https://flozz.github.io/pypapi/licenses.html
+
+.. |Discord| image:: https://img.shields.io/badge/chat-Discord-8c9eff?logo=discord&logoColor=ffffff
+   :target: https://discord.gg/P77sWhuSs4
+
+.. |Github Actions| image:: https://github.com/flozz/pypapi/actions/workflows/python-ci.yml/badge.svg
+   :target: https://github.com/flozz/pypapi/actions
+
+.. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://black.readthedocs.io/en/stable

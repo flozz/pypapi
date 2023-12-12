@@ -5,9 +5,9 @@ from . import consts
 from . import exceptions
 
 __all__ = [
-        "papi_high",
-        "papi_low",
-        "events",
-        "consts",
-        "exceptions",
-        ]
+    "papi_high",
+    "papi_low",
+    "events",
+    "consts",
+    "exceptions",
+]

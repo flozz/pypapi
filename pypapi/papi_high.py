@@ -195,11 +195,11 @@ def flips():
     rcode = lib.PAPI_flops(rtime, ptime, flpins, mflips)
 
     return rcode, Flips(
-            ffi.unpack(rtime, 1)[0],
-            ffi.unpack(ptime, 1)[0],
-            ffi.unpack(flpins, 1)[0],
-            ffi.unpack(mflips, 1)[0]
-            )
+        ffi.unpack(rtime, 1)[0],
+        ffi.unpack(ptime, 1)[0],
+        ffi.unpack(flpins, 1)[0],
+        ffi.unpack(mflips, 1)[0],
+    )
 
 
 # int PAPI_flops(float *rtime, float *ptime, long long *flpops, float *mflops);
@@ -226,11 +226,11 @@ def flops():
     rcode = lib.PAPI_flops(rtime, ptime, flpops, mflops)
 
     return rcode, Flops(
-            ffi.unpack(rtime, 1)[0],
-            ffi.unpack(ptime, 1)[0],
-            ffi.unpack(flpops, 1)[0],
-            ffi.unpack(mflops, 1)[0]
-            )
+        ffi.unpack(rtime, 1)[0],
+        ffi.unpack(ptime, 1)[0],
+        ffi.unpack(flpops, 1)[0],
+        ffi.unpack(mflops, 1)[0],
+    )
 
 
 # int PAPI_ipc(float *rtime, float *ptime, long long *ins, float *ipc);
@@ -256,11 +256,11 @@ def ipc():
     rcode = lib.PAPI_ipc(rtime, ptime, ins, ipc_)
 
     return rcode, IPC(
-            ffi.unpack(rtime, 1)[0],
-            ffi.unpack(ptime, 1)[0],
-            ffi.unpack(ins, 1)[0],
-            ffi.unpack(ipc_, 1)[0]
-            )
+        ffi.unpack(rtime, 1)[0],
+        ffi.unpack(ptime, 1)[0],
+        ffi.unpack(ins, 1)[0],
+        ffi.unpack(ipc_, 1)[0],
+    )
 
 
 # int PAPI_epc(int event, float *rtime, float *ptime, long long *ref,
@@ -287,10 +287,10 @@ def epc(event=0):
     rcode = lib.PAPI_epc(event, rtime, ptime, ref, core, evt, epc_)
 
     return rcode, EPC(
-            ffi.unpack(rtime, 1)[0],
-            ffi.unpack(ptime, 1)[0],
-            ffi.unpack(ref, 1)[0],
-            ffi.unpack(core, 1)[0],
-            ffi.unpack(evt, 1)[0],
-            ffi.unpack(epc_, 1)[0]
-            )
+        ffi.unpack(rtime, 1)[0],
+        ffi.unpack(ptime, 1)[0],
+        ffi.unpack(ref, 1)[0],
+        ffi.unpack(core, 1)[0],
+        ffi.unpack(evt, 1)[0],
+        ffi.unpack(epc_, 1)[0],
+    )

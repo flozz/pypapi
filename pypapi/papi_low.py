@@ -67,11 +67,11 @@ def accum(eventSet, values):
     eventCount = ffi.unpack(eventCount_p, 1)[0]
 
     if len(values) != eventCount:
-        raise PapiInvalidValueError(message="the length of the 'value' list "
-                                            "(%i) is different of the one of "
-                                            "the event set (%i)" % (
-                                                len(values),
-                                                eventCount))
+        raise PapiInvalidValueError(
+            message="the length of the 'value' list "
+            "(%i) is different of the one of "
+            "the event set (%i)" % (len(values), eventCount)
+        )
 
     values = ffi.new("long long[]", values)
 
@@ -105,8 +105,10 @@ def add_event(eventSet, eventCode):
     rcode = lib.PAPI_add_event(eventSet, eventCode)
 
     if rcode > 0:
-        raise PapiError(message="Unable to add some of the given events: %i of"
-                        " 1 event added to the event set" % rcode)
+        raise PapiError(
+            message="Unable to add some of the given events: %i of"
+            " 1 event added to the event set" % rcode
+        )
 
     return rcode, None
 
@@ -137,8 +139,10 @@ def add_events(eventSet, eventCodes):
     rcode = lib.PAPI_add_events(eventSet, eventCodes_p, number)
 
     if rcode > 0:
-        raise PapiError(message="Unable to add some of the given events: %i of"
-                        " %i events added to the event set" % (rcode, number))
+        raise PapiError(
+            message="Unable to add some of the given events: %i of"
+            " %i events added to the event set" % (rcode, number)
+        )
 
     return rcode, None
 
@@ -422,9 +426,10 @@ def remove_events(eventSet, eventCodes):
     rcode = lib.PAPI_remove_events(eventSet, eventCodes_p, number)
 
     if rcode > 0:
-        raise PapiError(message="Unable to remove some of the given events: "
-                        "%i of %i events added to the event set"
-                        % (rcode, number))
+        raise PapiError(
+            message="Unable to remove some of the given events: "
+            "%i of %i events added to the event set" % (rcode, number)
+        )
 
     return rcode, None
 
