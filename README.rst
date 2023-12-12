@@ -36,26 +36,45 @@ Building PyPAPI For Local Development
 To work on PyPAPI, you first have to clone this repositiory and
 initialize and update submodules::
 
-   git clone https://github.com/flozz/pypapi.git
-   cd pypapi
+    git clone https://github.com/flozz/pypapi.git
+    cd pypapi
 
-   git submodule init
-   git submodule update
+    git submodule init
+    git submodule update
 
 Then you have to build both PAPI and the C library inside the ``pypapi``
 module. This can be done with the following commands::
 
-   python setup.py build
-   python pypapi/papi_build.py
+    python setup.py build
+    python pypapi/papi_build.py
+
+
+Linting and Code formatting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To build lint the code, you first need to install Nox::
+
+    pip install nox
+
+Then, run the following command::
+
+    nox -s lint
+
+To automatically coding style issues, run::
+
+    nox -s black_fix
 
 
 Generating Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-From a virtualenv::
+To build the Sphinx documentation, you first need to install Nox::
 
-   pip install -r requirements.txt
-   python setup.py build_sphinx
+    pip install nox
+
+Then, run the following command::
+
+    nox -s gendoc
 
 
 Changelog
