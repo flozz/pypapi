@@ -3,8 +3,6 @@ name: Build and deploy Github pages
 on:
   push:
     tags: "v[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+"
-    branches:
-      - github-actions
 
 jobs:
 
