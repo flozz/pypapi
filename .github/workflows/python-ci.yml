@@ -22,7 +22,7 @@ jobs:
       - name: "Install OS Dependencies"
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essentials python3-dev
+          sudo apt-get install -y build-essential python3-dev
 
       - name: "Set up Python ${{ matrix.python-version }}"
         uses: actions/setup-python@v5
