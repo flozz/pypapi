@@ -40,6 +40,13 @@ setup(
     setup_requires=["cffi>=1.0.0"],
     install_requires=["cffi>=1.0.0"],
 
+    extras_require={
+        "dev": [
+            "nox",
+            "flake8",
+            "black",
+        ]
+    },
     cffi_modules=["pypapi/papi_build.py:ffibuilder"],
 
     cmdclass={
