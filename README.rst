@@ -93,11 +93,12 @@ Changelog
 
 * **[NEXT]** (changes on ``master``, but not released yet):
 
-  * chore: Added code linting (Flake8)
-  * chore: Added code formatter and reformatted all files (Black)
-  * chore: Added Nox to run code linting, code formatting, doc building tasks
-  * chore: Updated dev dependnecies
-  * docs: Updated documentation
+  * chore: Added code linting with Flake8 (@flozz)
+  * chore: Added code formatter and reformatted all files with Black (@flozz)
+  * chore: Added Nox to run code linting, code formatting, doc building tasks (@flozz)
+  * chore: Updated dev dependnecies (@flozz)
+  * chore: Automatically build and publish sdist package and wheels for Linux (@flozz, #39)
+  * docs: Updated documentation (@flozz)
 
 * **v5.5.1.5:**
 
