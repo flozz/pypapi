@@ -25,7 +25,7 @@ if os.path.isfile("README.rst"):
 
 setup(
     name="python_papi",
-    version="5.5.1.5",
+    version="5.5.1.6",
     description="Python binding for the PAPI library",
     url="https://github.com/flozz/pypapi",
     project_urls={

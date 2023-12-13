@@ -93,6 +93,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master``, but not released yet):
 
+  * Nothing yet :)
+
+* **v5.5.1.6:**
+
   * chore: Added code linting with Flake8 (@flozz)
   * chore: Added code formatter and reformatted all files with Black (@flozz)
   * chore: Added Nox to run code linting, code formatting, doc building tasks (@flozz)
