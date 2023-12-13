@@ -77,6 +77,16 @@ Then, run the following command::
     nox -s gendoc
 
 
+Support this project
+--------------------
+
+Want to support this project?
+
+* `☕️ Buy me a coffee <https://www.buymeacoffee.com/flozz>`__
+* `💵️ Give me a tip on PayPal <https://www.paypal.me/0xflozz>`__
+* `❤️ Sponsor me on GitHub <https://github.com/sponsors/flozz>`__
+
+
 Changelog
 ---------
 
