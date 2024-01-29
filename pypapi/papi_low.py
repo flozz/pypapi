@@ -32,7 +32,6 @@ Simple example::
     <https://github.com/flozz/pypapi/issues>`_.
 """
 
-
 from ._papi import lib, ffi
 from .exceptions import papi_error, PapiError, PapiInvalidValueError
 from .consts import PAPI_VER_CURRENT, PAPI_NULL

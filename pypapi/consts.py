@@ -6,7 +6,6 @@ Some constants used by PAPI.
     Event contants are located in an other file, see :doc:events
 """
 
-
 from ._papi import lib
 
 
