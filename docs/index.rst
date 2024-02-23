@@ -10,20 +10,38 @@ Example usage:
 
 ::
 
+    # High Level API
+
     from pypapi import papi_high
-    from pypapi import events as papi_events
 
-    # Starts some counters
-    papi_high.start_counters([
-        papi_events.PAPI_FP_OPS,
-        papi_events.PAPI_TOT_CYC
-    ])
+    papi_high.hl_region_begin("computation")
 
-    # Reads values from counters and reset them
-    results = papi_high.read_counters()  # -> [int, int]
+    # computation
 
-    # Reads values from counters and stop them
-    results = papi_high.stop_counters()  # -> [int, int]
+    papi_high.hl_region_end("computation")
+
+
+::
+
+    # Low Level API
+    
+    from pypapi import papi_low as papi
+    from pypapi import events
+
+    papi.library_init()
+
+    evs = papi.create_eventset()
+    papi.add_event(evs, events.PAPI_FP_OPS)
+
+    papi.start(evs)
+
+    # Do some computation here
+
+    result = papi.stop(evs)
+    print(result)
+
+    papi.cleanup_eventset(evs)
+    papi.destroy_eventset(evs)
 
 
 .. toctree::

@@ -1,5 +1,5 @@
-PAPI High Types
-===============
+PAPI Structs
+============
 
-.. automodule:: pypapi.papi_high_types
+.. automodule:: pypapi.structs
     :members:

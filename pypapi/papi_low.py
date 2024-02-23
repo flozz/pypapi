@@ -32,7 +32,7 @@ Simple example::
     <https://github.com/flozz/pypapi/issues>`_.
 """
 
-import numpy as np
+from ctypes import c_longlong, c_ulonglong
 
 from ._papi import lib, ffi
 from .exceptions import papi_error, PapiError, PapiInvalidValueError
@@ -547,9 +547,9 @@ def get_real_cyc():
     clock cycles. This call is equivalent to wall clock time.
 
     :returns: total real time passed since some arbitrary starting point
-    :rtype: np.longlong
+    :rtype: ctypes.c_longlong
     """
-    return np.longlong(lib.PAPI_get_real_cyc())
+    return c_longlong(lib.PAPI_get_real_cyc())
 
 
 # long long PAPI_get_real_nsec(void);
@@ -557,9 +557,9 @@ def get_real_nsec():
     """get_real_nsec()
 
     :returns:  total number of nanoseconds since some arbitrary starting point.
-    :rtype: np.longlong
+    :rtype: ctypes.c_longlong
     """
-    return np.longlong(lib.PAPI_get_real_nsec())
+    return c_longlong(lib.PAPI_get_real_nsec())
 
 
 # long long PAPI_get_real_usec(void);
@@ -572,9 +572,9 @@ def get_real_usec():
     to wall clock time.
 
     :returns: total real time passed since some arbitrary starting point
-    :rtype: np.longlong
+    :rtype: ctypes.c_longlong
     """
-    return np.longlong(lib.PAPI_get_real_usec())
+    return c_longlong(lib.PAPI_get_real_usec())
 
 
 # const PAPI_shlib_info_t *PAPI_get_shared_lib_info(void);
@@ -604,9 +604,9 @@ def get_virt_cyc():
     Get virtual time counter value in clock cycles
 
     :returns: virtual time counter value in clock cycles
-    :rtype: np.longlong
+    :rtype: ctypes.c_longlong
     """
-    return np.longlong(lib.PAPI_get_virt_cyc())
+    return c_longlong(lib.PAPI_get_virt_cyc())
 
 
 # long long PAPI_get_virt_nsec(void);
@@ -616,9 +616,9 @@ def get_virt_nsec():
     Get virtual time counter values in nanoseconds.
 
     :returns: virtual time counter value in nanoseconds
-    :rtype: np.longlong
+    :rtype: c_longlong
     """
-    return np.longlong(lib.PAPI_get_virt_nsec())
+    return c_longlong(lib.PAPI_get_virt_nsec())
 
 
 # long long PAPI_get_virt_usec(void);
@@ -628,9 +628,9 @@ def get_virt_usec():
     Get virtual time counter values in microseconds.
 
     :returns: virtual time counter value in microseconds
-    :rtype: np.longlong
+    :rtype: c_longlong
     """
-    return np.longlong(lib.PAPI_get_virt_usec())
+    return c_longlong(lib.PAPI_get_virt_usec())
 
 
 # int PAPI_is_initialized(void);
@@ -716,7 +716,7 @@ def list_threads():
     This call assumes an initialized PAPI library
 
     :returns: the list of threads.
-    :rtype: list(np.ulonglong)
+    :rtype: list(ctypes.c_ulonglong)
 
     :raises PapiInvalidValueError: Internal argument is invalid.
     """
@@ -1336,10 +1336,10 @@ def thread_id():
     :returns: PAPI_EMISC is returned if there are no threads registered.
         -1 is returned if the thread id function returns an error.
         This function returns a valid thread identifier.
-    :rtype: np.ulonglong
+    :rtype: ctypes.c_ulonglong
     """
     rval = lib.PAPI_thread_id()
-    return np.ulonglong(rval)
+    return c_ulonglong(rval)
 
 
 # int PAPI_thread_init(unsigned long (*id_fn) (void));

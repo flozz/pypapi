@@ -1,6 +1,6 @@
 """
 This module binds `PAPI High Level API
-<https://bitbucket.org/icl/papi/wiki/PAPI-HL.md>`_.
+<https://github.com/icl-utk-edu/papi/wiki/PAPI-HL>`_.
 
 Example using the High Level API:
 
@@ -12,7 +12,7 @@ Example using the High Level API:
 
     # computation
 
-    PAPI_hl_region_end("computation")
+    papi_high.hl_region_end("computation")
 
 
 To change where results are stored or which events to record is achieved with environment variables:

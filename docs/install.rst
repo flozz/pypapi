@@ -33,6 +33,6 @@ Finally, execute the following command::
 .. note::
 
     you may require root permission if you want to install the package
-    system-wild.
+    system-wide.
 
 
