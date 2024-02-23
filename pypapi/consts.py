@@ -6,7 +6,6 @@ Some constants used by PAPI.
     Event contants are located in an other file, see :doc:events
 """
 
-
 from ctypes import c_int, c_uint
 
 from ._papi import lib
@@ -95,7 +94,7 @@ PAPI_2MAX_STR_LEN = lib.PAPI_2MAX_STR_LEN
 PAPI_HUGE_STR_LEN = lib.PAPI_HUGE_STR_LEN
 
 #: Dhould match PAPI_EVENTS_IN_DERIVED_EVENT defined in papi_internal.h
-PAPI_MAX_INFO_TERMS = lib.PAPI_MAX_INFO_TERMS	
+PAPI_MAX_INFO_TERMS = lib.PAPI_MAX_INFO_TERMS
 
 
 # PAPI Error
@@ -128,7 +127,12 @@ PAPI_DOM_OTHER = lib.PAPI_DOM_OTHER
 PAPI_DOM_SUPERVISOR = lib.PAPI_DOM_SUPERVISOR
 
 #: All contexts counted
-PAPI_DOM_ALL = (lib.PAPI_DOM_USER|lib.PAPI_DOM_KERNEL|lib.PAPI_DOM_OTHER|lib.PAPI_DOM_SUPERVISOR)
+PAPI_DOM_ALL = (
+    lib.PAPI_DOM_USER
+    | lib.PAPI_DOM_KERNEL
+    | lib.PAPI_DOM_OTHER
+    | lib.PAPI_DOM_SUPERVISOR
+)
 
 #: Same as PAPI_DOM_ALL
 PAPI_DOM_MAX = PAPI_DOM_ALL
@@ -184,22 +188,22 @@ PAPI_LOCK_NUM = PAPI_NUM_LOCK
 # PAPI FLIPS/FLOPS
 
 #: Floating point instructions executed
-PAPI_FP_INS = lib.PAPI_FP_INS|PAPI_PRESET_MASK
+PAPI_FP_INS = lib.PAPI_FP_INS | PAPI_PRESET_MASK
 
 #: Single precision vector/SIMD instructions
-PAPI_VEC_SP = lib.PAPI_VEC_SP|PAPI_PRESET_MASK
+PAPI_VEC_SP = lib.PAPI_VEC_SP | PAPI_PRESET_MASK
 
 #: Double precision vector/SIMD instructions
-PAPI_VEC_DP = lib.PAPI_VEC_DP|PAPI_PRESET_MASK
+PAPI_VEC_DP = lib.PAPI_VEC_DP | PAPI_PRESET_MASK
 
 #: Floating point operations executed
-PAPI_FP_OPS = lib.PAPI_FP_OPS|PAPI_PRESET_MASK
+PAPI_FP_OPS = lib.PAPI_FP_OPS | PAPI_PRESET_MASK
 
 #: Floating point operations executed; optimized to count scaled single precision vector operations
-PAPI_SP_OPS = lib.PAPI_SP_OPS|PAPI_PRESET_MASK
+PAPI_SP_OPS = lib.PAPI_SP_OPS | PAPI_PRESET_MASK
 
 #: Floating point operations executed; optimized to count scaled double precision vector operations
-PAPI_DP_OPS = lib.PAPI_DP_OPS|PAPI_PRESET_MASK
+PAPI_DP_OPS = lib.PAPI_DP_OPS | PAPI_PRESET_MASK
 
 
 # Others

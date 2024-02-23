@@ -10,8 +10,13 @@ from setuptools.command.build_py import build_py
 
 class CustomBuildPy(build_py):
     def run(self):
-        os.environ["CFLAGS"] = "%s -fPIC -Werror=format-truncation=0" % os.environ.get("CFLAGS", "")
-        subprocess.call(f"cd papi/src/ && ./configure --with-components='{os.environ.get('PAPI_COMPONENTS', '')}' --prefix=$PWD/install", shell=True)  # noqa
+        os.environ["CFLAGS"] = "%s -fPIC -Werror=format-truncation=0" % os.environ.get(
+            "CFLAGS", ""
+        )
+        subprocess.call(
+            f"cd papi/src/ && ./configure --with-components='{os.environ.get('PAPI_COMPONENTS', '')}' --prefix=$PWD/install",
+            shell=True,
+        )  # noqa
         subprocess.call("cd papi/src/ && make", shell=True)  # noqa
         build_py.run(self)
 

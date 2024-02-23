@@ -7,6 +7,7 @@ from ._papi import ffi
 
 class PAPI_Base:
     """Base class for PAPI structs."""
+
     fields = {}
     """Fields of the struct (refer to PAPI's documentation for each field's meaning)"""
     s_fields = {}
@@ -61,6 +62,7 @@ class PAPI_Base:
 
 class DMEM_info(PAPI_Base):
     """Dynamic memory usage info class. Maps to PAPI_dmem_info_t data structure."""
+
     fields = {
         "peak": "num:c_longlong",
         "size": "num:c_longlong",
@@ -84,6 +86,7 @@ class DMEM_info(PAPI_Base):
 
 class EVENT_info(PAPI_Base):
     """Envent info class. Maps to PAPI_event_info_t data structure."""
+
     fields = {
         "event_code": "num:c_int",
         "symbol": "str:",
@@ -114,6 +117,7 @@ class EVENT_info(PAPI_Base):
 
 class MH_tlb(PAPI_Base):
     """Memory Hierarchy TLB info class. Maps to PAPI_mh_tlb_info_t data structure."""
+
     fields = {
         "type": "num:c_int",
         "num_entries": "num:c_int",
@@ -124,6 +128,7 @@ class MH_tlb(PAPI_Base):
 
 class MH_cache(PAPI_Base):
     """Memory Hierarchy Cache info class. Maps to PAPI_mh_cache_info_t data structure."""
+
     fields = {
         "type": "num:c_int",
         "size": "num:c_int",
@@ -135,11 +140,13 @@ class MH_cache(PAPI_Base):
 
 class MH_level(PAPI_Base):
     """Memory Hierarchy Level info class. Maps to PAPI_mh_level_t data structure."""
+
     s_fields = {"tlb": (MH_tlb, 1), "cache": (MH_cache, 1)}
 
 
 class MH_info(PAPI_Base):
     """Memory Hierarchy info class. Maps to PAPI_mh_info_t data structure."""
+
     fields = {"levels": "num:c_int"}
 
     s_fields = {"level": (MH_level, 1)}
@@ -147,6 +154,7 @@ class MH_info(PAPI_Base):
 
 class HARDWARE_info(PAPI_Base):
     """Hardware info class. Maps to PAPI_hw_info_t data structure."""
+
     fields = {
         "ncpu": "num:c_int",
         "threads": "num:c_int",
@@ -174,6 +182,7 @@ class HARDWARE_info(PAPI_Base):
 
 class ADDR_p(PAPI_Base):
     """Address pointer class."""
+
     def __init__(self, cdata):
         if cdata == ffi.NULL:
             self.addr = None
@@ -186,6 +195,7 @@ class ADDR_p(PAPI_Base):
 
 class ADDR_map(PAPI_Base):
     """Address map class. Maps to PAPI_address_map_t data structure."""
+
     fields = {"name": "str:"}
     s_fields = {
         "text_start": (ADDR_p, 0),
@@ -199,6 +209,7 @@ class ADDR_map(PAPI_Base):
 
 class EXECUTABLE_info(PAPI_Base):
     """Executable info class. Maps to PAPI_exe_info_t data structure."""
+
     fields = {
         "fullname": "str:",
     }
@@ -208,6 +219,7 @@ class EXECUTABLE_info(PAPI_Base):
 
 class COMPONENT_info(PAPI_Base):
     """Component info class. Maps to PAPI_component_info_t data structure."""
+
     fields = {
         "name": "str:",
         "short_name": "str:",
@@ -249,6 +261,7 @@ class COMPONENT_info(PAPI_Base):
 
 class SHARED_LIB_info(PAPI_Base):
     """Shared Lib info class. Maps to PAPI_shlib_info_t data structure."""
+
     fields = {
         "count": "num:c_int",
     }

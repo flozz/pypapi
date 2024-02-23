@@ -538,6 +538,7 @@ def get_multiplex(enventSet):
 
 # int PAPI_get_cmp_opt(int option, PAPI_option_t * ptr,int cidx);
 
+
 # long long PAPI_get_real_cyc(void);
 def get_real_cyc():
     """get_real_cyc()
@@ -596,6 +597,7 @@ def get_shared_lib_info():
 
 # int PAPI_get_thr_specific(int tag, void **ptr); /**< return a pointer to a thread specific stored data structure */
 # int PAPI_get_overflow_event_index(int Eventset, long long overflow_vector, int *array, int *number); /**< # decomposes an overflow_vector into an event index array */
+
 
 # long long PAPI_get_virt_cyc(void);
 def get_virt_cyc():
@@ -854,6 +856,7 @@ def perror(msg):
 
 #     :raises
 #     """
+
 
 # int PAPI_query_event(int EventCode);
 @papi_error
@@ -1221,6 +1224,7 @@ def set_multiplex(eventSet):
 # int PAPI_set_opt(int option, PAPI_option_t * ptr);
 # int PAPI_set_thr_specific(int tag, void *ptr);
 
+
 # void PAPI_shutdown(void);
 def shutdown():
     """shutdown()
@@ -1343,6 +1347,7 @@ def thread_id():
 
 
 # int PAPI_thread_init(unsigned long (*id_fn) (void));
+
 
 # int PAPI_unlock(int);
 @papi_error
