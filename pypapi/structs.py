@@ -28,7 +28,7 @@ class PAPI_Base:
     def __repr__(self):
         attr = [f"\t{field}={getattr(self, field)}\n" for field in self.fields]
         s_attr = [f"\t{field}={getattr(self, field)}\n" for field in self.s_fields]
-        return f"{self.__class__.__name__}(\n{''.join(attr+s_attr)})"
+        return f"{self.__class__.__name__}(\n{''.join(attr + s_attr)})"
 
     @staticmethod
     def cdata_to_python(cdata, data_type):
