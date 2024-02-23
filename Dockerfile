@@ -24,7 +24,7 @@ RUN ./configure --with-components=${PAPI_COMPONENTS} && \
 
 WORKDIR /pypapi
 
-RUN pip install cffi==1.15.1 numpy==1.23.5
+RUN pip install cffi==1.16.0
 
 COPY setup.py setup.py
 
