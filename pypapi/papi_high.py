@@ -20,14 +20,14 @@ To change where results are stored or which events to record is achieved with en
 ::
     # bash
     export PAPI_EVENTS="PAPI_TOT_INS,PAPI_TOT_CYC"
-    export PAPI_OUTPUT_DIRECTORY="path/to/output" 
+    export PAPI_OUTPUT_DIRECTORY="path/to/output"
 
 ::
     # python
     import os
-    
+
     os.environ["PAPI_EVENTS"] = "PAPI_TOT_INS,PAPI_TOT_CYC"
-    os.environ["PAPI_OUTPUT_DIRECTORY"] = "path/to/output" 
+    os.environ["PAPI_OUTPUT_DIRECTORY"] = "path/to/output"
 
 """
 

@@ -429,7 +429,7 @@ def event_name_to_code(eventName):
     :raises PapiNoEventError: The hardware event is not available on the underlying hardware.
     """
     eventName_p = ffi.new("char[]", eventName.encode())
-    eventCode_p = ffi.new(f"int *", PAPI_NULL)
+    eventCode_p = ffi.new("int *", PAPI_NULL)
     rcode = lib.PAPI_event_name_to_code(eventName_p, eventCode_p)
     return rcode, ffi.unpack(eventCode_p, 1)[0]
 
