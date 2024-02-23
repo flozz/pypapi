@@ -68,7 +68,7 @@ def hl_read(region):
     :raises PapiSystemError: A system or C library call failed inside PAPI.
     """
     cregion = ffi.new("char[]", region.encode("ascii"))
-    rcode = lib.PAPI_hl_region(cregion)
+    rcode = lib.PAPI_hl_read(cregion)
     return rcode
 
 
