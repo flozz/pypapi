@@ -32,9 +32,11 @@ To change where results are stored or which events to record is achieved with en
 """
 
 from ._papi import lib, ffi
+from .exceptions import papi_error
 
 
 # int PAPI_hl_region_begin(const char* region); /**< read performance events at the beginning of a region */
+@papi_error
 def hl_region_begin(region):
     """hl_region_begin(region):
 
@@ -50,10 +52,11 @@ def hl_region_begin(region):
     """
     cregion = ffi.new("char[]", region.encode("ascii"))
     rcode = lib.PAPI_hl_region_begin(cregion)
-    return rcode
+    return rcode, rcode
 
 
 # int PAPI_hl_read(const char* region);
+@papi_error
 def hl_read(region):
     """hl_read(region):
 
@@ -69,10 +72,11 @@ def hl_read(region):
     """
     cregion = ffi.new("char[]", region.encode("ascii"))
     rcode = lib.PAPI_hl_read(cregion)
-    return rcode
+    return rcode, rcode
 
 
 # int PAPI_hl_region_end(const char* region);
+@papi_error
 def hl_region_end(region):
     """hl_region_end(region):
 
@@ -88,10 +92,11 @@ def hl_region_end(region):
     """
     cregion = ffi.new("char[]", region.encode("ascii"))
     rcode = lib.PAPI_hl_region_end(cregion)
-    return rcode
+    return rcode, rcode
 
 
 # int PAPI_hl_stop();
+@papi_error
 def hl_stop():
     """hl_stop():
 
@@ -104,4 +109,4 @@ def hl_stop():
     :raises PapiSystemError: A system or C library call failed inside PAPI.
     """
     rcode = lib.PAPI_hl_stop()
-    return rcode
+    return rcode, rcode
