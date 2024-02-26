@@ -19,7 +19,7 @@ WORKDIR /pypapi/papi/src
 
 ENV CFLAGS="-fPIC -Werror=format-truncation=0"
 ENV PAPI_COMPONENTS="net powercap rapl"
-RUN ./configure --with-components=${PAPI_COMPONENTS} && \
+RUN ./configure --with-components="${PAPI_COMPONENTS}" && \
     make
 
 WORKDIR /pypapi
