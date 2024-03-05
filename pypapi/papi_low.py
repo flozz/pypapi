@@ -800,16 +800,7 @@ def perror(msg):
     return None
 
 
-# # int PAPI_profil(void *buf, unsigned bufsiz, caddr_t offset, unsigned scale, int EventSet, int EventCode, int threshold, int flags);
-# def profil():
-#     """profil(msg)
-
-#     Generate a histogram of hardware counter overflows vs. PC addresses.
-
-#     :param :
-
-#     :raises
-#     """
+# int PAPI_profil(void *buf, unsigned bufsiz, caddr_t offset, unsigned scale, int EventSet, int EventCode, int threshold, int flags);
 
 
 # int PAPI_query_event(int EventCode);
@@ -878,21 +869,6 @@ def read(eventSet):
 
 
 # int PAPI_read_ts(int EventSet, long long * values, long long *cyc);
-def read_ts(eventSet):
-    """read_ts(eventSet)
-
-    Read hardware counters with a timestamp.
-
-    :param int eventSet: n integer handle for a PAPI Event Set as created by create_eventset().
-
-    :returns
-
-    :raises PapiInvalidValueError: One or more of the arguments is invalid.
-    :raises PapiSystemError: A system or C library call failed inside PAPI, see the errno variable.
-    :raises PapiNoEventSetError: The event set specified does not exist.
-    """
-
-    return
 
 
 # int PAPI_register_thread(void);
