@@ -60,9 +60,7 @@ from .structs import (
 # int PAPI_accum(int EventSet, long long * values);
 @papi_error
 def accum(eventSet, values):
-    """accum(eventSet, values)
-
-    Adds the counters of the indicated event set into the array values. The
+    """Adds the counters of the indicated event set into the array values. The
     counters are zeroed and continue counting after the operation.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
@@ -102,9 +100,7 @@ def accum(eventSet, values):
 # int PAPI_add_event(int EventSet, int Event);
 @papi_error
 def add_event(eventSet, eventCode):
-    """add_event(eventSet, eventCode)
-
-    Add single PAPI preset or native hardware event to an event set.
+    """Add single PAPI preset or native hardware event to an event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -135,9 +131,7 @@ def add_event(eventSet, eventCode):
 # int PAPI_add_named_event(int EventSet, const char *EventName);
 @papi_error
 def add_named_event(eventSet, eventName):
-    """add_event(eventSet, eventName)
-
-    Add an event by name to a PAPI event set
+    """Add an event by name to a PAPI event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -163,9 +157,7 @@ def add_named_event(eventSet, eventName):
 # int PAPI_add_events(int EventSet, int *Events, int number);
 @papi_error
 def add_events(eventSet, eventCodes):
-    """add_events(eventSet, eventCodes)
-
-    Add list of PAPI preset or native hardware events to an event set.
+    """Add list of PAPI preset or native hardware events to an event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -197,9 +189,7 @@ def add_events(eventSet, eventCodes):
 # int PAPI_assign_eventset_component(int EventSet, int cidx);
 @papi_error
 def assign_eventset_component(eventSet, component):
-    """assign_event_set(eventSet, component)
-
-    Assign a component index to an existing but empty eventset.
+    """Assign a component index to an existing but empty eventset.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -219,9 +209,7 @@ def assign_eventset_component(eventSet, component):
 # int PAPI_attach(int EventSet, unsigned long tid);
 @papi_error
 def attach(eventSet, pid):
-    """attach(eventSet, pid)
-
-    Attach specified event set to a specific process or thread id.
+    """Attach specified event set to a specific process or thread id.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -239,9 +227,7 @@ def attach(eventSet, pid):
 # int PAPI_cleanup_eventset(int EventSet);
 @papi_error
 def cleanup_eventset(eventSet):
-    """cleanup_eventset(eventSet)
-
-    Remove all PAPI events from an event set  and turns off profiling and
+    """Remove all PAPI events from an event set  and turns off profiling and
     overflow for all events in the EventSet. This can not be called if the
     EventSet is not stopped.
 
@@ -267,9 +253,7 @@ def cleanup_eventset(eventSet):
 # int PAPI_create_eventset(int *EventSet);
 @papi_error
 def create_eventset():
-    """create_eventset()
-
-    Create a new empty PAPI event set. The user may then add hardware events to
+    """Create a new empty PAPI event set. The user may then add hardware events to
     the event set by calling :py:func:`add_event` or similar routines.
 
     :returns: the event set handle.
@@ -296,9 +280,7 @@ def create_eventset():
 # int PAPI_detach(int EventSet);
 @papi_error
 def detach(eventSet):
-    """detach(eventSet)
-
-    Detach specified event set from a previously specified process or
+    """Detach specified event set from a previously specified process or
     thread id.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
@@ -316,9 +298,7 @@ def detach(eventSet):
 # int PAPI_destroy_eventset(int *EventSet);
 @papi_error
 def destroy_eventset(eventSet):
-    """destroy_eventset(eventSet)
-
-    Deallocates memory associated with an empty PAPI event set.
+    """Deallocates memory associated with an empty PAPI event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -344,9 +324,7 @@ def destroy_eventset(eventSet):
 
 # int PAPI_enum_event(int *EventCode, int modifier);
 def enum_event():
-    """enum_event()
-
-    Enumerate PAPI preset or native events.
+    """Enumerate PAPI preset or native events.
 
     :returns: dictionary of PRESET and NATIVE events.
     :rtype: dict
@@ -357,9 +335,7 @@ def enum_event():
 
 # int PAPI_enum_cmp_event(int *EventCode, int modifier, int cidx)
 def enum_cmp_event(component):
-    """enum_cmp_event(component)
-
-    Enumerate PAPI preset or native events for a given component.
+    """Enumerate PAPI preset or native events for a given component.
 
     :param int component: Specifies the component to search in.
 
@@ -392,9 +368,7 @@ def enum_cmp_event(component):
 # int PAPI_event_code_to_name(int EventCode, char *out); /**< translate an integer PAPI event code into an ASCII PAPI preset or native name */
 @papi_error
 def event_code_to_name(eventCode):
-    """event_code_to_name(eventCode)
-
-    Convert a numeric hardware event code to a name.
+    """Convert a numeric hardware event code to a name.
 
     :param int eventCode: The numeric code for the event.
 
@@ -413,9 +387,7 @@ def event_code_to_name(eventCode):
 # int PAPI_event_name_to_code(const char *in, int *out);
 @papi_error
 def event_name_to_code(eventName):
-    """event_name_to_code(eventName)
-
-    Convert a name to a numeric hardware event code.
+    """Convert a name to a numeric hardware event code.
 
     :param str eventName: A string containing the event name as listed in
         PAPI_presets or discussed in PAPI_native.
@@ -437,9 +409,7 @@ def event_name_to_code(eventName):
 # int PAPI_get_dmem_info(PAPI_dmem_info_t *dest);
 @papi_error
 def get_dmem_info():
-    """get_dmem_info()
-
-    Get information about the dynamic memory usage of the current program.
+    """Get information about the dynamic memory usage of the current program.
 
     :returns: dynamic memory usage information
     :rtype: DMEM_info
@@ -457,9 +427,7 @@ def get_dmem_info():
 # int PAPI_get_event_info(int EventCode, PAPI_event_info_t * info);
 @papi_error
 def get_event_info(eventCode):
-    """get_event_info(eventCode)
-
-    Get the event's name and description info.
+    """Get the event's name and description info.
 
     :param int eventCode: event code (preset or native).
 
@@ -482,9 +450,7 @@ def get_event_info(eventCode):
 
 # const PAPI_exe_info_t *PAPI_get_executable_info(void);
 def get_executable_info():
-    """get_executable_info()
-
-    Get the executable's address space info.
+    """Get the executable's address space info.
 
     :returns: executable information
     :rtype: EXECUTABLE_info
@@ -498,9 +464,7 @@ def get_executable_info():
 
 # const PAPI_hw_info_t *PAPI_get_hardware_info(void);
 def get_hardware_info():
-    """get_hardware_info()
-
-    Get information about the system hardware.
+    """Get information about the system hardware.
     In C, this function returns a pointer to a structure containing information about
     the hardware on which the program runs.
     In Fortran, the values of the structure are returned explicitly.
@@ -517,9 +481,7 @@ def get_hardware_info():
 
 # const PAPI_component_info_t *PAPI_get_component_info(int cidx);
 def get_component_info(component):
-    """get_component_info(component)
-
-    Get information about a specific software component.
+    """Get information about a specific software component.
 
     :returns: component information
     :rtype: COMPONENT_info
@@ -541,9 +503,7 @@ def get_multiplex(enventSet):
 
 # long long PAPI_get_real_cyc(void);
 def get_real_cyc():
-    """get_real_cyc()
-
-    Get real time counter value in clock cycles. Returns the total real
+    """Get real time counter value in clock cycles. Returns the total real
     time passed since some arbitrary starting point. The time is returned in
     clock cycles. This call is equivalent to wall clock time.
 
@@ -555,9 +515,8 @@ def get_real_cyc():
 
 # long long PAPI_get_real_nsec(void);
 def get_real_nsec():
-    """get_real_nsec()
+    """Returns total number of nanoseconds since some arbitrary starting point.
 
-    :returns:  total number of nanoseconds since some arbitrary starting point.
     :rtype: ctypes.c_longlong
     """
     return c_longlong(lib.PAPI_get_real_nsec())
@@ -565,9 +524,7 @@ def get_real_nsec():
 
 # long long PAPI_get_real_usec(void);
 def get_real_usec():
-    """get_real_usec()
-
-    Get real time counter value in microseconds. This function returns
+    """Get real time counter value in microseconds. This function returns
     the total real time passed since some arbitrary starting point.
     The time is returned in microseconds. This call is equivalent
     to wall clock time.
@@ -580,9 +537,7 @@ def get_real_usec():
 
 # const PAPI_shlib_info_t *PAPI_get_shared_lib_info(void);
 def get_shared_lib_info():
-    """get_shared_lib_info()
-
-    Get address info about the shared libraries used by the process.
+    """Get address info about the shared libraries used by the process.
     In C, this function returns a pointer to a structure containing
     information about the shared library used by the program.
     There is no Fortran equivalent call.
@@ -601,9 +556,7 @@ def get_shared_lib_info():
 
 # long long PAPI_get_virt_cyc(void);
 def get_virt_cyc():
-    """get_virt_cyc()
-
-    Get virtual time counter value in clock cycles
+    """Get virtual time counter value in clock cycles
 
     :returns: virtual time counter value in clock cycles
     :rtype: ctypes.c_longlong
@@ -613,9 +566,7 @@ def get_virt_cyc():
 
 # long long PAPI_get_virt_nsec(void);
 def get_virt_nsec():
-    """get_virt_nsec()
-
-    Get virtual time counter values in nanoseconds.
+    """Get virtual time counter values in nanoseconds.
 
     :returns: virtual time counter value in nanoseconds
     :rtype: c_longlong
@@ -625,9 +576,7 @@ def get_virt_nsec():
 
 # long long PAPI_get_virt_usec(void);
 def get_virt_usec():
-    """get_virtusec()
-
-    Get virtual time counter values in microseconds.
+    """Get virtual time counter values in microseconds.
 
     :returns: virtual time counter value in microseconds
     :rtype: c_longlong
@@ -637,9 +586,7 @@ def get_virt_usec():
 
 # int PAPI_is_initialized(void);
 def is_initialized():
-    """is_initialized()
-
-    Return the initialized state of the PAPI library.
+    """Returns the initialized state of the PAPI library.
 
     :returns: the initialized state of the PAPI library (one of the
         :ref:`consts_init`).
@@ -651,9 +598,7 @@ def is_initialized():
 # int PAPI_library_init(int version);
 @papi_error
 def library_init(version=PAPI_VER_CURRENT):
-    """library_init(version=pypapi.consts.PAPI_VER_CURRENT)
-
-    Initialize the PAPI library.
+    """Initializes the PAPI library.
 
     :param int version: upon initialization, PAPI checks the argument against
         the internal value of ``PAPI_VER_CURRENT`` when the library was
@@ -680,9 +625,7 @@ def library_init(version=PAPI_VER_CURRENT):
 # int PAPI_list_events(int EventSet, int *Events, int *number);
 @papi_error
 def list_events(eventSet):
-    """list_events(eventSet)
-
-    List the events that are members of an event set
+    """List the events that are members of an event set
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -711,11 +654,10 @@ def list_events(eventSet):
 # int PAPI_list_threads(unsigned long *tids, int *number);
 @papi_error
 def list_threads():
-    """list_threads()
+    """List the registered thread ids.
 
-    List the registered thread ids.
-    list_threads() returns to the caller a list of all thread IDs known to PAPI.
-    This call assumes an initialized PAPI library
+    ``list_threads()`` returns to the caller a list of all thread IDs known to
+    PAPI.  This call assumes an initialized PAPI library
 
     :returns: the list of threads.
     :rtype: list(ctypes.c_ulonglong)
@@ -740,18 +682,19 @@ def list_threads():
 # int PAPI_lock(int);
 @papi_error
 def lock(lock):
-    """lock(lock)
+    """Locks one of two mutex variables defined in papi.h.
 
-    Lock one of two mutex variables defined in papi.h.
-    PAPI_lock() grabs access to one of the two PAPI mutex variables.
+    ``lock()`` grabs access to one of the two PAPI mutex variables.
     This function is provided to the user to have a platform independent
     call to a (hopefully) efficiently implemented mutex.
 
     :param int lock: an integer value specifying one of the two user locks:
-            PAPI_USR1_LOCK or PAPI_USR2_LOCK
+        :py:const:`~pypapi.consts.PAPI_USR1_LOCK` or
+        :py:const:`~pypapi.consts.PAPI_USR2_LOCK`.
 
-    :returns: There is no return value for this call. Upon return from PAPI_lock
-            the current thread has acquired exclusive access to the specified PAPI mutex.
+    :returns: There is no return value for this call. Upon return from
+        PAPI_lock the current thread has acquired exclusive access to the
+        specified PAPI mutex.
     """
     rcode = lib.PAPI_lock(lock)
 
@@ -761,13 +704,13 @@ def lock(lock):
 # int PAPI_multiplex_init(void);
 @papi_error
 def multiplex_init():
-    """multiplex_init()
+    """Initializes multiplex support in the PAPI library.
 
-    Initialize multiplex support in the PAPI library.
-    PAPI_multiplex_init() enables and initializes multiplex support in the PAPI library.
-    Multiplexing allows a user to count more events than total physical counters by time
-    sharing the existing counters at some loss in precision.
-    Applications that make no use of multiplexing do not need to call this routine.
+    ``multiplex_init()`` enables and initializes multiplex support in the
+    PAPI library.  Multiplexing allows a user to count more events than total
+    physical counters by time sharing the existing counters at some loss in
+    precision.  Applications that make no use of multiplexing do not need to
+    call this routine.
     """
 
     rcode = lib.PAPI_multiplex_init()
@@ -777,25 +720,35 @@ def multiplex_init():
 
 # int PAPI_num_cmp_hwctrs(int cidx);
 def num_cmp_hwctrs(component):
-    """num_cmp_hwctrs(component)
+    """Returns the number of hardware counters for the specified component.
 
-    Return the number of hardware counters for the specified component.
-    PAPI_num_cmp_hwctrs() returns the number of counters present in the specified component.
-    By convention, component 0 is always the cpu. On some components, especially for CPUs,
-    the value returned is a theoretical maximum for estimation purposes only.
-    It might not be possible to easily create an EventSet that contains the
-    full number of events. This can be due to a variety of reasons: 1).
-    Some CPUs (especially Intel and POWER) have the notion of fixed counters
-    that can only measure one thing, usually cycles. 2).
-    Some CPUs have very explicit rules about which event can run in which counter.
-    In this case it might not be possible to add a wanted event even if counters are free. 3).
-    Some CPUs halve the number of counters available when running with SMT (multiple CPU threads)
-    enabled. 4). Some operating systems "steal" a counter to use for things such as NMI Watchdog
-    timers. The only sure way to see if events will fit is to attempt adding events to an EventSet,
-    and doing something sensible if an error is generated.
-    PAPI_library_init() must be called in order for this function to return anything greater than 0.
+    ``num_cmp_hwctrs()`` returns the number of counters present in the
+    specified component.  By convention, component 0 is always the cpu. On some
+    components, especially for CPUs, the value returned is a theoretical
+    maximum for estimation purposes only.  It might not be possible to easily
+    create an EventSet that contains the full number of events. This can be due
+    to a variety of reasons:
 
-    :param int component: An integer identifier for a component. By convention, component 0 is always the cpu component.
+    1. CPUs (especially Intel and POWER) have the notion of fixed counters that
+       can only measure one thing, usually cycles.
+
+    2. Some CPUs have very explicit rules about which event can run in which
+       counter.  In this case it might not be possible to add a wanted event
+       even if counters are free.
+
+    3. Some CPUs halve the number of counters available when running with SMT
+       (multiple CPU threads) enabled.
+
+    4. Some operating systems "steal" a counter to use for things such as NMI
+       Watchdog timers.
+
+    The only sure way to see if events will fit is to attempt adding events to
+    an EventSet, and doing something sensible if an error is generated.
+    :py:func:`library_init` must be called in order for this function to return
+    anything greater than ``0``.
+
+    :param int component: An integer identifier for a component. By convention,
+        component 0 is always the cpu component.
 
     :returns: On success, this function returns a value greater than zero.
             A zero result usually means the library has not been initialized.
@@ -808,15 +761,17 @@ def num_cmp_hwctrs(component):
 # int PAPI_num_events(int EventSet);
 @papi_error
 def num_events(eventSet):
-    """num_events(eventSet)
+    """Returns the number of events in an event set.
 
-    Return the number of events in an event set.
-    num_events() returns the number of preset and/or native events contained in an event set.
-    The event set should be created by create_eventset.
+    ``num_events()`` returns the number of preset and/or native events
+    contained in an event set.  The event set should be created by
+    create_eventset.
 
-    :param int eventSet: an integer handle for a PAPI event set created by create_eventset.
+    :param int eventSet: an integer handle for a PAPI event set created by
+        create_eventset.
 
-    :returns: On success, this function returns the positive number of events in the event set.
+    :returns: On success, this function returns the positive number of events
+        in the event set.
     :rtype: int
 
     :raises PapiInvalidValueError: The event count is zero; only if code is compiled with debug enabled.
@@ -830,14 +785,13 @@ def num_events(eventSet):
 # int PAPI_overflow(int EventSet, int EventCode, int threshold, int flags, PAPI_overflow_handler_t handler);
 # void PAPI_perror(const char *msg );
 def perror(msg):
-    """perror(msg)
+    """Produces a string on standard error, describing the last library error.
 
-    Produces a string on standard error, describing the last library error.
-
-    :param str msg: Optional message to print before the string describing the last error message.
-        The routine perror() produces a message on the standard error output, describing the last error encountered during a call to PAPI.
-        If s is not NULL, s is printed, followed by a colon and a space.
-        Then the error message and a new-line are printed
+    :param str msg: Optional message to print before the string describing the
+        last error message.  The routine ``perror()`` produces a message on the
+        standard error output, describing the last error encountered during a
+        call to PAPI.  If s is not ``NULL``, s is printed, followed by a colon
+        and a space.  Then the error message and a new-line are printed
     """
 
     msg_p = ffi.new("char[]", msg.encode("ascii"))
@@ -846,26 +800,16 @@ def perror(msg):
     return None
 
 
-# # int PAPI_profil(void *buf, unsigned bufsiz, caddr_t offset, unsigned scale, int EventSet, int EventCode, int threshold, int flags);
-# def profil():
-#     """profil(msg)
-
-#     Generate a histogram of hardware counter overflows vs. PC addresses.
-
-#     :param :
-
-#     :raises
-#     """
+# int PAPI_profil(void *buf, unsigned bufsiz, caddr_t offset, unsigned scale, int EventSet, int EventCode, int threshold, int flags);
 
 
 # int PAPI_query_event(int EventCode);
 @papi_error
 def query_event(eventCode):
-    """query_event(eventCode)
+    """Query if PAPI event exists.
 
-    Query if PAPI event exists.
-
-    :param int eventCode: a defined event such as PAPI_TOT_INS.
+    :param int eventCode: a defined event such as
+        :py:const:`~pypapi.events.PAPI_TOT_INS`.
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     :raises PapiNoEventError: The PAPI preset is not available on the underlying hardware.
@@ -878,14 +822,14 @@ def query_event(eventCode):
 
 # int PAPI_query_named_event(const char *EventName);
 def query_named_event(eventName):
-    """query_named_event(eventName)
+    """Query if a named PAPI event exists.
 
-    Query if a named PAPI event exists.
-
-    :param str eventName: a defined event such as PAPI_TOT_INS.
+    :param str eventName: a defined event such as
+        :py:const:`~pypapi.events.PAPI_TOT_INS`.
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
-    :raises PapiNoEventError: The PAPI preset is not available on the underlying hardware.
+    :raises PapiNoEventError: The PAPI preset is not available on the
+        underlying hardware.
     """
 
     eventName_p = ffi.new("char[]", eventName.encode("ascii"))
@@ -897,10 +841,8 @@ def query_named_event(eventName):
 # int PAPI_read(int EventSet, long long * values);
 @papi_error
 def read(eventSet):
-    """read(eventSet)
-
-    Copies the counters of the indicated event set into the provided array. The
-    counters continue counting after the read and are not reseted.
+    """Copies the counters of the indicated event set into the provided array.
+    The counters continue counting after the read and are not reseted.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -927,29 +869,12 @@ def read(eventSet):
 
 
 # int PAPI_read_ts(int EventSet, long long * values, long long *cyc);
-def read_ts(eventSet):
-    """read_ts(eventSet)
-
-    Read hardware counters with a timestamp.
-
-    :param int eventSet: n integer handle for a PAPI Event Set as created by create_eventset().
-
-    :returns
-
-    :raises PapiInvalidValueError: One or more of the arguments is invalid.
-    :raises PapiSystemError: A system or C library call failed inside PAPI, see the errno variable.
-    :raises PapiNoEventSetError: The event set specified does not exist.
-    """
-
-    return
 
 
 # int PAPI_register_thread(void);
 @papi_error
 def register_thread():
-    """register_thread()
-
-    Notify PAPI that a thread has 'appeared'.
+    """Notify PAPI that a thread has 'appeared'.
 
     :raises PapiNoMemoryError: Space could not be allocated to store the new thread information.
     :raises PapiSystemError: A system or C library call failed inside PAPI, see the errno variable.
@@ -963,17 +888,19 @@ def register_thread():
 # int PAPI_remove_named_event(int EventSet, const char *EventName);
 @papi_error
 def remove_named_event(eventSet, eventName):
-    """remove_named_event(eventSet, eventName):
+    """Removes a named hardware event from a PAPI event set.
 
-    Removes a named hardware event from a PAPI event set.
-    A hardware event can be either a PAPI Preset or a native hardware event code.
-    For a list of PAPI preset events, see PAPI_presets or run the papi_avail utility in the PAPI distribution.
-    PAPI Presets can be passed to PAPI_query_event to see if they exist on the underlying architecture.
-    For a list of native events available on the current platform, run papi_native_avail in the PAPI distribution.
+    A hardware event can be either a PAPI Preset or a native hardware event
+    code.  For a list of PAPI preset events, see PAPI_presets or run the
+    papi_avail utility in the PAPI distribution.  PAPI Presets can be passed to
+    :py:func:`query_event` to see if they exist on the underlying
+    architecture.  For a list of native events available on the current
+    platform, run papi_native_avail in the PAPI distribution.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
-    :param str eventName:  defined event such as PAPI_TOT_INS or a native event.
+    :param str eventName:  defined event such as
+        :py:const:`~pypapi.events.PAPI_TOT_INS` or a native event.
 
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
@@ -994,14 +921,13 @@ def remove_named_event(eventSet, eventName):
 # int PAPI_remove_event(int EventSet, int EventCode);
 @papi_error
 def remove_event(eventSet, eventCode):
-    """remove_event(eventSet, eventCode)
-
-    Remove a hardware event from a PAPI event set.
+    """Removes a hardware event from a PAPI event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
-    :param int eventCode: A defined event such as ``PAPI_TOT_INS`` or a native
-        event. (from :doc:`events`).
+    :param int eventCode: A defined event such as
+        :py:const:`~pypapi.events.PAPI_TOT_INS` or a native event. (from
+        :doc:`events`).
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     :raises PapiNoEventSetError: The event set specified does not exist.
@@ -1018,9 +944,7 @@ def remove_event(eventSet, eventCode):
 # int PAPI_remove_events(int EventSet, int *Events, int number);
 @papi_error
 def remove_events(eventSet, eventCodes):
-    """remove_events(eventSet, eventCodes)
-
-    Remove an list of hardware events from a PAPI event set.
+    """Removes an list of hardware events from a PAPI event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -1050,9 +974,7 @@ def remove_events(eventSet, eventCodes):
 # int PAPI_reset(int EventSet);
 @papi_error
 def reset(eventSet):
-    """reset(eventSet)
-
-    Reset the hardware event counts in an event set.
+    """Reset the hardware event counts in an event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -1068,15 +990,17 @@ def reset(eventSet):
 # int PAPI_set_debug(int level);
 @papi_error
 def set_debug(level):
-    """set_debug(level)
+    """Set the current debug level for error output from PAPI.
 
-    Set the current debug level for error output from PAPI.
+    :param int level: one of the constants shown in the table below and defined
+        in the consts.py file. The possible debug levels for debugging are:
 
-    :param int level: one of the constants shown in the table below and defined in the consts.py file.
-        The possible debug levels for debugging are shown below.
-        PAPI_QUIET Do not print anything, just return the error code
-        PAPI_VERB_ECONT Print error message and continue
-        PAPI_VERB_ESTOP Print error message and exit
+        * :py:const:`~pypapi.consts.PAPI_QUIET` Do not print anything, just
+          return the error code
+        * :py:const:`~pypapi.consts.PAPI_VERB_ECONT` Print error message and
+          continue
+        * :py:const:`~pypapi.consts.PAPI_VERB_ESTOP` Print error message and
+          exit
 
     :raises PapiInvalidValueError: The debug level is invalid. The current debug level is used by both the internal error and debug message handler subroutines.
     """
@@ -1088,25 +1012,37 @@ def set_debug(level):
 # int PAPI_set_cmp_domain(int domain, int cidx);
 @papi_error
 def set_cmp_domain(domain, component):
-    """set_cmp_domain(domain, component)
+    """Set the default counting domain for new event sets bound to the
+    specified component.
 
-    Set the default counting domain for new event sets bound to the specified component.
-    Sets the default counting domain for all new event sets in all threads, and requires an explicit component argument.
-    Event sets that are already in existence are not affected. To change the domain of an existing event set, please see set_opt.
-    The reader should note that the domain of an event set affects only the mode in which the counter continues to run.
-    Counts are still aggregated for the current process, and not for any other processes in the system. Thus when requesting PAPI_DOM_KERNEL,
-    the user is asking for events that occur on behalf of the process, inside the kernel.
+    Sets the default counting domain for all new event sets in all threads, and
+    requires an explicit component argument.  Event sets that are already in
+    existence are not affected. To change the domain of an existing event set,
+    please see :py:func:`set_opt`.  The reader should note that the domain of
+    an event set affects only the mode in which the counter continues to run.
+    Counts are still aggregated for the current process, and not for any other
+    processes in the system. Thus when requesting
+    :py:const:`~pypapi.consts.PAPI_DOM_KERNEL`, the user is asking for events
+    that occur on behalf of the process, inside the kernel.
 
-    :param int domain:  one of the following constants as defined in the consts.py file
-        PAPI_DOM_USER User context counted
-        PAPI_DOM_KERNEL Kernel/OS context counted
-        PAPI_DOM_OTHER Exception/transient mode counted
-        PAPI_DOM_SUPERVISOR Supervisor/hypervisor context counted
-        PAPI_DOM_ALL All above contexts counted
-        PAPI_DOM_MIN The smallest available context
-        PAPI_DOM_MAX The largest available context
-        PAPI_DOM_HWSPEC Something other than CPU like stuff.
+    :param int domain: one of the following constants as defined in
+        :doc:`consts`:
+
+        * :py:const:`~pypapi.consts.PAPI_DOM_USER` User context counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_KERNEL` Kernel/OS context counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_OTHER` Exception/transient mode
+          counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_SUPERVISOR` Supervisor/hypervisor
+          context counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_ALL` All above contexts counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_MIN` The smallest available
+          context
+        * :py:const:`~pypapi.consts.PAPI_DOM_MAX` The largest available context
+        * :py:const:`~pypapi.consts.PAPI_DOM_HWSPEC` Something other than CPU
+          like stuff.
+
         Individual components can decode low order bits for more meaning.
+
     :param int component: An integer identifier for a component.
         By convention, component 0 is always the cpu component.
 
@@ -1121,19 +1057,25 @@ def set_cmp_domain(domain, component):
 # int PAPI_set_domain(int domain);
 @papi_error
 def set_domain(domain):
-    """set_domain(domain)
+    """Set the default counting domain for new event sets bound to the cpu
+    component.
 
-    Set the default counting domain for new event sets bound to the cpu component.
-    Sets the default counting domain for all new event sets created by PAPI_create_eventset in all threads.
-    This call implicitly sets the domain for the cpu component (component 0) and is included to preserve backward compatibility.
+    Sets the default counting domain for all new event sets created by
+    :py:func:`create_eventset` in all threads.  This call implicitly sets the
+    domain for the cpu component (component 0) and is included to preserve
+    backward compatibility.
 
-    :param int domain:  one of the following constants as defined in the consts.py file
-        PAPI_DOM_USER User context counted
-        PAPI_DOM_KERNEL Kernel/OS context counted
-        PAPI_DOM_OTHER Exception/transient mode counted
-        PAPI_DOM_SUPERVISOR Supervisor/hypervisor context counted
-        PAPI_DOM_ALL All above contexts counted
-        PAPI_DOM_MAX The largest available context
+    :param int domain: one of the following constants as defined in
+        :doc:`consts`:
+
+        * :py:const:`~pypapi.consts.PAPI_DOM_USER` User context counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_KERNEL` Kernel/OS context counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_OTHER` Exception/transient mode
+          counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_SUPERVISOR` Supervisor/hypervisor
+          context counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_ALL` All above contexts counted
+        * :py:const:`~pypapi.consts.PAPI_DOM_MAX` The largest available context
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     """
@@ -1146,22 +1088,31 @@ def set_domain(domain):
 # int PAPI_set_cmp_granularity(int granularity, int cidx);
 @papi_error
 def set_cmp_granularity(granularity, component):
-    """set_cmp_granularity(granularity, component)
+    """Sets the default counting granularity for eventsets bound to the
+    specified component.
 
-    Set the default counting granularity for eventsets bound to the specified component.
-    Sets the default counting granularity for all new event sets, and requires an explicit component argument.
-    Event sets that are already in existence are not affected.
-    To change the granularity of an existing event set, please see set_opt.
-    The reader should note that the granularity of an event set affects only the mode in which the counter continues to run.
+    Sets the default counting granularity for all new event sets, and requires
+    an explicit component argument.  Event sets that are already in existence
+    are not affected.  To change the granularity of an existing event set,
+    please see :py:func:`set_opt`.  The reader should note that the granularity of an
+    event set affects only the mode in which the counter continues to run.
 
-    :param int granularity: one of the following constants as defined in the consts.py file
-        PAPI_GRN_THR Count each individual thread
-        PAPI_GRN_PROC Count each individual process
-        PAPI_GRN_PROCG Count each individual process group
-        PAPI_GRN_SYS Count the current CPU
-        PAPI_GRN_SYS_CPU Count all CPUs individually
-        PAPI_GRN_MIN The finest available granularity
-        PAPI_GRN_MAX The coarsest available granularity
+    :param int granularity: one of the following constants as defined in
+        :doc:`consts`:
+
+        * :py:const:`~pypapi.consts.PAPI_GRN_THR` Count each individual thread
+        * :py:const:`~pypapi.consts.PAPI_GRN_PROC` Count each individual
+          process
+        * :py:const:`~pypapi.consts.PAPI_GRN_PROCG` Count each individual
+          process group
+        * :py:const:`~pypapi.consts.PAPI_GRN_SYS` Count the current CPU
+        * :py:const:`~pypapi.consts.PAPI_GRN_SYS_CPU` Count all CPUs
+          individually
+        * :py:const:`~pypapi.consts.PAPI_GRN_MIN` The finest available
+          granularity
+        * :py:const:`~pypapi.consts.PAPI_GRN_MAX` The coarsest available
+          granularity
+
     :param int component: An integer identifier for a component.
         By convention, component 0 is always the cpu component.
 
@@ -1177,21 +1128,28 @@ def set_cmp_granularity(granularity, component):
 # int PAPI_set_granularity(int granularity);
 @papi_error
 def set_granularity(granularity):
-    """set_granularity(granularity)
+    """Sets the default counting granularity for eventsets bound to the cpu
+    component.
 
-    Set the default counting granularity for eventsets bound to the cpu component.
-    Sets the default counting granularity for all new event sets created by create_eventset.
-    This call implicitly sets the granularity for the cpu component (component 0) and is included
-    to preserve backward compatibility.
+    Sets the default counting granularity for all new event sets created by
+    create_eventset.  This call implicitly sets the granularity for the cpu
+    component (component 0) and is included to preserve backward compatibility.
 
-    :param int granularity: one of the following constants as defined in the consts.py file
-        PAPI_GRN_THR Count each individual thread
-        PAPI_GRN_PROC Count each individual process
-        PAPI_GRN_PROCG Count each individual process group
-        PAPI_GRN_SYS Count the current CPU
-        PAPI_GRN_SYS_CPU Count all CPUs individually
-        PAPI_GRN_MIN The finest available granularity
-        PAPI_GRN_MAX The coarsest available granularity
+    :param int granularity: one of the following constants as defined in
+        :doc:`consts`:
+
+        * :py:const:`~pypapi.consts.PAPI_GRN_THR` Count each individual thread
+        * :py:const:`~pypapi.consts.PAPI_GRN_PROC` Count each individual
+          process
+        * :py:const:`~pypapi.consts.PAPI_GRN_PROCG` Count each individual
+          process group
+        * :py:const:`~pypapi.consts.PAPI_GRN_SYS` Count the current CPU
+        * :py:const:`~pypapi.consts.PAPI_GRN_SYS_CPU` Count all CPUs
+          individually
+        * :py:const:`~pypapi.consts.PAPI_GRN_MIN` The finest available
+          granularity
+        * :py:const:`~pypapi.consts.PAPI_GRN_MAX` The coarsest available
+          granularity
 
     :raises PapiInvalidValueError: One or more of the arguments is invalid.
     """
@@ -1204,9 +1162,7 @@ def set_granularity(granularity):
 # int PAPI_set_multiplex(int EventSet);
 @papi_error
 def set_multiplex(eventSet):
-    """set_multiplex(eventSet)
-
-    Convert a standard event set to a multiplexed event set.
+    """Converts a standard event set to a multiplexed event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -1222,15 +1178,22 @@ def set_multiplex(eventSet):
 
 
 # int PAPI_set_opt(int option, PAPI_option_t * ptr);
+def set_opt(*args):
+    """
+    .. WARNING::
+
+        Not implemented in the Python bindings. Will raise ``NotImplementedError``.
+    """
+    # XXX Function defined for doc reference.
+    raise NotImplementedError()  # TODO
+
+
 # int PAPI_set_thr_specific(int tag, void *ptr);
 
 
 # void PAPI_shutdown(void);
 def shutdown():
-    """shutdown()
-
-    Finish using PAPI and free all related resources
-    """
+    """Finishes using PAPI and free all related resources."""
     lib.PAPI_shutdown()
     return None
 
@@ -1241,9 +1204,7 @@ def shutdown():
 # int PAPI_start(int EventSet);
 @papi_error
 def start(eventSet):
-    """start(eventSet)
-
-    Starts counting all of the hardware events contained in the EventSet. All
+    """Starts counting all of the hardware events contained in the EventSet. All
     counters are implicitly set to zero before counting.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
@@ -1266,9 +1227,7 @@ def start(eventSet):
 # int PAPI_state(int EventSet, int *status);
 @papi_error
 def state(eventSet):
-    """state(eventSet)
-
-    Returns the counting state of the specified event set.
+    """Returns the counting state of the specified event set.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -1288,9 +1247,8 @@ def state(eventSet):
 # int PAPI_stop(int EventSet, long long * values);
 @papi_error
 def stop(eventSet):
-    """stop(eventSet)
-
-    Stop counting hardware events in an event set and return current values.
+    """Stops counting hardware events in an event set and return current
+    values.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
@@ -1319,9 +1277,7 @@ def stop(eventSet):
 
 # char *PAPI_strerror(int);
 def strerror(errCode):
-    """strerror(errCode)
-
-    Returns a string describing the PAPI error code.
+    """Returns a string describing the PAPI error code.
 
     :returns: Error string. If None is returned, errCode is invalid.
     :rtype: str
@@ -1332,18 +1288,18 @@ def strerror(errCode):
 
 
 # unsigned long PAPI_thread_id(void);
+@papi_error
 def thread_id():
-    """thread_id()
+    """Get the thread identifier of the current thread.
 
-    Get the thread identifier of the current thread.
-
-    :returns: PAPI_EMISC is returned if there are no threads registered.
-        -1 is returned if the thread id function returns an error.
-        This function returns a valid thread identifier.
+    :returns: a valid thread identifier.
     :rtype: ctypes.c_ulonglong
+
+    :raises PapiMiscellaneousError: if there are no threads registered.
+    :raises PapiInvalidValueError: if the thread id function returns an error.
     """
     rval = lib.PAPI_thread_id()
-    return c_ulonglong(rval)
+    return rval, c_ulonglong(rval)
 
 
 # int PAPI_thread_init(unsigned long (*id_fn) (void));
@@ -1352,12 +1308,11 @@ def thread_id():
 # int PAPI_unlock(int);
 @papi_error
 def unlock(lock):
-    """unlock(lock)
-
-    Unlock one of the mutex variables defined in papi.h.
+    """Unlocks one of the mutex variables.
 
     :param int lock: an integer value specifying one of the two user locks:
-            PAPI_USR1_LOCK or PAPI_USR2_LOCK
+            :py:const:`~pypapi.consts.PAPI_USR1_LOCK` or
+            :py:const:`~pypapi.consts.PAPI_USR2_LOCK`.
 
     """
     rcode = lib.PAPI_unlock(lock)
@@ -1368,9 +1323,7 @@ def unlock(lock):
 # int PAPI_unregister_thread(void);
 @papi_error
 def unregister_thread():
-    """unregister_thread()
-
-    Notify PAPI that a thread has 'disappeared'.
+    """Notify PAPI that a thread has 'disappeared'.
 
     :raises PapiNoMemoryError: Space could not be allocated to store the new thread information.
     :raises PapiSystemError: A system or C library call failed inside PAPI, see the errno variable.
@@ -1384,20 +1337,21 @@ def unregister_thread():
 # int PAPI_write(int EventSet, long long * values);
 @papi_error
 def write(eventSet):
-    """write(eventSet, values)
-
-    Write counter values into counters.
+    """Write counter values into counters.
 
     :param int eventSet: An integer handle for a PAPI Event Set as created by
         :py:func:`create_eventset`.
 
     :raises PapiNoEventSetError: The EventSet specified does not exist.
     :raises PapiComponentError: write() is not implemented for this architecture.
-    :raises PapiSystemError: The EventSet is currently counting events and the component could not change the values of the running counters.
-        write() writes the counter values provided in the array values into the event set EventSet.
-        The virtual counters managed by the PAPI library will be set to the values provided.
-        If the event set is running, an attempt will be made to write the values to the running counters.
-        This operation is not permitted by all components and may result in a run-time error.
+    :raises PapiSystemError: The EventSet is currently counting events and the
+        component could not change the values of the running counters.  write()
+        writes the counter values provided in the array values into the event
+        set EventSet.  The virtual counters managed by the PAPI library will be
+        set to the values provided.  If the event set is running, an attempt
+        will be made to write the values to the running counters.  This
+        operation is not permitted by all components and may result in a
+        run-time error.
     """
 
     return None, None
@@ -1406,11 +1360,10 @@ def write(eventSet):
 # int PAPI_get_event_component(int EventCode);
 @papi_error
 def get_event_component(eventCode):
-    """get_event_component(eventCode)
+    """Return component an event belongs to.
 
-    Return component an event belongs to
-
-    :param int eventCode: EventCode for which we want to know the component index.
+    :param int eventCode: EventCode for which we want to know the component
+        index.
 
     :returns: component index
     :rtype: int
@@ -1425,17 +1378,17 @@ def get_event_component(eventCode):
 # int PAPI_get_eventset_component(int EventSet);
 @papi_error
 def get_eventset_component(eventSet):
-    """get_eventset_component(eventSet)
+    """Returns index for component an EventSet is assigned to.
 
-    Return index for component an EventSet is assigned to
-
-    :param int eventSet: EventSet for which we want to know the component index
+    :param int eventSet: EventSet for which we want to know the component
+        index.
 
     :returns: component index
     :rtype: int
 
-    :raises PapiNoEventSetError: EventSet does not exist
-    :raises PapiNoComponentError: component is invalid or does not exist positive value valid component index
+    :raises PapiNoEventSetError: EventSet does not exist.
+    :raises PapiNoComponentError: component is invalid or does not exist
+        positive value valid component index.
     """
     rcode = lib.PAPI_get_eventset_component(eventSet)
 
@@ -1445,9 +1398,7 @@ def get_eventset_component(eventSet):
 # int PAPI_get_component_index(const char *name);
 @papi_error
 def get_component_index(componentName):
-    """get_component_index(componentName)
-
-    Returns the component index for the named component
+    """Returns the component index for the named component.
 
     :param int componentName: name of component to find index for
 
@@ -1465,9 +1416,7 @@ def get_component_index(componentName):
 # int PAPI_disable_component(int cidx);
 @papi_error
 def disable_component(component):
-    """disable_component(component)
-
-    Disables the specified component
+    """Disables the specified component.
 
     :param int component: component index of component to be disabled
 
@@ -1475,7 +1424,8 @@ def disable_component(component):
     :rtype: int
 
     :raises PapiNoComponentError: component does not exist
-    :raises PapiInitializationError: cannot disable as PAPI has already been initialized
+    :raises PapiInitializationError: cannot disable as PAPI has already been
+        initialized
     """
     rcode = lib.PAPI_disable_component(component)
 
@@ -1485,9 +1435,7 @@ def disable_component(component):
 # int PAPI_disable_component_by_name(const char *name );
 @papi_error
 def disable_component_by_name(componentName):
-    """disable_component_by_name(componentName)
-
-    Disables the named component
+    """Disables the named component.
 
     :param str componentName: name of the component to disable.
 
@@ -1495,7 +1443,8 @@ def disable_component_by_name(componentName):
     :rtype: int
 
     :raises PapiNoComponentError: component does not exist
-    :raises PapiInitializationError: unable to disable the component, the library has already been initialized
+    :raises PapiInitializationError: unable to disable the component, the
+        library has already been initialized
     """
     componentName_p = ffi.new("char[]", componentName.encode("ascii"))
     rcode = lib.PAPI_disable_component_by_name(componentName_p)
@@ -1505,11 +1454,10 @@ def disable_component_by_name(componentName):
 
 # int PAPI_num_components(void);
 def num_components():
-    """num_components()
+    """Get the number of components available on the system.
 
-    Get the number of components available on the system.
-
-    :returns: Number of components available on the system. Query the library for a component count.
+    :returns: Number of components available on the system. Query the library
+        for a component count.
     :rtype: int
     """
     return lib.PAPI_num_components()
@@ -1518,12 +1466,15 @@ def num_components():
 # int PAPI_flips_rate(int event, float *rtime, float *ptime, long long *flpins, float *mflips);
 @papi_error
 def flips_rate(event):
-    """flips_rate(event)
-
-    Simplified call to get Mflips/s (floating point instruction rate), real
+    """Simplified call to get Mflips/s (floating point instruction rate), real
     and processor time.
 
-    :param int event: one of the three presets in consts.py: PAPI_FP_INS, PAPI_VEC_SP or PAPI_VEC_DP
+    :param int event: one of the three presets in :doc:`consts`:
+
+        * :py:const:`~pypapi.consts.PAPI_FP_INS`,
+        * :py:const:`~pypapi.consts.PAPI_VEC_SP`,
+        * :py:const:`~pypapi.consts.PAPI_VEC_DP`
+
     :rtype: structs.Flips
 
     :raises PapiInvalidValueError: The counters were already started by
@@ -1551,12 +1502,14 @@ def flips_rate(event):
 # int PAPI_flops_rate(int event, float *rtime, float *ptime, long long * flpops, float *mflops);
 @papi_error
 def flops_rate(event):
-    """flops_rate(event)
-
-    Simplified call to get Mflops/s (floating point operation rate), real
+    """Simplified call to get Mflops/s (floating point operation rate), real
     and processor time.
 
-    :param int event: one of the three presets in consts.py: PAPI_FP_OPS, PAPI_SP_OPS or PAPI_DP_OPS
+    :param int event: one of the three presets in :doc:`consts`:
+
+        * :py:const:`~pypapi.consts.PAPI_FP_OPS`,
+        * :py:const:`~pypapi.consts.PAPI_SP_OPS`,
+        * :py:const:`~pypapi.consts.PAPI_DP_OPS`
 
     :rtype: structs.Flops
 
@@ -1585,9 +1538,7 @@ def flops_rate(event):
 # int PAPI_ipc(float *rtime, float *ptime, long long *ins, float *ipc);
 @papi_error
 def ipc():
-    """ipc()
-
-    Simplified call to get instructions per cycle, real and processor time.
+    """Simplified call to get instructions per cycle, real and processor time.
 
     :rtype: structs.IPC
 
@@ -1616,12 +1567,11 @@ def ipc():
 #              long long *core, long long *evt, float *epc);
 @papi_error
 def epc(event=0):
-    """epc(event=0)
-
-    Simplified call to get arbitrary events per cycle, real and processor time.
+    """Simplified call to get arbitrary events per cycle, real and processor
+    time.
 
     :param int event: event code to be measured (from :doc:`events`, default:
-        :py:const:`pypapi.events.PAPI_TOT_INS`).
+        :py:const:`~pypapi.events.PAPI_TOT_INS`).
 
     :rtype: structs.EPC
 
@@ -1652,12 +1602,10 @@ def epc(event=0):
 
 # int PAPI_rate_stop();
 def rate_stop():
-    """rate_stop()
-
-    Stop a running event set of a rate function.
+    """Stops a running event set of a rate function.
 
     :raises PapiNoEventError: The EventSet is not started yet.
-    :raises PapiNoMemoryError: Insufficient memory to complete the operation. PAPI_rate_stop stops a running event set of a rate function.
+    :raises PapiNoMemoryError: Insufficient memory to complete the operation.
     """
     rcode = lib.PAPI_rate_stop()
 

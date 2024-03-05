@@ -24,7 +24,7 @@ Example usage:
 ::
 
     # Low Level API
-    
+
     from pypapi import papi_low as papi
     from pypapi import events
 
@@ -51,7 +51,7 @@ Example usage:
    install
    papi_high
    papi_low
-   types
+   structs
    events
    consts
    exceptions
