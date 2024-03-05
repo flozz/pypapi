@@ -1193,8 +1193,7 @@ def set_opt(*args):
 
 # void PAPI_shutdown(void);
 def shutdown():
-    """Finishes using PAPI and free all related resources.
-    """
+    """Finishes using PAPI and free all related resources."""
     lib.PAPI_shutdown()
     return None
 
