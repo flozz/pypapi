@@ -1291,17 +1291,16 @@ def strerror(errCode):
 # unsigned long PAPI_thread_id(void);
 @papi_error
 def thread_id():
-    """thread_id()
+    """Get the thread identifier of the current thread.
 
-    Get the thread identifier of the current thread.
-
-    :returns: PAPI_EMISC is returned if there are no threads registered.
-        -1 is returned if the thread id function returns an error.
-        This function returns a valid thread identifier.
+    :returns: a valid thread identifier.
     :rtype: ctypes.c_ulonglong
+
+    :raises PapiMiscellaneousError: if there are no threads registered.
+    :raises PapiInvalidValueError: if the thread id function returns an error.
     """
     rval = lib.PAPI_thread_id()
-    return c_ulonglong(rval)
+    return rval, c_ulonglong(rval)
 
 
 # int PAPI_thread_init(unsigned long (*id_fn) (void));
