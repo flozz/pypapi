@@ -1178,6 +1178,16 @@ def set_multiplex(eventSet):
 
 
 # int PAPI_set_opt(int option, PAPI_option_t * ptr);
+def set_opt(*args):
+    """
+    .. WARNING::
+
+        Not implemented in the Python bindings. Will raise ``NotImplementedError``.
+    """
+    # XXX Function defined for doc reference.
+    raise NotImplementedError()  # TODO
+
+
 # int PAPI_set_thr_specific(int tag, void *ptr);
 
 
