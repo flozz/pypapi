@@ -5,7 +5,7 @@ As PAPI is a C library, it must be compiled. On Ubuntu / Debian, you can
 install the ``build-essential`` package.
 
 
-From PYPI
+From PyPI
 ---------
 
 To install PyPAPI from PYPI, simply use pip::
@@ -34,5 +34,4 @@ Finally, execute the following command::
 
     you may require root permission if you want to install the package
     system-wide.
-
 
