@@ -50,7 +50,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "PyPAPI"
-copyright = "2017, Fabien LOISON, Mathilde BOUTIGNY"
+copyright = "2017 - 2024, Fabien LOISON, Mathilde BOUTIGNY"
 author = "Fabien LOISON, Mathilde BOUTIGNY"
 
 # The version info for the project you're documenting, acts as replacement for

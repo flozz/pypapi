@@ -95,6 +95,10 @@ Changelog
 
   * Nothing yet :)
 
+* **v6.0.0.1:**
+
+  * feat!: Updated the PAPI library to v6.0.0.1
+
 * **v5.5.1.6:**
 
   * chore: Added code linting with Flake8 (@flozz)
