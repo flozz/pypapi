@@ -5,6 +5,7 @@ PYTHON_FILES = [
     "pypapi",
     "setup.py",
     "noxfile.py",
+    "docs/conf.py",
 ]
 
 
