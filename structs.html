@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAPI Structs &mdash; PyPAPI 6.0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=ff1b93f3"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Events" href="events.html" />
+    <link rel="prev" title="PAPI Low Level API" href="papi_low.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PyPAPI
+          </a>
+              <div class="version">
+                6.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papi_low.html">PAPI Low Level API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PAPI Structs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.ADDR_map"><code class="docutils literal notranslate"><span class="pre">ADDR_map</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.ADDR_map.fields"><code class="docutils literal notranslate"><span class="pre">ADDR_map.fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.ADDR_map.s_fields"><code class="docutils literal notranslate"><span class="pre">ADDR_map.s_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.ADDR_p"><code class="docutils literal notranslate"><span class="pre">ADDR_p</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.COMPONENT_info"><code class="docutils literal notranslate"><span class="pre">COMPONENT_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.COMPONENT_info.fields"><code class="docutils literal notranslate"><span class="pre">COMPONENT_info.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.DMEM_info"><code class="docutils literal notranslate"><span class="pre">DMEM_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.DMEM_info.alloc_empty"><code class="docutils literal notranslate"><span class="pre">DMEM_info.alloc_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.DMEM_info.fields"><code class="docutils literal notranslate"><span class="pre">DMEM_info.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.EPC"><code class="docutils literal notranslate"><span class="pre">EPC</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EPC.core"><code class="docutils literal notranslate"><span class="pre">EPC.core</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EPC.epc"><code class="docutils literal notranslate"><span class="pre">EPC.epc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EPC.evt"><code class="docutils literal notranslate"><span class="pre">EPC.evt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EPC.ptime"><code class="docutils literal notranslate"><span class="pre">EPC.ptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EPC.ref"><code class="docutils literal notranslate"><span class="pre">EPC.ref</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EPC.rtime"><code class="docutils literal notranslate"><span class="pre">EPC.rtime</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.EVENT_info"><code class="docutils literal notranslate"><span class="pre">EVENT_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EVENT_info.alloc_empty"><code class="docutils literal notranslate"><span class="pre">EVENT_info.alloc_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EVENT_info.fields"><code class="docutils literal notranslate"><span class="pre">EVENT_info.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.EXECUTABLE_info"><code class="docutils literal notranslate"><span class="pre">EXECUTABLE_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.EXECUTABLE_info.fields"><code class="docutils literal notranslate"><span class="pre">EXECUTABLE_info.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.Flips"><code class="docutils literal notranslate"><span class="pre">Flips</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flips.event"><code class="docutils literal notranslate"><span class="pre">Flips.event</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flips.flpins"><code class="docutils literal notranslate"><span class="pre">Flips.flpins</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flips.mflips"><code class="docutils literal notranslate"><span class="pre">Flips.mflips</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flips.ptime"><code class="docutils literal notranslate"><span class="pre">Flips.ptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flips.rtime"><code class="docutils literal notranslate"><span class="pre">Flips.rtime</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.Flops"><code class="docutils literal notranslate"><span class="pre">Flops</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flops.event"><code class="docutils literal notranslate"><span class="pre">Flops.event</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flops.flpops"><code class="docutils literal notranslate"><span class="pre">Flops.flpops</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flops.mflops"><code class="docutils literal notranslate"><span class="pre">Flops.mflops</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flops.ptime"><code class="docutils literal notranslate"><span class="pre">Flops.ptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.Flops.rtime"><code class="docutils literal notranslate"><span class="pre">Flops.rtime</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.HARDWARE_info"><code class="docutils literal notranslate"><span class="pre">HARDWARE_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.HARDWARE_info.fields"><code class="docutils literal notranslate"><span class="pre">HARDWARE_info.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.IPC"><code class="docutils literal notranslate"><span class="pre">IPC</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.IPC.ins"><code class="docutils literal notranslate"><span class="pre">IPC.ins</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.IPC.ipc"><code class="docutils literal notranslate"><span class="pre">IPC.ipc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.IPC.ptime"><code class="docutils literal notranslate"><span class="pre">IPC.ptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.IPC.rtime"><code class="docutils literal notranslate"><span class="pre">IPC.rtime</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.MH_cache"><code class="docutils literal notranslate"><span class="pre">MH_cache</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.MH_cache.fields"><code class="docutils literal notranslate"><span class="pre">MH_cache.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.MH_info"><code class="docutils literal notranslate"><span class="pre">MH_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.MH_info.fields"><code class="docutils literal notranslate"><span class="pre">MH_info.fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.MH_info.s_fields"><code class="docutils literal notranslate"><span class="pre">MH_info.s_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.MH_level"><code class="docutils literal notranslate"><span class="pre">MH_level</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.MH_level.s_fields"><code class="docutils literal notranslate"><span class="pre">MH_level.s_fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.MH_tlb"><code class="docutils literal notranslate"><span class="pre">MH_tlb</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.MH_tlb.fields"><code class="docutils literal notranslate"><span class="pre">MH_tlb.fields</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.PAPI_Base"><code class="docutils literal notranslate"><span class="pre">PAPI_Base</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.PAPI_Base.cdata_to_python"><code class="docutils literal notranslate"><span class="pre">PAPI_Base.cdata_to_python()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.PAPI_Base.fields"><code class="docutils literal notranslate"><span class="pre">PAPI_Base.fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.PAPI_Base.s_fields"><code class="docutils literal notranslate"><span class="pre">PAPI_Base.s_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.PAPI_Base.special_cdata_to_python"><code class="docutils literal notranslate"><span class="pre">PAPI_Base.special_cdata_to_python()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.structs.SHARED_LIB_info"><code class="docutils literal notranslate"><span class="pre">SHARED_LIB_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.SHARED_LIB_info.fields"><code class="docutils literal notranslate"><span class="pre">SHARED_LIB_info.fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.structs.SHARED_LIB_info.s_fields"><code class="docutils literal notranslate"><span class="pre">SHARED_LIB_info.s_fields</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consts.html">Constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyPAPI</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PAPI Structs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/structs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pypapi.structs">
+<span id="papi-structs"></span><h1>PAPI Structs<a class="headerlink" href="#module-pypapi.structs" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.ADDR_map">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">ADDR_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.ADDR_map" title="Link to this definition"></a></dt>
+<dd><p>Address map class. Maps to PAPI_address_map_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.ADDR_map.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'name':</span> <span class="pre">'str:'}</span></em><a class="headerlink" href="#pypapi.structs.ADDR_map.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.ADDR_map.s_fields">
+<span class="sig-name descname"><span class="pre">s_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'bss_end':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_p'&gt;,</span> <span class="pre">0),</span> <span class="pre">'bss_start':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_p'&gt;,</span> <span class="pre">0),</span> <span class="pre">'data_end':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_p'&gt;,</span> <span class="pre">0),</span> <span class="pre">'data_start':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_p'&gt;,</span> <span class="pre">0),</span> <span class="pre">'text_end':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_p'&gt;,</span> <span class="pre">0),</span> <span class="pre">'text_start':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_p'&gt;,</span> <span class="pre">0)}</span></em><a class="headerlink" href="#pypapi.structs.ADDR_map.s_fields" title="Link to this definition"></a></dt>
+<dd><p>Special Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.ADDR_p">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">ADDR_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.ADDR_p" title="Link to this definition"></a></dt>
+<dd><p>Address pointer class.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.COMPONENT_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">COMPONENT_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.COMPONENT_info" title="Link to this definition"></a></dt>
+<dd><p>Component info class. Maps to PAPI_component_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.COMPONENT_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'CmpIdx':</span> <span class="pre">'num:c_int',</span> <span class="pre">'attach':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'attach_must_ptrace':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'available_domains':</span> <span class="pre">'num:c_int',</span> <span class="pre">'available_granularities':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cntr_umasks':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'component_type':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cpu':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'default_domain':</span> <span class="pre">'num:c_int',</span> <span class="pre">'default_granularity':</span> <span class="pre">'num:c_int',</span> <span class="pre">'description':</span> <span class="pre">'str:',</span> <span class="pre">'disabled':</span> <span class="pre">'num:c_int',</span> <span class="pre">'disabled_reason':</span> <span class="pre">'str:',</span> <span class="pre">'fast_counter_read':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'fast_real_timer':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'fast_virtual_timer':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'hardware_intr':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'hardware_intr_sig':</span> <span class="pre">'num:c_int',</span> <span class="pre">'inherit':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'kernel_multiplex':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'kernel_profile':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'kernel_version':</span> <span class="pre">'str:',</span> <span class="pre">'name':</span> <span class="pre">'str:',</span> <span class="pre">'num_cntrs':</span> <span class="pre">'num:c_int',</span> <span class="pre">'num_mpx_cntrs':</span> <span class="pre">'num:c_int',</span> <span class="pre">'num_native_events':</span> <span class="pre">'num:c_int',</span> <span class="pre">'num_preset_events':</span> <span class="pre">'num:c_int',</span> <span class="pre">'pmu_names':</span> <span class="pre">'arr:str:',</span> <span class="pre">'posix1b_timers':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'precise_intr':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'reserved':</span> <span class="pre">'arr:num:c_uint',</span> <span class="pre">'reserved_bits':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'short_name':</span> <span class="pre">'str:',</span> <span class="pre">'support_version':</span> <span class="pre">'str:',</span> <span class="pre">'version':</span> <span class="pre">'str:'}</span></em><a class="headerlink" href="#pypapi.structs.COMPONENT_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.DMEM_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">DMEM_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.DMEM_info" title="Link to this definition"></a></dt>
+<dd><p>Dynamic memory usage info class. Maps to PAPI_dmem_info_t data structure.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pypapi.structs.DMEM_info.alloc_empty">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alloc_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.DMEM_info.alloc_empty" title="Link to this definition"></a></dt>
+<dd><p>Allocate empty PAPI_dmem_info_t using ffi.new</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.DMEM_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'heap':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'high_water_mark':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'library':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'locked':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'pagesize':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'peak':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'pte':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'resident':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'shared':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'size':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'stack':</span> <span class="pre">'num:c_longlong',</span> <span class="pre">'text':</span> <span class="pre">'num:c_longlong'}</span></em><a class="headerlink" href="#pypapi.structs.DMEM_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.EPC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">EPC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">core</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.EPC" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EPC.core">
+<span class="sig-name descname"><span class="pre">core</span></span><a class="headerlink" href="#pypapi.structs.EPC.core" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EPC.epc">
+<span class="sig-name descname"><span class="pre">epc</span></span><a class="headerlink" href="#pypapi.structs.EPC.epc" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EPC.evt">
+<span class="sig-name descname"><span class="pre">evt</span></span><a class="headerlink" href="#pypapi.structs.EPC.evt" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EPC.ptime">
+<span class="sig-name descname"><span class="pre">ptime</span></span><a class="headerlink" href="#pypapi.structs.EPC.ptime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EPC.ref">
+<span class="sig-name descname"><span class="pre">ref</span></span><a class="headerlink" href="#pypapi.structs.EPC.ref" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EPC.rtime">
+<span class="sig-name descname"><span class="pre">rtime</span></span><a class="headerlink" href="#pypapi.structs.EPC.rtime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.EVENT_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">EVENT_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.EVENT_info" title="Link to this definition"></a></dt>
+<dd><p>Envent info class. Maps to PAPI_event_info_t data structure.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pypapi.structs.EVENT_info.alloc_empty">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alloc_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.EVENT_info.alloc_empty" title="Link to this definition"></a></dt>
+<dd><p>Allocate empty PAPI_event_info_t using ffi.new</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EVENT_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'code':</span> <span class="pre">'arr:num:c_uint',</span> <span class="pre">'component_index':</span> <span class="pre">'num:c_int',</span> <span class="pre">'count':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'data_type':</span> <span class="pre">'num:c_int',</span> <span class="pre">'derived':</span> <span class="pre">'str:',</span> <span class="pre">'event_code':</span> <span class="pre">'num:c_int',</span> <span class="pre">'event_type':</span> <span class="pre">'num:c_uint',</span> <span class="pre">'location':</span> <span class="pre">'num:c_int',</span> <span class="pre">'long_descr':</span> <span class="pre">'str:',</span> <span class="pre">'name':</span> <span class="pre">'arr:str:',</span> <span class="pre">'note':</span> <span class="pre">'str:',</span> <span class="pre">'postfix':</span> <span class="pre">'str:',</span> <span class="pre">'short_descr':</span> <span class="pre">'str:',</span> <span class="pre">'symbol':</span> <span class="pre">'str:',</span> <span class="pre">'timescope':</span> <span class="pre">'num:c_int',</span> <span class="pre">'units':</span> <span class="pre">'str:',</span> <span class="pre">'update_freq':</span> <span class="pre">'num:c_int',</span> <span class="pre">'update_type':</span> <span class="pre">'num:c_int',</span> <span class="pre">'value_type':</span> <span class="pre">'num:c_int'}</span></em><a class="headerlink" href="#pypapi.structs.EVENT_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.EXECUTABLE_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">EXECUTABLE_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.EXECUTABLE_info" title="Link to this definition"></a></dt>
+<dd><p>Executable info class. Maps to PAPI_exe_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.EXECUTABLE_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fullname':</span> <span class="pre">'str:'}</span></em><a class="headerlink" href="#pypapi.structs.EXECUTABLE_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.Flips">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">Flips</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flpins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mflips</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.Flips" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flips.event">
+<span class="sig-name descname"><span class="pre">event</span></span><a class="headerlink" href="#pypapi.structs.Flips.event" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flips.flpins">
+<span class="sig-name descname"><span class="pre">flpins</span></span><a class="headerlink" href="#pypapi.structs.Flips.flpins" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flips.mflips">
+<span class="sig-name descname"><span class="pre">mflips</span></span><a class="headerlink" href="#pypapi.structs.Flips.mflips" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flips.ptime">
+<span class="sig-name descname"><span class="pre">ptime</span></span><a class="headerlink" href="#pypapi.structs.Flips.ptime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flips.rtime">
+<span class="sig-name descname"><span class="pre">rtime</span></span><a class="headerlink" href="#pypapi.structs.Flips.rtime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.Flops">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">Flops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flpops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mflops</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.Flops" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flops.event">
+<span class="sig-name descname"><span class="pre">event</span></span><a class="headerlink" href="#pypapi.structs.Flops.event" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flops.flpops">
+<span class="sig-name descname"><span class="pre">flpops</span></span><a class="headerlink" href="#pypapi.structs.Flops.flpops" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flops.mflops">
+<span class="sig-name descname"><span class="pre">mflops</span></span><a class="headerlink" href="#pypapi.structs.Flops.mflops" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flops.ptime">
+<span class="sig-name descname"><span class="pre">ptime</span></span><a class="headerlink" href="#pypapi.structs.Flops.ptime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.Flops.rtime">
+<span class="sig-name descname"><span class="pre">rtime</span></span><a class="headerlink" href="#pypapi.structs.Flops.rtime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.HARDWARE_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">HARDWARE_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.HARDWARE_info" title="Link to this definition"></a></dt>
+<dd><p>Hardware info class. Maps to PAPI_hw_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.HARDWARE_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cores':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cpu_max_mhz':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cpu_min_mhz':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cpuid_family':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cpuid_model':</span> <span class="pre">'num:c_int',</span> <span class="pre">'cpuid_stepping':</span> <span class="pre">'num:c_int',</span> <span class="pre">'model':</span> <span class="pre">'num:c_int',</span> <span class="pre">'model_string':</span> <span class="pre">'str:',</span> <span class="pre">'ncpu':</span> <span class="pre">'num:c_int',</span> <span class="pre">'nnodes':</span> <span class="pre">'num:c_int',</span> <span class="pre">'revision':</span> <span class="pre">'num:c_float',</span> <span class="pre">'sockets':</span> <span class="pre">'num:c_int',</span> <span class="pre">'threads':</span> <span class="pre">'num:c_int',</span> <span class="pre">'totalcpus':</span> <span class="pre">'num:c_int',</span> <span class="pre">'vendor':</span> <span class="pre">'num:c_int',</span> <span class="pre">'vendor_string':</span> <span class="pre">'str:',</span> <span class="pre">'virtual_vendor_string':</span> <span class="pre">'str:',</span> <span class="pre">'virtual_vendor_version':</span> <span class="pre">'str:',</span> <span class="pre">'virtualized':</span> <span class="pre">'num:c_int'}</span></em><a class="headerlink" href="#pypapi.structs.HARDWARE_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.IPC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">IPC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ptime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.IPC" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.IPC.ins">
+<span class="sig-name descname"><span class="pre">ins</span></span><a class="headerlink" href="#pypapi.structs.IPC.ins" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.IPC.ipc">
+<span class="sig-name descname"><span class="pre">ipc</span></span><a class="headerlink" href="#pypapi.structs.IPC.ipc" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.IPC.ptime">
+<span class="sig-name descname"><span class="pre">ptime</span></span><a class="headerlink" href="#pypapi.structs.IPC.ptime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.IPC.rtime">
+<span class="sig-name descname"><span class="pre">rtime</span></span><a class="headerlink" href="#pypapi.structs.IPC.rtime" title="Link to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.MH_cache">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">MH_cache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.MH_cache" title="Link to this definition"></a></dt>
+<dd><p>Memory Hierarchy Cache info class. Maps to PAPI_mh_cache_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.MH_cache.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'associativity':</span> <span class="pre">'num:c_int',</span> <span class="pre">'line_size':</span> <span class="pre">'num:c_int',</span> <span class="pre">'num_lines':</span> <span class="pre">'num:c_int',</span> <span class="pre">'size':</span> <span class="pre">'num:c_int',</span> <span class="pre">'type':</span> <span class="pre">'num:c_int'}</span></em><a class="headerlink" href="#pypapi.structs.MH_cache.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.MH_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">MH_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.MH_info" title="Link to this definition"></a></dt>
+<dd><p>Memory Hierarchy info class. Maps to PAPI_mh_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.MH_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'levels':</span> <span class="pre">'num:c_int'}</span></em><a class="headerlink" href="#pypapi.structs.MH_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.MH_info.s_fields">
+<span class="sig-name descname"><span class="pre">s_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'level':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.MH_level'&gt;,</span> <span class="pre">1)}</span></em><a class="headerlink" href="#pypapi.structs.MH_info.s_fields" title="Link to this definition"></a></dt>
+<dd><p>Special Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.MH_level">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">MH_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.MH_level" title="Link to this definition"></a></dt>
+<dd><p>Memory Hierarchy Level info class. Maps to PAPI_mh_level_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.MH_level.s_fields">
+<span class="sig-name descname"><span class="pre">s_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'cache':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.MH_cache'&gt;,</span> <span class="pre">1),</span> <span class="pre">'tlb':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.MH_tlb'&gt;,</span> <span class="pre">1)}</span></em><a class="headerlink" href="#pypapi.structs.MH_level.s_fields" title="Link to this definition"></a></dt>
+<dd><p>Special Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.MH_tlb">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">MH_tlb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.MH_tlb" title="Link to this definition"></a></dt>
+<dd><p>Memory Hierarchy TLB info class. Maps to PAPI_mh_tlb_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.MH_tlb.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'associativity':</span> <span class="pre">'num:c_int',</span> <span class="pre">'num_entries':</span> <span class="pre">'num:c_int',</span> <span class="pre">'page_size':</span> <span class="pre">'num:c_int',</span> <span class="pre">'type':</span> <span class="pre">'num:c_int'}</span></em><a class="headerlink" href="#pypapi.structs.MH_tlb.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.PAPI_Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">PAPI_Base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.PAPI_Base" title="Link to this definition"></a></dt>
+<dd><p>Base class for PAPI structs.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pypapi.structs.PAPI_Base.cdata_to_python">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cdata_to_python</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.PAPI_Base.cdata_to_python" title="Link to this definition"></a></dt>
+<dd><p>Converts C data to Python objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.PAPI_Base.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#pypapi.structs.PAPI_Base.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.PAPI_Base.s_fields">
+<span class="sig-name descname"><span class="pre">s_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#pypapi.structs.PAPI_Base.s_fields" title="Link to this definition"></a></dt>
+<dd><p>Special Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pypapi.structs.PAPI_Base.special_cdata_to_python">
+<span class="sig-name descname"><span class="pre">special_cdata_to_python</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.PAPI_Base.special_cdata_to_python" title="Link to this definition"></a></dt>
+<dd><p>Converts special C data, such as structs, to Python objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pypapi.structs.SHARED_LIB_info">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pypapi.structs.</span></span><span class="sig-name descname"><span class="pre">SHARED_LIB_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.structs.SHARED_LIB_info" title="Link to this definition"></a></dt>
+<dd><p>Shared Lib info class. Maps to PAPI_shlib_info_t data structure.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.SHARED_LIB_info.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'count':</span> <span class="pre">'num:c_int'}</span></em><a class="headerlink" href="#pypapi.structs.SHARED_LIB_info.fields" title="Link to this definition"></a></dt>
+<dd><p>Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pypapi.structs.SHARED_LIB_info.s_fields">
+<span class="sig-name descname"><span class="pre">s_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'map':</span> <span class="pre">(&lt;class</span> <span class="pre">'pypapi.structs.ADDR_map'&gt;,</span> <span class="pre">'count')}</span></em><a class="headerlink" href="#pypapi.structs.SHARED_LIB_info.s_fields" title="Link to this definition"></a></dt>
+<dd><p>Special Fields of the struct (refer to PAPI’s documentation for each field’s meaning)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="papi_low.html" class="btn btn-neutral float-left" title="PAPI Low Level API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="events.html" class="btn btn-neutral float-right" title="Events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017 - 2024, Fabien LOISON, Mathilde BOUTIGNY.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

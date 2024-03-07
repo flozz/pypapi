@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to PyPAPI’s documentation! &mdash; PyPAPI 5.5.1.1 documentation</title>
+  <title>Welcome to PyPAPI’s documentation! &mdash; PyPAPI 6.0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=00535e24"></script>
+        <script src="_static/documentation_options.js?v=ff1b93f3"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -36,7 +36,7 @@
             PyPAPI
           </a>
               <div class="version">
-                5.5.1
+                6.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_low.html">PAPI Low Level API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">PAPI Structs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="consts.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
@@ -89,68 +89,144 @@ Interface) library. PyPAPI implements the whole PAPI High Level API and
 partially the Low Level API.</p>
 <section id="example-usage">
 <h2>Example usage:<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">papi_high</span>
-<span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">events</span> <span class="k">as</span> <span class="n">papi_events</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># High Level API</span>
 
-<span class="c1"># Starts some counters</span>
-<span class="n">papi_high</span><span class="o">.</span><span class="n">start_counters</span><span class="p">([</span>
-    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">,</span>
-    <span class="n">papi_events</span><span class="o">.</span><span class="n">PAPI_TOT_CYC</span>
-<span class="p">])</span>
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">papi_high</span>
 
-<span class="c1"># Reads values from counters and reset them</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">read_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+<span class="n">papi_high</span><span class="o">.</span><span class="n">hl_region_begin</span><span class="p">(</span><span class="s2">&quot;computation&quot;</span><span class="p">)</span>
 
-<span class="c1"># Reads values from counters and stop them</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">papi_high</span><span class="o">.</span><span class="n">stop_counters</span><span class="p">()</span>  <span class="c1"># -&gt; [int, int]</span>
+<span class="c1"># computation</span>
+
+<span class="n">papi_high</span><span class="o">.</span><span class="n">hl_region_end</span><span class="p">(</span><span class="s2">&quot;computation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Low Level API</span>
+
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">papi_low</span> <span class="k">as</span> <span class="n">papi</span>
+<span class="kn">from</span> <span class="nn">pypapi</span> <span class="kn">import</span> <span class="n">events</span>
+
+<span class="n">papi</span><span class="o">.</span><span class="n">library_init</span><span class="p">()</span>
+
+<span class="n">evs</span> <span class="o">=</span> <span class="n">papi</span><span class="o">.</span><span class="n">create_eventset</span><span class="p">()</span>
+<span class="n">papi</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">evs</span><span class="p">,</span> <span class="n">events</span><span class="o">.</span><span class="n">PAPI_FP_OPS</span><span class="p">)</span>
+
+<span class="n">papi</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">evs</span><span class="p">)</span>
+
+<span class="c1"># Do some computation here</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">papi</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="n">evs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">papi</span><span class="o">.</span><span class="n">cleanup_eventset</span><span class="p">(</span><span class="n">evs</span><span class="p">)</span>
+<span class="n">papi</span><span class="o">.</span><span class="n">destroy_eventset</span><span class="p">(</span><span class="n">evs</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#from-pypi">From PYPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#from-pypi">From PyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install.html#from-source">From Source</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.accum_counters"><code class="docutils literal notranslate"><span class="pre">accum_counters()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.epc"><code class="docutils literal notranslate"><span class="pre">epc()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.flips"><code class="docutils literal notranslate"><span class="pre">flips()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.flops"><code class="docutils literal notranslate"><span class="pre">flops()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.ipc"><code class="docutils literal notranslate"><span class="pre">ipc()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.num_components"><code class="docutils literal notranslate"><span class="pre">num_components()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.num_counters"><code class="docutils literal notranslate"><span class="pre">num_counters()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.read_counters"><code class="docutils literal notranslate"><span class="pre">read_counters()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.start_counters"><code class="docutils literal notranslate"><span class="pre">start_counters()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.stop_counters"><code class="docutils literal notranslate"><span class="pre">stop_counters()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.hl_read"><code class="docutils literal notranslate"><span class="pre">hl_read()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.hl_region_begin"><code class="docutils literal notranslate"><span class="pre">hl_region_begin()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.hl_region_end"><code class="docutils literal notranslate"><span class="pre">hl_region_end()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_high.html#pypapi.papi_high.hl_stop"><code class="docutils literal notranslate"><span class="pre">hl_stop()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="papi_low.html">PAPI Low Level API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.accum"><code class="docutils literal notranslate"><span class="pre">accum()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.add_event"><code class="docutils literal notranslate"><span class="pre">add_event()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.add_events"><code class="docutils literal notranslate"><span class="pre">add_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.add_named_event"><code class="docutils literal notranslate"><span class="pre">add_named_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.assign_eventset_component"><code class="docutils literal notranslate"><span class="pre">assign_eventset_component()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.attach"><code class="docutils literal notranslate"><span class="pre">attach()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.cleanup_eventset"><code class="docutils literal notranslate"><span class="pre">cleanup_eventset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.create_eventset"><code class="docutils literal notranslate"><span class="pre">create_eventset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.destroy_eventset"><code class="docutils literal notranslate"><span class="pre">destroy_eventset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.detach"><code class="docutils literal notranslate"><span class="pre">detach()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.disable_component"><code class="docutils literal notranslate"><span class="pre">disable_component()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.disable_component_by_name"><code class="docutils literal notranslate"><span class="pre">disable_component_by_name()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.enum_cmp_event"><code class="docutils literal notranslate"><span class="pre">enum_cmp_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.enum_event"><code class="docutils literal notranslate"><span class="pre">enum_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.epc"><code class="docutils literal notranslate"><span class="pre">epc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.event_code_to_name"><code class="docutils literal notranslate"><span class="pre">event_code_to_name()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.event_name_to_code"><code class="docutils literal notranslate"><span class="pre">event_name_to_code()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.flips_rate"><code class="docutils literal notranslate"><span class="pre">flips_rate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.flops_rate"><code class="docutils literal notranslate"><span class="pre">flops_rate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_component_index"><code class="docutils literal notranslate"><span class="pre">get_component_index()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_component_info"><code class="docutils literal notranslate"><span class="pre">get_component_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_dmem_info"><code class="docutils literal notranslate"><span class="pre">get_dmem_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_event_component"><code class="docutils literal notranslate"><span class="pre">get_event_component()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_event_info"><code class="docutils literal notranslate"><span class="pre">get_event_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_eventset_component"><code class="docutils literal notranslate"><span class="pre">get_eventset_component()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_executable_info"><code class="docutils literal notranslate"><span class="pre">get_executable_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_hardware_info"><code class="docutils literal notranslate"><span class="pre">get_hardware_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_real_cyc"><code class="docutils literal notranslate"><span class="pre">get_real_cyc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_real_nsec"><code class="docutils literal notranslate"><span class="pre">get_real_nsec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_real_usec"><code class="docutils literal notranslate"><span class="pre">get_real_usec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_shared_lib_info"><code class="docutils literal notranslate"><span class="pre">get_shared_lib_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_virt_cyc"><code class="docutils literal notranslate"><span class="pre">get_virt_cyc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_virt_nsec"><code class="docutils literal notranslate"><span class="pre">get_virt_nsec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.get_virt_usec"><code class="docutils literal notranslate"><span class="pre">get_virt_usec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.ipc"><code class="docutils literal notranslate"><span class="pre">ipc()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.is_initialized"><code class="docutils literal notranslate"><span class="pre">is_initialized()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.library_init"><code class="docutils literal notranslate"><span class="pre">library_init()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.list_events"><code class="docutils literal notranslate"><span class="pre">list_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.list_threads"><code class="docutils literal notranslate"><span class="pre">list_threads()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.multiplex_init"><code class="docutils literal notranslate"><span class="pre">multiplex_init()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.num_cmp_hwctrs"><code class="docutils literal notranslate"><span class="pre">num_cmp_hwctrs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.num_components"><code class="docutils literal notranslate"><span class="pre">num_components()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.num_events"><code class="docutils literal notranslate"><span class="pre">num_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.perror"><code class="docutils literal notranslate"><span class="pre">perror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.query_event"><code class="docutils literal notranslate"><span class="pre">query_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.query_named_event"><code class="docutils literal notranslate"><span class="pre">query_named_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.rate_stop"><code class="docutils literal notranslate"><span class="pre">rate_stop()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.register_thread"><code class="docutils literal notranslate"><span class="pre">register_thread()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.remove_event"><code class="docutils literal notranslate"><span class="pre">remove_event()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.remove_events"><code class="docutils literal notranslate"><span class="pre">remove_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.remove_named_event"><code class="docutils literal notranslate"><span class="pre">remove_named_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_cmp_domain"><code class="docutils literal notranslate"><span class="pre">set_cmp_domain()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_cmp_granularity"><code class="docutils literal notranslate"><span class="pre">set_cmp_granularity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_debug"><code class="docutils literal notranslate"><span class="pre">set_debug()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_domain"><code class="docutils literal notranslate"><span class="pre">set_domain()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_granularity"><code class="docutils literal notranslate"><span class="pre">set_granularity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_multiplex"><code class="docutils literal notranslate"><span class="pre">set_multiplex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.set_opt"><code class="docutils literal notranslate"><span class="pre">set_opt()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.shutdown"><code class="docutils literal notranslate"><span class="pre">shutdown()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.start"><code class="docutils literal notranslate"><span class="pre">start()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.state"><code class="docutils literal notranslate"><span class="pre">state()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.strerror"><code class="docutils literal notranslate"><span class="pre">strerror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.thread_id"><code class="docutils literal notranslate"><span class="pre">thread_id()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.unregister_thread"><code class="docutils literal notranslate"><span class="pre">unregister_thread()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="papi_low.html#pypapi.papi_low.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="types.html#pypapi.papi_high_types.EPC"><code class="docutils literal notranslate"><span class="pre">EPC</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html#pypapi.papi_high_types.Flips"><code class="docutils literal notranslate"><span class="pre">Flips</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html#pypapi.papi_high_types.Flops"><code class="docutils literal notranslate"><span class="pre">Flops</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html#pypapi.papi_high_types.IPC"><code class="docutils literal notranslate"><span class="pre">IPC</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">PAPI Structs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.ADDR_map"><code class="docutils literal notranslate"><span class="pre">ADDR_map</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.ADDR_p"><code class="docutils literal notranslate"><span class="pre">ADDR_p</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.COMPONENT_info"><code class="docutils literal notranslate"><span class="pre">COMPONENT_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.DMEM_info"><code class="docutils literal notranslate"><span class="pre">DMEM_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.EPC"><code class="docutils literal notranslate"><span class="pre">EPC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.EVENT_info"><code class="docutils literal notranslate"><span class="pre">EVENT_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.EXECUTABLE_info"><code class="docutils literal notranslate"><span class="pre">EXECUTABLE_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.Flips"><code class="docutils literal notranslate"><span class="pre">Flips</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.Flops"><code class="docutils literal notranslate"><span class="pre">Flops</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.HARDWARE_info"><code class="docutils literal notranslate"><span class="pre">HARDWARE_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.IPC"><code class="docutils literal notranslate"><span class="pre">IPC</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.MH_cache"><code class="docutils literal notranslate"><span class="pre">MH_cache</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.MH_info"><code class="docutils literal notranslate"><span class="pre">MH_info</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.MH_level"><code class="docutils literal notranslate"><span class="pre">MH_level</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.MH_tlb"><code class="docutils literal notranslate"><span class="pre">MH_tlb</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.PAPI_Base"><code class="docutils literal notranslate"><span class="pre">PAPI_Base</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="structs.html#pypapi.structs.SHARED_LIB_info"><code class="docutils literal notranslate"><span class="pre">SHARED_LIB_info</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a><ul>
@@ -161,6 +237,13 @@ partially the Low Level API.</p>
 <li class="toctree-l2"><a class="reference internal" href="consts.html#papi-version-constants">PAPI Version Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="consts.html#papi-initialization-constants">PAPI Initialization Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="consts.html#papi-state-constants">PAPI State Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-mask-constants">PAPI Mask Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-option-constants">PAPI Option Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-error-constants">PAPI Error Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-domain-constants">PAPI Domain Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-granularity-constants">PAPI Granularity Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-locking-mechanisms-constants">PAPI Locking Mechanisms Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="consts.html#papi-flips-flops-constants">PAPI FLIPS/FLOPS Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="consts.html#other-papi-constants">Other PAPI Constants</a></li>
 </ul>
 </li>
@@ -214,7 +297,7 @@ partially the Low Level API.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.</p>
+    <p>&#169; Copyright 2017 - 2024, Fabien LOISON, Mathilde BOUTIGNY.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

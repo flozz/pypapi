@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constants &mdash; PyPAPI 5.5.1.1 documentation</title>
+  <title>Constants &mdash; PyPAPI 6.0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=00535e24"></script>
+        <script src="_static/documentation_options.js?v=ff1b93f3"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -37,7 +37,7 @@
             PyPAPI
           </a>
               <div class="version">
-                5.5.1
+                6.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -52,7 +52,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing PyPAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_high.html">PAPI High Level API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="papi_low.html">PAPI Low Level API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">PAPI Structs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Constants</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#papi-version-constants">PAPI Version Constants</a><ul>
@@ -77,6 +77,64 @@
 <li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_MULTIPLEXING"><code class="docutils literal notranslate"><span class="pre">PAPI_MULTIPLEXING</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_ATTACHED"><code class="docutils literal notranslate"><span class="pre">PAPI_ATTACHED</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_CPU_ATTACHED"><code class="docutils literal notranslate"><span class="pre">PAPI_CPU_ATTACHED</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-mask-constants">PAPI Mask Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_NATIVE_MASK"><code class="docutils literal notranslate"><span class="pre">PAPI_NATIVE_MASK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_PRESET_MASK"><code class="docutils literal notranslate"><span class="pre">PAPI_PRESET_MASK</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-option-constants">PAPI Option Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_MIN_STR_LEN"><code class="docutils literal notranslate"><span class="pre">PAPI_MIN_STR_LEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_MAX_STR_LEN"><code class="docutils literal notranslate"><span class="pre">PAPI_MAX_STR_LEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_2MAX_STR_LEN"><code class="docutils literal notranslate"><span class="pre">PAPI_2MAX_STR_LEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_HUGE_STR_LEN"><code class="docutils literal notranslate"><span class="pre">PAPI_HUGE_STR_LEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_MAX_INFO_TERMS"><code class="docutils literal notranslate"><span class="pre">PAPI_MAX_INFO_TERMS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-error-constants">PAPI Error Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_QUIET"><code class="docutils literal notranslate"><span class="pre">PAPI_QUIET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_VERB_ECONT"><code class="docutils literal notranslate"><span class="pre">PAPI_VERB_ECONT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_VERB_ESTOP"><code class="docutils literal notranslate"><span class="pre">PAPI_VERB_ESTOP</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-domain-constants">PAPI Domain Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_USER"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_USER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_MIN"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_MIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_KERNEL"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_KERNEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_OTHER"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_OTHER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_SUPERVISOR"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_SUPERVISOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_ALL"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_ALL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_MAX"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_MAX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DOM_HWSPEC"><code class="docutils literal notranslate"><span class="pre">PAPI_DOM_HWSPEC</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-granularity-constants">PAPI Granularity Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_THR"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_THR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_MIN"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_MIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_PROC"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_PROC</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_PROCG"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_PROCG</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_SYS"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_SYS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_SYS_CPU"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_SYS_CPU</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_GRN_MAX"><code class="docutils literal notranslate"><span class="pre">PAPI_GRN_MAX</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-locking-mechanisms-constants">PAPI Locking Mechanisms Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_USR1_LOCK"><code class="docutils literal notranslate"><span class="pre">PAPI_USR1_LOCK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_USR2_LOCK"><code class="docutils literal notranslate"><span class="pre">PAPI_USR2_LOCK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_NUM_LOCK"><code class="docutils literal notranslate"><span class="pre">PAPI_NUM_LOCK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_LOCK_USR1"><code class="docutils literal notranslate"><span class="pre">PAPI_LOCK_USR1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_LOCK_USR2"><code class="docutils literal notranslate"><span class="pre">PAPI_LOCK_USR2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_LOCK_NUM"><code class="docutils literal notranslate"><span class="pre">PAPI_LOCK_NUM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#papi-flips-flops-constants">PAPI FLIPS/FLOPS Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_FP_INS"><code class="docutils literal notranslate"><span class="pre">PAPI_FP_INS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_VEC_SP"><code class="docutils literal notranslate"><span class="pre">PAPI_VEC_SP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_VEC_DP"><code class="docutils literal notranslate"><span class="pre">PAPI_VEC_DP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_FP_OPS"><code class="docutils literal notranslate"><span class="pre">PAPI_FP_OPS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_SP_OPS"><code class="docutils literal notranslate"><span class="pre">PAPI_SP_OPS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pypapi.consts.PAPI_DP_OPS"><code class="docutils literal notranslate"><span class="pre">PAPI_DP_OPS</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#other-papi-constants">Other PAPI Constants</a><ul>
@@ -119,13 +177,13 @@
 <h2>PAPI Version Constants<a class="headerlink" href="#papi-version-constants" title="Link to this heading"></a></h2>
 <dl class="py data">
 <dt class="sig sig-object py" id="pypapi.consts.PAPI_VERSION">
-<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84214016</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VERSION" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VERSION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100663297</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VERSION" title="Link to this definition"></a></dt>
 <dd><p>PAPI version, as used internaly</p>
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="pypapi.consts.PAPI_VER_CURRENT">
-<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VER_CURRENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">84213760</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VER_CURRENT" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VER_CURRENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100663296</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VER_CURRENT" title="Link to this definition"></a></dt>
 <dd><p>PAPI version, without the revision and increment part</p>
 </dd></dl>
 
@@ -214,6 +272,249 @@
 </dd></dl>
 
 </section>
+<section id="papi-mask-constants">
+<span id="consts-mask"></span><h2>PAPI Mask Constants<a class="headerlink" href="#papi-mask-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_NATIVE_MASK">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_NATIVE_MASK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1073741824</span></em><a class="headerlink" href="#pypapi.consts.PAPI_NATIVE_MASK" title="Link to this definition"></a></dt>
+<dd><p>Mask to indicate the event is a native event</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_PRESET_MASK">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_PRESET_MASK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483648</span></em><a class="headerlink" href="#pypapi.consts.PAPI_PRESET_MASK" title="Link to this definition"></a></dt>
+<dd><p>Mask to indicate the event is a preset event</p>
+</dd></dl>
+
+</section>
+<section id="papi-option-constants">
+<span id="consts-option"></span><h2>PAPI Option Constants<a class="headerlink" href="#papi-option-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_MIN_STR_LEN">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_MIN_STR_LEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></em><a class="headerlink" href="#pypapi.consts.PAPI_MIN_STR_LEN" title="Link to this definition"></a></dt>
+<dd><p>For small strings, like names &amp; stuff</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_MAX_STR_LEN">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_MAX_STR_LEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></em><a class="headerlink" href="#pypapi.consts.PAPI_MAX_STR_LEN" title="Link to this definition"></a></dt>
+<dd><p>For average run-of-the-mill strings</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_2MAX_STR_LEN">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_2MAX_STR_LEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">256</span></em><a class="headerlink" href="#pypapi.consts.PAPI_2MAX_STR_LEN" title="Link to this definition"></a></dt>
+<dd><p>For somewhat longer run-of-the-mill strings</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_HUGE_STR_LEN">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_HUGE_STR_LEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1024</span></em><a class="headerlink" href="#pypapi.consts.PAPI_HUGE_STR_LEN" title="Link to this definition"></a></dt>
+<dd><p>This should be defined in terms of a system parameter</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_MAX_INFO_TERMS">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_MAX_INFO_TERMS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#pypapi.consts.PAPI_MAX_INFO_TERMS" title="Link to this definition"></a></dt>
+<dd><p>Dhould match PAPI_EVENTS_IN_DERIVED_EVENT defined in papi_internal.h</p>
+</dd></dl>
+
+</section>
+<section id="papi-error-constants">
+<span id="consts-error"></span><h2>PAPI Error Constants<a class="headerlink" href="#papi-error-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_QUIET">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_QUIET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pypapi.consts.PAPI_QUIET" title="Link to this definition"></a></dt>
+<dd><p>Option to turn off automatic reporting of return codes &lt; 0 to stderr.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_VERB_ECONT">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VERB_ECONT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VERB_ECONT" title="Link to this definition"></a></dt>
+<dd><p>Option to automatically report any return codes &lt; 0 to stderr and continue</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_VERB_ESTOP">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VERB_ESTOP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VERB_ESTOP" title="Link to this definition"></a></dt>
+<dd><p>Option to automatically report any return codes &lt; 0 to stderr and exit.</p>
+</dd></dl>
+
+</section>
+<section id="papi-domain-constants">
+<span id="consts-domain"></span><h2>PAPI Domain Constants<a class="headerlink" href="#papi-domain-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_USER">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_USER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_USER" title="Link to this definition"></a></dt>
+<dd><p>User context counted</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_MIN">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_MIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_MIN" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_DOM_USER</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_KERNEL">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_KERNEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_KERNEL" title="Link to this definition"></a></dt>
+<dd><p>Kernel/OS context counted</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_OTHER">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_OTHER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_OTHER" title="Link to this definition"></a></dt>
+<dd><p>Exception/transient mode (like user TLB misses)</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_SUPERVISOR">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_SUPERVISOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_SUPERVISOR" title="Link to this definition"></a></dt>
+<dd><p>Supervisor/hypervisor context counted</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_ALL">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_ALL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_ALL" title="Link to this definition"></a></dt>
+<dd><p>All contexts counted</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_MAX">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">15</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_MAX" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_DOM_ALL</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DOM_HWSPEC">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DOM_HWSPEC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2147483648</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DOM_HWSPEC" title="Link to this definition"></a></dt>
+<dd><p>Flag that indicates we are not reading CPU like stuff. The lower 31 bits can be decoded by the component into something meaningful. i.e. SGI HUB counters</p>
+</dd></dl>
+
+</section>
+<section id="papi-granularity-constants">
+<span id="consts-granularity"></span><h2>PAPI Granularity Constants<a class="headerlink" href="#papi-granularity-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_THR">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_THR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_THR" title="Link to this definition"></a></dt>
+<dd><p>PAPI counters for each individual thread</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_MIN">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_MIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_MIN" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_GRN_THR</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_PROC">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_PROC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_PROC" title="Link to this definition"></a></dt>
+<dd><p>PAPI counters for each individual process</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_PROCG">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_PROCG</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_PROCG" title="Link to this definition"></a></dt>
+<dd><p>PAPI counters for each individual process group</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_SYS">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_SYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_SYS" title="Link to this definition"></a></dt>
+<dd><p>PAPI counters for the current CPU, are you bound?</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_SYS_CPU">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_SYS_CPU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_SYS_CPU" title="Link to this definition"></a></dt>
+<dd><p>PAPI counters for all CPUs individually</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_GRN_MAX">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_GRN_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#pypapi.consts.PAPI_GRN_MAX" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_GRN_SYS_CPU</p>
+</dd></dl>
+
+</section>
+<section id="papi-locking-mechanisms-constants">
+<span id="consts-locking"></span><h2>PAPI Locking Mechanisms Constants<a class="headerlink" href="#papi-locking-mechanisms-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_USR1_LOCK">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_USR1_LOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pypapi.consts.PAPI_USR1_LOCK" title="Link to this definition"></a></dt>
+<dd><p>User controlled locks</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_USR2_LOCK">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_USR2_LOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_USR2_LOCK" title="Link to this definition"></a></dt>
+<dd><p>User controlled locks</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_NUM_LOCK">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_NUM_LOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_NUM_LOCK" title="Link to this definition"></a></dt>
+<dd><p>Used with setting up array</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_LOCK_USR1">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_LOCK_USR1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pypapi.consts.PAPI_LOCK_USR1" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_USR1_LOCK</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_LOCK_USR2">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_LOCK_USR2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#pypapi.consts.PAPI_LOCK_USR2" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_USR2_LOCK</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_LOCK_NUM">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_LOCK_NUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#pypapi.consts.PAPI_LOCK_NUM" title="Link to this definition"></a></dt>
+<dd><p>Same as PAPI_NUM_LOCK</p>
+</dd></dl>
+
+</section>
+<section id="papi-flips-flops-constants">
+<span id="consts-flops"></span><h2>PAPI FLIPS/FLOPS Constants<a class="headerlink" href="#papi-flips-flops-constants" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_FP_INS">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_FP_INS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483596</span></em><a class="headerlink" href="#pypapi.consts.PAPI_FP_INS" title="Link to this definition"></a></dt>
+<dd><p>Floating point instructions executed</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_VEC_SP">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VEC_SP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483543</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VEC_SP" title="Link to this definition"></a></dt>
+<dd><p>Single precision vector/SIMD instructions</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_VEC_DP">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_VEC_DP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483542</span></em><a class="headerlink" href="#pypapi.consts.PAPI_VEC_DP" title="Link to this definition"></a></dt>
+<dd><p>Double precision vector/SIMD instructions</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_FP_OPS">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_FP_OPS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483546</span></em><a class="headerlink" href="#pypapi.consts.PAPI_FP_OPS" title="Link to this definition"></a></dt>
+<dd><p>Floating point operations executed</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_SP_OPS">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_SP_OPS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483545</span></em><a class="headerlink" href="#pypapi.consts.PAPI_SP_OPS" title="Link to this definition"></a></dt>
+<dd><p>Floating point operations executed; optimized to count scaled single precision vector operations</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pypapi.consts.PAPI_DP_OPS">
+<span class="sig-prename descclassname"><span class="pre">pypapi.consts.</span></span><span class="sig-name descname"><span class="pre">PAPI_DP_OPS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483544</span></em><a class="headerlink" href="#pypapi.consts.PAPI_DP_OPS" title="Link to this definition"></a></dt>
+<dd><p>Floating point operations executed; optimized to count scaled double precision vector operations</p>
+</dd></dl>
+
+</section>
 <section id="other-papi-constants">
 <h2>Other PAPI Constants<a class="headerlink" href="#other-papi-constants" title="Link to this heading"></a></h2>
 <dl class="py data">
@@ -236,7 +537,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.</p>
+    <p>&#169; Copyright 2017 - 2024, Fabien LOISON, Mathilde BOUTIGNY.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

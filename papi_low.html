@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PAPI Low Level API &mdash; PyPAPI 5.5.1.1 documentation</title>
+  <title>PAPI Low Level API &mdash; PyPAPI 6.0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -15,13 +15,13 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=00535e24"></script>
+        <script src="_static/documentation_options.js?v=ff1b93f3"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PAPI High Types" href="types.html" />
+    <link rel="next" title="PAPI Structs" href="structs.html" />
     <link rel="prev" title="PAPI High Level API" href="papi_high.html" /> 
 </head>
 
@@ -37,7 +37,7 @@
             PyPAPI
           </a>
               <div class="version">
-                5.5.1
+                6.0.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -55,23 +55,76 @@
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.accum"><code class="docutils literal notranslate"><span class="pre">accum()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.add_event"><code class="docutils literal notranslate"><span class="pre">add_event()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.add_events"><code class="docutils literal notranslate"><span class="pre">add_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.add_named_event"><code class="docutils literal notranslate"><span class="pre">add_named_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.assign_eventset_component"><code class="docutils literal notranslate"><span class="pre">assign_eventset_component()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.attach"><code class="docutils literal notranslate"><span class="pre">attach()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.cleanup_eventset"><code class="docutils literal notranslate"><span class="pre">cleanup_eventset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.create_eventset"><code class="docutils literal notranslate"><span class="pre">create_eventset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.destroy_eventset"><code class="docutils literal notranslate"><span class="pre">destroy_eventset()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.detach"><code class="docutils literal notranslate"><span class="pre">detach()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.disable_component"><code class="docutils literal notranslate"><span class="pre">disable_component()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.disable_component_by_name"><code class="docutils literal notranslate"><span class="pre">disable_component_by_name()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.enum_cmp_event"><code class="docutils literal notranslate"><span class="pre">enum_cmp_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.enum_event"><code class="docutils literal notranslate"><span class="pre">enum_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.epc"><code class="docutils literal notranslate"><span class="pre">epc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.event_code_to_name"><code class="docutils literal notranslate"><span class="pre">event_code_to_name()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.event_name_to_code"><code class="docutils literal notranslate"><span class="pre">event_name_to_code()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.flips_rate"><code class="docutils literal notranslate"><span class="pre">flips_rate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.flops_rate"><code class="docutils literal notranslate"><span class="pre">flops_rate()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_component_index"><code class="docutils literal notranslate"><span class="pre">get_component_index()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_component_info"><code class="docutils literal notranslate"><span class="pre">get_component_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_dmem_info"><code class="docutils literal notranslate"><span class="pre">get_dmem_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_event_component"><code class="docutils literal notranslate"><span class="pre">get_event_component()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_event_info"><code class="docutils literal notranslate"><span class="pre">get_event_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_eventset_component"><code class="docutils literal notranslate"><span class="pre">get_eventset_component()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_executable_info"><code class="docutils literal notranslate"><span class="pre">get_executable_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_hardware_info"><code class="docutils literal notranslate"><span class="pre">get_hardware_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_real_cyc"><code class="docutils literal notranslate"><span class="pre">get_real_cyc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_real_nsec"><code class="docutils literal notranslate"><span class="pre">get_real_nsec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_real_usec"><code class="docutils literal notranslate"><span class="pre">get_real_usec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_shared_lib_info"><code class="docutils literal notranslate"><span class="pre">get_shared_lib_info()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_virt_cyc"><code class="docutils literal notranslate"><span class="pre">get_virt_cyc()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_virt_nsec"><code class="docutils literal notranslate"><span class="pre">get_virt_nsec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.get_virt_usec"><code class="docutils literal notranslate"><span class="pre">get_virt_usec()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.ipc"><code class="docutils literal notranslate"><span class="pre">ipc()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.is_initialized"><code class="docutils literal notranslate"><span class="pre">is_initialized()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.library_init"><code class="docutils literal notranslate"><span class="pre">library_init()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.list_events"><code class="docutils literal notranslate"><span class="pre">list_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.list_threads"><code class="docutils literal notranslate"><span class="pre">list_threads()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.lock"><code class="docutils literal notranslate"><span class="pre">lock()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.multiplex_init"><code class="docutils literal notranslate"><span class="pre">multiplex_init()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.num_cmp_hwctrs"><code class="docutils literal notranslate"><span class="pre">num_cmp_hwctrs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.num_components"><code class="docutils literal notranslate"><span class="pre">num_components()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.num_events"><code class="docutils literal notranslate"><span class="pre">num_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.perror"><code class="docutils literal notranslate"><span class="pre">perror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.query_event"><code class="docutils literal notranslate"><span class="pre">query_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.query_named_event"><code class="docutils literal notranslate"><span class="pre">query_named_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.rate_stop"><code class="docutils literal notranslate"><span class="pre">rate_stop()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.register_thread"><code class="docutils literal notranslate"><span class="pre">register_thread()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.remove_event"><code class="docutils literal notranslate"><span class="pre">remove_event()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.remove_events"><code class="docutils literal notranslate"><span class="pre">remove_events()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.remove_named_event"><code class="docutils literal notranslate"><span class="pre">remove_named_event()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.reset"><code class="docutils literal notranslate"><span class="pre">reset()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_cmp_domain"><code class="docutils literal notranslate"><span class="pre">set_cmp_domain()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_cmp_granularity"><code class="docutils literal notranslate"><span class="pre">set_cmp_granularity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_debug"><code class="docutils literal notranslate"><span class="pre">set_debug()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_domain"><code class="docutils literal notranslate"><span class="pre">set_domain()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_granularity"><code class="docutils literal notranslate"><span class="pre">set_granularity()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_multiplex"><code class="docutils literal notranslate"><span class="pre">set_multiplex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.set_opt"><code class="docutils literal notranslate"><span class="pre">set_opt()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.shutdown"><code class="docutils literal notranslate"><span class="pre">shutdown()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.start"><code class="docutils literal notranslate"><span class="pre">start()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.state"><code class="docutils literal notranslate"><span class="pre">state()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.stop"><code class="docutils literal notranslate"><span class="pre">stop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.strerror"><code class="docutils literal notranslate"><span class="pre">strerror()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.thread_id"><code class="docutils literal notranslate"><span class="pre">thread_id()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.unlock"><code class="docutils literal notranslate"><span class="pre">unlock()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.unregister_thread"><code class="docutils literal notranslate"><span class="pre">unregister_thread()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pypapi.papi_low.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="types.html">PAPI High Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structs.html">PAPI Structs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="consts.html">Constants</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
@@ -219,6 +272,58 @@ hardware.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.add_named_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">add_named_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.add_named_event" title="Link to this definition"></a></dt>
+<dd><p>Add an event by name to a PAPI event set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>eventName</strong> (<em>str</em>) – Name of a defined event</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInitializationError" title="pypapi.exceptions.PapiInitializationError"><strong>PapiInitializationError</strong></a> – The PAPI library has not been initialized.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiBugError" title="pypapi.exceptions.PapiBugError"><strong>PapiBugError</strong></a> – Internal error, please send mail to the developers.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.assign_eventset_component">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">assign_eventset_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.assign_eventset_component" title="Link to this definition"></a></dt>
+<dd><p>Assign a component index to an existing but empty eventset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>component</strong> (<em>int</em>) – An integer identifier for a component.
+By convention, component 0 is always the cpu component.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – The argument component is not a valid component.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.attach">
 <span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">attach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.attach" title="Link to this definition"></a></dt>
 <dd><p>Attach specified event set to a specific process or thread id.</p>
@@ -296,7 +401,7 @@ to PAPI_NULL or the argument is a NULL pointer.</p></li>
 an EventSet is first created it is not bound to a component. This will
 cause some API calls that modify EventSet options to fail. An EventSet
 can be bound to a component explicitly by calling
-<code class="xref py py-func docutils literal notranslate"><span class="pre">assign_eventset_component()</span></code> or implicitly by calling
+<a class="reference internal" href="#pypapi.papi_low.assign_eventset_component" title="pypapi.papi_low.assign_eventset_component"><code class="xref py py-func docutils literal notranslate"><span class="pre">assign_eventset_component()</span></code></a> or implicitly by calling
 <a class="reference internal" href="#pypapi.papi_low.add_event" title="pypapi.papi_low.add_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_event()</span></code></a> or similar routines.</p>
 </div>
 </dd></dl>
@@ -352,9 +457,512 @@ thread id.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.disable_component">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">disable_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.disable_component" title="Link to this definition"></a></dt>
+<dd><p>Disables the specified component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<em>int</em>) – component index of component to be disabled</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>component index</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – component does not exist</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInitializationError" title="pypapi.exceptions.PapiInitializationError"><strong>PapiInitializationError</strong></a> – cannot disable as PAPI has already been
+initialized</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.disable_component_by_name">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">disable_component_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">componentName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.disable_component_by_name" title="Link to this definition"></a></dt>
+<dd><p>Disables the named component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>componentName</strong> (<em>str</em>) – name of the component to disable.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>component index</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – component does not exist</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInitializationError" title="pypapi.exceptions.PapiInitializationError"><strong>PapiInitializationError</strong></a> – unable to disable the component, the
+library has already been initialized</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.enum_cmp_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">enum_cmp_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.enum_cmp_event" title="Link to this definition"></a></dt>
+<dd><p>Enumerate PAPI preset or native events for a given component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<em>int</em>) – Specifies the component to search in.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary of PRESET and NATIVE events.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.enum_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">enum_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.enum_event" title="Link to this definition"></a></dt>
+<dd><p>Enumerate PAPI preset or native events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dictionary of PRESET and NATIVE events.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.epc">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">epc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.epc" title="Link to this definition"></a></dt>
+<dd><p>Simplified call to get arbitrary events per cycle, real and processor
+time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>int</em>) – event code to be measured (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>, default:
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code></a>).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.EPC" title="pypapi.structs.EPC">structs.EPC</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_low.epc" title="pypapi.papi_low.epc"><code class="xref py py-func docutils literal notranslate"><span class="pre">epc()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The total instructions or total cycles event does
+not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.event_code_to_name">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">event_code_to_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.event_code_to_name" title="Link to this definition"></a></dt>
+<dd><p>Convert a numeric hardware event code to a name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventCode</strong> (<em>int</em>) – The numeric code for the event.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the event name</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotPresetError" title="pypapi.exceptions.PapiNotPresetError"><strong>PapiNotPresetError</strong></a> – The hardware event specified is not a valid PAPI preset.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The hardware event is not available on the underlying hardware.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.event_name_to_code">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">event_name_to_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.event_name_to_code" title="Link to this definition"></a></dt>
+<dd><p>Convert a name to a numeric hardware event code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventName</strong> (<em>str</em>) – A string containing the event name as listed in
+PAPI_presets or discussed in PAPI_native.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the event code.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotPresetError" title="pypapi.exceptions.PapiNotPresetError"><strong>PapiNotPresetError</strong></a> – The hardware event specified is not a valid PAPI preset.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInitializationError" title="pypapi.exceptions.PapiInitializationError"><strong>PapiInitializationError</strong></a> – The PAPI library has not been initialized.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The hardware event is not available on the underlying hardware.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.flips_rate">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">flips_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.flips_rate" title="Link to this definition"></a></dt>
+<dd><p>Simplified call to get Mflips/s (floating point instruction rate), real
+and processor time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>int</em>) – <p>one of the three presets in <a class="reference internal" href="consts.html"><span class="doc">Constants</span></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_FP_INS" title="pypapi.consts.PAPI_FP_INS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_FP_INS</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_VEC_SP" title="pypapi.consts.PAPI_VEC_SP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_VEC_SP</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_VEC_DP" title="pypapi.consts.PAPI_VEC_DP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_VEC_DP</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.Flips" title="pypapi.structs.Flips">structs.Flips</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_low.flips_rate" title="pypapi.papi_low.flips_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">flips_rate()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The floating point operations or total cycles
+event does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.flops_rate">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">flops_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.flops_rate" title="Link to this definition"></a></dt>
+<dd><p>Simplified call to get Mflops/s (floating point operation rate), real
+and processor time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>int</em>) – <p>one of the three presets in <a class="reference internal" href="consts.html"><span class="doc">Constants</span></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_FP_OPS" title="pypapi.consts.PAPI_FP_OPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_FP_OPS</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_SP_OPS" title="pypapi.consts.PAPI_SP_OPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_SP_OPS</span></code></a>,</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DP_OPS" title="pypapi.consts.PAPI_DP_OPS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DP_OPS</span></code></a></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.Flops" title="pypapi.structs.Flops">structs.Flops</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_low.flops_rate" title="pypapi.papi_low.flops_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">flops_rate()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The floating point instructions or total cycles
+event does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_component_index">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_component_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">componentName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_component_index" title="Link to this definition"></a></dt>
+<dd><p>Returns the component index for the named component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>componentName</strong> (<em>int</em>) – name of component to find index for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>component index</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – component does not exist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_component_info">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_component_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_component_info" title="Link to this definition"></a></dt>
+<dd><p>Get information about a specific software component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>component information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.COMPONENT_info" title="pypapi.structs.COMPONENT_info">COMPONENT_info</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_dmem_info">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_dmem_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_dmem_info" title="Link to this definition"></a></dt>
+<dd><p>Get information about the dynamic memory usage of the current program.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dynamic memory usage information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.DMEM_info" title="pypapi.structs.DMEM_info">DMEM_info</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – The function is not implemented for the current component.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – Any value in the structure or array may be undefined as indicated by this error value.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system error occurred.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_event_component">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_event_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_event_component" title="Link to this definition"></a></dt>
+<dd><p>Return component an event belongs to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventCode</strong> (<em>int</em>) – EventCode for which we want to know the component
+index.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>component index</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – component does not exist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_event_info">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_event_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_event_info" title="Link to this definition"></a></dt>
+<dd><p>Get the event’s name and description info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventCode</strong> (<em>int</em>) – event code (preset or native).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>event information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="structs.html#pypapi.structs.EVENT_info" title="pypapi.structs.EVENT_info">EVENT_info</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNotPresetError" title="pypapi.exceptions.PapiNotPresetError"><strong>PapiNotPresetError</strong></a> – The PAPI preset mask was set,
+but the hardware event specified is not a valid PAPI preset.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying hardware.
+This function fills the event information into a structure.
+In Fortran, some fields of the structure are returned explicitly.
+This function works with existing PAPI preset and native event codes.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_eventset_component">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_eventset_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_eventset_component" title="Link to this definition"></a></dt>
+<dd><p>Returns index for component an EventSet is assigned to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – EventSet for which we want to know the component
+index.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>component index</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – EventSet does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – component is invalid or does not exist
+positive value valid component index.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_executable_info">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_executable_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_executable_info" title="Link to this definition"></a></dt>
+<dd><p>Get the executable’s address space info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>executable information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.EXECUTABLE_info" title="pypapi.structs.EXECUTABLE_info">EXECUTABLE_info</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_hardware_info">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_hardware_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_hardware_info" title="Link to this definition"></a></dt>
+<dd><p>Get information about the system hardware.
+In C, this function returns a pointer to a structure containing information about
+the hardware on which the program runs.
+In Fortran, the values of the structure are returned explicitly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>hardware information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.HARDWARE_info" title="pypapi.structs.HARDWARE_info">HARDWARE_info</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_real_cyc">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_real_cyc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_real_cyc" title="Link to this definition"></a></dt>
+<dd><p>Get real time counter value in clock cycles. Returns the total real
+time passed since some arbitrary starting point. The time is returned in
+clock cycles. This call is equivalent to wall clock time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total real time passed since some arbitrary starting point</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ctypes.c_longlong</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_real_nsec">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_real_nsec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_real_nsec" title="Link to this definition"></a></dt>
+<dd><p>Returns total number of nanoseconds since some arbitrary starting point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ctypes.c_longlong</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_real_usec">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_real_usec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_real_usec" title="Link to this definition"></a></dt>
+<dd><p>Get real time counter value in microseconds. This function returns
+the total real time passed since some arbitrary starting point.
+The time is returned in microseconds. This call is equivalent
+to wall clock time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total real time passed since some arbitrary starting point</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ctypes.c_longlong</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_shared_lib_info">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_shared_lib_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_shared_lib_info" title="Link to this definition"></a></dt>
+<dd><p>Get address info about the shared libraries used by the process.
+In C, this function returns a pointer to a structure containing
+information about the shared library used by the program.
+There is no Fortran equivalent call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>shared libraries information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structs.html#pypapi.structs.SHARED_LIB_info" title="pypapi.structs.SHARED_LIB_info">SHARED_LIB_info</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_virt_cyc">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_virt_cyc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_virt_cyc" title="Link to this definition"></a></dt>
+<dd><p>Get virtual time counter value in clock cycles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>virtual time counter value in clock cycles</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ctypes.c_longlong</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_virt_nsec">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_virt_nsec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_virt_nsec" title="Link to this definition"></a></dt>
+<dd><p>Get virtual time counter values in nanoseconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>virtual time counter value in nanoseconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>c_longlong</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.get_virt_usec">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">get_virt_usec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.get_virt_usec" title="Link to this definition"></a></dt>
+<dd><p>Get virtual time counter values in microseconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>virtual time counter value in microseconds</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>c_longlong</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.ipc">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">ipc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.ipc" title="Link to this definition"></a></dt>
+<dd><p>Simplified call to get instructions per cycle, real and processor time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="structs.html#pypapi.structs.IPC" title="pypapi.structs.IPC">structs.IPC</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The counters were already started by
+something other than <a class="reference internal" href="#pypapi.papi_low.ipc" title="pypapi.papi_low.ipc"><code class="xref py py-func docutils literal notranslate"><span class="pre">ipc()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The total instructions or total cycles event does
+not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.is_initialized">
 <span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">is_initialized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.is_initialized" title="Link to this definition"></a></dt>
-<dd><p>Return the initialized state of the PAPI library.</p>
+<dd><p>Returns the initialized state of the PAPI library.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>the initialized state of the PAPI library (one of the
@@ -368,8 +976,8 @@ thread id.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.library_init">
-<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">library_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">pypapi.consts.PAPI_VER_CURRENT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.library_init" title="Link to this definition"></a></dt>
-<dd><p>Initialize the PAPI library.</p>
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">library_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100663296</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.library_init" title="Link to this definition"></a></dt>
+<dd><p>Initializes the PAPI library.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>version</strong> (<em>int</em>) – upon initialization, PAPI checks the argument against
@@ -421,10 +1029,210 @@ calls, your application could core dump.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.list_threads">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">list_threads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.list_threads" title="Link to this definition"></a></dt>
+<dd><p>List the registered thread ids.</p>
+<p><code class="docutils literal notranslate"><span class="pre">list_threads()</span></code> returns to the caller a list of all thread IDs known to
+PAPI.  This call assumes an initialized PAPI library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the list of threads.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list(ctypes.c_ulonglong)</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – Internal argument is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.lock">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">lock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.lock" title="Link to this definition"></a></dt>
+<dd><p>Locks one of two mutex variables defined in papi.h.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lock()</span></code> grabs access to one of the two PAPI mutex variables.
+This function is provided to the user to have a platform independent
+call to a (hopefully) efficiently implemented mutex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lock</strong> (<em>int</em>) – an integer value specifying one of the two user locks:
+<a class="reference internal" href="consts.html#pypapi.consts.PAPI_USR1_LOCK" title="pypapi.consts.PAPI_USR1_LOCK"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_USR1_LOCK</span></code></a> or
+<a class="reference internal" href="consts.html#pypapi.consts.PAPI_USR2_LOCK" title="pypapi.consts.PAPI_USR2_LOCK"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_USR2_LOCK</span></code></a>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>There is no return value for this call. Upon return from
+PAPI_lock the current thread has acquired exclusive access to the
+specified PAPI mutex.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.multiplex_init">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">multiplex_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.multiplex_init" title="Link to this definition"></a></dt>
+<dd><p>Initializes multiplex support in the PAPI library.</p>
+<p><code class="docutils literal notranslate"><span class="pre">multiplex_init()</span></code> enables and initializes multiplex support in the
+PAPI library.  Multiplexing allows a user to count more events than total
+physical counters by time sharing the existing counters at some loss in
+precision.  Applications that make no use of multiplexing do not need to
+call this routine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.num_cmp_hwctrs">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">num_cmp_hwctrs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.num_cmp_hwctrs" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of hardware counters for the specified component.</p>
+<p><code class="docutils literal notranslate"><span class="pre">num_cmp_hwctrs()</span></code> returns the number of counters present in the
+specified component.  By convention, component 0 is always the cpu. On some
+components, especially for CPUs, the value returned is a theoretical
+maximum for estimation purposes only.  It might not be possible to easily
+create an EventSet that contains the full number of events. This can be due
+to a variety of reasons:</p>
+<ol class="arabic simple">
+<li><p>CPUs (especially Intel and POWER) have the notion of fixed counters that
+can only measure one thing, usually cycles.</p></li>
+<li><p>Some CPUs have very explicit rules about which event can run in which
+counter.  In this case it might not be possible to add a wanted event
+even if counters are free.</p></li>
+<li><p>Some CPUs halve the number of counters available when running with SMT
+(multiple CPU threads) enabled.</p></li>
+<li><p>Some operating systems “steal” a counter to use for things such as NMI
+Watchdog timers.</p></li>
+</ol>
+<p>The only sure way to see if events will fit is to attempt adding events to
+an EventSet, and doing something sensible if an error is generated.
+<a class="reference internal" href="#pypapi.papi_low.library_init" title="pypapi.papi_low.library_init"><code class="xref py py-func docutils literal notranslate"><span class="pre">library_init()</span></code></a> must be called in order for this function to return
+anything greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>component</strong> (<em>int</em>) – An integer identifier for a component. By convention,
+component 0 is always the cpu component.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>On success, this function returns a value greater than zero.
+A zero result usually means the library has not been initialized.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.num_components">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">num_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.num_components" title="Link to this definition"></a></dt>
+<dd><p>Get the number of components available on the system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of components available on the system. Query the library
+for a component count.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.num_events">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">num_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.num_events" title="Link to this definition"></a></dt>
+<dd><p>Returns the number of events in an event set.</p>
+<p><code class="docutils literal notranslate"><span class="pre">num_events()</span></code> returns the number of preset and/or native events
+contained in an event set.  The event set should be created by
+create_eventset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – an integer handle for a PAPI event set created by
+create_eventset.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>On success, this function returns the positive number of events
+in the event set.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The event count is zero; only if code is compiled with debug enabled.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The EventSet specified does not exist.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.perror">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">perror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.perror" title="Link to this definition"></a></dt>
+<dd><p>Produces a string on standard error, describing the last library error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>str</em>) – Optional message to print before the string describing the
+last error message.  The routine <code class="docutils literal notranslate"><span class="pre">perror()</span></code> produces a message on the
+standard error output, describing the last error encountered during a
+call to PAPI.  If s is not <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, s is printed, followed by a colon
+and a space.  Then the error message and a new-line are printed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.query_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">query_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.query_event" title="Link to this definition"></a></dt>
+<dd><p>Query if PAPI event exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventCode</strong> (<em>int</em>) – a defined event such as
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying hardware.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.query_named_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">query_named_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.query_named_event" title="Link to this definition"></a></dt>
+<dd><p>Query if a named PAPI event exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventName</strong> (<em>str</em>) – a defined event such as
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the
+underlying hardware.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.rate_stop">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">rate_stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.rate_stop" title="Link to this definition"></a></dt>
+<dd><p>Stops a running event set of a rate function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The EventSet is not started yet.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.read">
 <span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.read" title="Link to this definition"></a></dt>
-<dd><p>Copies the counters of the indicated event set into the provided array. The
-counters continue counting after the read and are not reseted.</p>
+<dd><p>Copies the counters of the indicated event set into the provided array.
+The counters continue counting after the read and are not reseted.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
@@ -445,16 +1253,32 @@ the errno variable.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.register_thread">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">register_thread</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.register_thread" title="Link to this definition"></a></dt>
+<dd><p>Notify PAPI that a thread has ‘appeared’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Space could not be allocated to store the new thread information.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see the errno variable.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – Hardware counters for this thread could not be initialized.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.remove_event">
 <span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">remove_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_event" title="Link to this definition"></a></dt>
-<dd><p>Remove a hardware event from a PAPI event set.</p>
+<dd><p>Removes a hardware event from a PAPI event set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
 <a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
-<li><p><strong>eventCode</strong> (<em>int</em>) – A defined event such as <code class="docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code> or a native
-event. (from <a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</p></li>
+<li><p><strong>eventCode</strong> (<em>int</em>) – A defined event such as
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code></a> or a native event. (from
+<a class="reference internal" href="events.html"><span class="doc">Events</span></a>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -474,7 +1298,7 @@ hardware.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.remove_events">
 <span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">remove_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventCodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_events" title="Link to this definition"></a></dt>
-<dd><p>Remove an list of hardware events from a PAPI event set.</p>
+<dd><p>Removes an list of hardware events from a PAPI event set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -495,6 +1319,273 @@ hardware.</p></li>
 </ul>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.remove_named_event">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">remove_named_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.remove_named_event" title="Link to this definition"></a></dt>
+<dd><p>Removes a named hardware event from a PAPI event set.</p>
+<p>A hardware event can be either a PAPI Preset or a native hardware event
+code.  For a list of PAPI preset events, see PAPI_presets or run the
+papi_avail utility in the PAPI distribution.  PAPI Presets can be passed to
+<a class="reference internal" href="#pypapi.papi_low.query_event" title="pypapi.papi_low.query_event"><code class="xref py py-func docutils literal notranslate"><span class="pre">query_event()</span></code></a> to see if they exist on the underlying
+architecture.  For a list of native events available on the current
+platform, run papi_native_avail in the PAPI distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p></li>
+<li><p><strong>eventName</strong> (<em>str</em>) – defined event such as
+<a class="reference internal" href="events.html#pypapi.events.PAPI_TOT_INS" title="pypapi.events.PAPI_TOT_INS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_TOT_INS</span></code></a> or a native event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The event set is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiConflictError" title="pypapi.exceptions.PapiConflictError"><strong>PapiConflictError</strong></a> – The underlying counter hardware can not count
+this event and other events in the event set simultaneously.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventError" title="pypapi.exceptions.PapiNoEventError"><strong>PapiNoEventError</strong></a> – The PAPI preset is not available on the underlying
+hardware.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.reset">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.reset" title="Link to this definition"></a></dt>
+<dd><p>Reset the hardware event counts in an event set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The event set specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see the errno variable.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_cmp_domain">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_cmp_domain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_cmp_domain" title="Link to this definition"></a></dt>
+<dd><p>Set the default counting domain for new event sets bound to the
+specified component.</p>
+<p>Sets the default counting domain for all new event sets in all threads, and
+requires an explicit component argument.  Event sets that are already in
+existence are not affected. To change the domain of an existing event set,
+please see <a class="reference internal" href="#pypapi.papi_low.set_opt" title="pypapi.papi_low.set_opt"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_opt()</span></code></a>.  The reader should note that the domain of
+an event set affects only the mode in which the counter continues to run.
+Counts are still aggregated for the current process, and not for any other
+processes in the system. Thus when requesting
+<a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_KERNEL" title="pypapi.consts.PAPI_DOM_KERNEL"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_KERNEL</span></code></a>, the user is asking for events
+that occur on behalf of the process, inside the kernel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>domain</strong> (<em>int</em>) – <p>one of the following constants as defined in
+<a class="reference internal" href="consts.html"><span class="doc">Constants</span></a>:</p>
+<ul>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_USER" title="pypapi.consts.PAPI_DOM_USER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_USER</span></code></a> User context counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_KERNEL" title="pypapi.consts.PAPI_DOM_KERNEL"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_KERNEL</span></code></a> Kernel/OS context counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_OTHER" title="pypapi.consts.PAPI_DOM_OTHER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_OTHER</span></code></a> Exception/transient mode
+counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_SUPERVISOR" title="pypapi.consts.PAPI_DOM_SUPERVISOR"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_SUPERVISOR</span></code></a> Supervisor/hypervisor
+context counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_ALL" title="pypapi.consts.PAPI_DOM_ALL"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_ALL</span></code></a> All above contexts counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_MIN" title="pypapi.consts.PAPI_DOM_MIN"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_MIN</span></code></a> The smallest available
+context</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_MAX" title="pypapi.consts.PAPI_DOM_MAX"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_MAX</span></code></a> The largest available context</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_HWSPEC" title="pypapi.consts.PAPI_DOM_HWSPEC"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_HWSPEC</span></code></a> Something other than CPU
+like stuff.</p></li>
+</ul>
+<p>Individual components can decode low order bits for more meaning.</p>
+</p></li>
+<li><p><strong>component</strong> (<em>int</em>) – An integer identifier for a component.
+By convention, component 0 is always the cpu component.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – The argument component is not a valid component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_cmp_granularity">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_cmp_granularity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">granularity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">component</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_cmp_granularity" title="Link to this definition"></a></dt>
+<dd><p>Sets the default counting granularity for eventsets bound to the
+specified component.</p>
+<p>Sets the default counting granularity for all new event sets, and requires
+an explicit component argument.  Event sets that are already in existence
+are not affected.  To change the granularity of an existing event set,
+please see <a class="reference internal" href="#pypapi.papi_low.set_opt" title="pypapi.papi_low.set_opt"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_opt()</span></code></a>.  The reader should note that the granularity of an
+event set affects only the mode in which the counter continues to run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>granularity</strong> (<em>int</em>) – <p>one of the following constants as defined in
+<a class="reference internal" href="consts.html"><span class="doc">Constants</span></a>:</p>
+<ul>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_THR" title="pypapi.consts.PAPI_GRN_THR"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_THR</span></code></a> Count each individual thread</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_PROC" title="pypapi.consts.PAPI_GRN_PROC"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_PROC</span></code></a> Count each individual
+process</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_PROCG" title="pypapi.consts.PAPI_GRN_PROCG"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_PROCG</span></code></a> Count each individual
+process group</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_SYS" title="pypapi.consts.PAPI_GRN_SYS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_SYS</span></code></a> Count the current CPU</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_SYS_CPU" title="pypapi.consts.PAPI_GRN_SYS_CPU"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_SYS_CPU</span></code></a> Count all CPUs
+individually</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_MIN" title="pypapi.consts.PAPI_GRN_MIN"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_MIN</span></code></a> The finest available
+granularity</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_MAX" title="pypapi.consts.PAPI_GRN_MAX"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_MAX</span></code></a> The coarsest available
+granularity</p></li>
+</ul>
+</p></li>
+<li><p><strong>component</strong> (<em>int</em>) – An integer identifier for a component.
+By convention, component 0 is always the cpu component.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – The argument component is not a valid component.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_debug">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_debug" title="Link to this definition"></a></dt>
+<dd><p>Set the current debug level for error output from PAPI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>int</em>) – <p>one of the constants shown in the table below and defined
+in the consts.py file. The possible debug levels for debugging are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_QUIET" title="pypapi.consts.PAPI_QUIET"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_QUIET</span></code></a> Do not print anything, just
+return the error code</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_VERB_ECONT" title="pypapi.consts.PAPI_VERB_ECONT"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_VERB_ECONT</span></code></a> Print error message and
+continue</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_VERB_ESTOP" title="pypapi.consts.PAPI_VERB_ESTOP"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_VERB_ESTOP</span></code></a> Print error message and
+exit</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – The debug level is invalid. The current debug level is used by both the internal error and debug message handler subroutines.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_domain">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_domain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">domain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_domain" title="Link to this definition"></a></dt>
+<dd><p>Set the default counting domain for new event sets bound to the cpu
+component.</p>
+<p>Sets the default counting domain for all new event sets created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a> in all threads.  This call implicitly sets the
+domain for the cpu component (component 0) and is included to preserve
+backward compatibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>domain</strong> (<em>int</em>) – <p>one of the following constants as defined in
+<a class="reference internal" href="consts.html"><span class="doc">Constants</span></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_USER" title="pypapi.consts.PAPI_DOM_USER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_USER</span></code></a> User context counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_KERNEL" title="pypapi.consts.PAPI_DOM_KERNEL"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_KERNEL</span></code></a> Kernel/OS context counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_OTHER" title="pypapi.consts.PAPI_DOM_OTHER"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_OTHER</span></code></a> Exception/transient mode
+counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_SUPERVISOR" title="pypapi.consts.PAPI_DOM_SUPERVISOR"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_SUPERVISOR</span></code></a> Supervisor/hypervisor
+context counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_ALL" title="pypapi.consts.PAPI_DOM_ALL"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_ALL</span></code></a> All above contexts counted</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_DOM_MAX" title="pypapi.consts.PAPI_DOM_MAX"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_DOM_MAX</span></code></a> The largest available context</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_granularity">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_granularity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">granularity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_granularity" title="Link to this definition"></a></dt>
+<dd><p>Sets the default counting granularity for eventsets bound to the cpu
+component.</p>
+<p>Sets the default counting granularity for all new event sets created by
+create_eventset.  This call implicitly sets the granularity for the cpu
+component (component 0) and is included to preserve backward compatibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>granularity</strong> (<em>int</em>) – <p>one of the following constants as defined in
+<a class="reference internal" href="consts.html"><span class="doc">Constants</span></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_THR" title="pypapi.consts.PAPI_GRN_THR"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_THR</span></code></a> Count each individual thread</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_PROC" title="pypapi.consts.PAPI_GRN_PROC"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_PROC</span></code></a> Count each individual
+process</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_PROCG" title="pypapi.consts.PAPI_GRN_PROCG"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_PROCG</span></code></a> Count each individual
+process group</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_SYS" title="pypapi.consts.PAPI_GRN_SYS"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_SYS</span></code></a> Count the current CPU</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_SYS_CPU" title="pypapi.consts.PAPI_GRN_SYS_CPU"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_SYS_CPU</span></code></a> Count all CPUs
+individually</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_MIN" title="pypapi.consts.PAPI_GRN_MIN"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_MIN</span></code></a> The finest available
+granularity</p></li>
+<li><p><a class="reference internal" href="consts.html#pypapi.consts.PAPI_GRN_MAX" title="pypapi.consts.PAPI_GRN_MAX"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_GRN_MAX</span></code></a> The coarsest available
+granularity</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_multiplex">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_multiplex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_multiplex" title="Link to this definition"></a></dt>
+<dd><p>Converts a standard event set to a multiplexed event set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – One or more of the arguments is invalid, or the EventSet is already multiplexed.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoComponentError" title="pypapi.exceptions.PapiNoComponentError"><strong>PapiNoComponentError</strong></a> – The EventSet specified is not yet bound to a component.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The EventSet specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiIsRunningError" title="pypapi.exceptions.PapiIsRunningError"><strong>PapiIsRunningError</strong></a> – The EventSet is currently counting events.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Insufficient memory to complete the operation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.set_opt">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">set_opt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.set_opt" title="Link to this definition"></a></dt>
+<dd><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Not implemented in the Python bindings. Will raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.shutdown">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.shutdown" title="Link to this definition"></a></dt>
+<dd><p>Finishes using PAPI and free all related resources.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -551,7 +1642,8 @@ hardware.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="pypapi.papi_low.stop">
 <span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.stop" title="Link to this definition"></a></dt>
-<dd><p>Stop counting hardware events in an event set and return current values.</p>
+<dd><p>Stops counting hardware events in an event set and return current
+values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
@@ -572,6 +1664,94 @@ the errno variable.</p></li>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.strerror">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">strerror</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.strerror" title="Link to this definition"></a></dt>
+<dd><p>Returns a string describing the PAPI error code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Error string. If None is returned, errCode is invalid.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.thread_id">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">thread_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.thread_id" title="Link to this definition"></a></dt>
+<dd><p>Get the thread identifier of the current thread.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a valid thread identifier.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>ctypes.c_ulonglong</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiMiscellaneousError" title="pypapi.exceptions.PapiMiscellaneousError"><strong>PapiMiscellaneousError</strong></a> – if there are no threads registered.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiInvalidValueError" title="pypapi.exceptions.PapiInvalidValueError"><strong>PapiInvalidValueError</strong></a> – if the thread id function returns an error.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.unlock">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">unlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lock</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.unlock" title="Link to this definition"></a></dt>
+<dd><p>Unlocks one of the mutex variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lock</strong> (<em>int</em>) – an integer value specifying one of the two user locks:
+<a class="reference internal" href="consts.html#pypapi.consts.PAPI_USR1_LOCK" title="pypapi.consts.PAPI_USR1_LOCK"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_USR1_LOCK</span></code></a> or
+<a class="reference internal" href="consts.html#pypapi.consts.PAPI_USR2_LOCK" title="pypapi.consts.PAPI_USR2_LOCK"><code class="xref py py-const docutils literal notranslate"><span class="pre">PAPI_USR2_LOCK</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.unregister_thread">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">unregister_thread</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.unregister_thread" title="Link to this definition"></a></dt>
+<dd><p>Notify PAPI that a thread has ‘disappeared’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoMemoryError" title="pypapi.exceptions.PapiNoMemoryError"><strong>PapiNoMemoryError</strong></a> – Space could not be allocated to store the new thread information.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – A system or C library call failed inside PAPI, see the errno variable.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – Hardware counters for this thread could not be initialized.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypapi.papi_low.write">
+<span class="sig-prename descclassname"><span class="pre">pypapi.papi_low.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pypapi.papi_low.write" title="Link to this definition"></a></dt>
+<dd><p>Write counter values into counters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>eventSet</strong> (<em>int</em>) – An integer handle for a PAPI Event Set as created by
+<a class="reference internal" href="#pypapi.papi_low.create_eventset" title="pypapi.papi_low.create_eventset"><code class="xref py py-func docutils literal notranslate"><span class="pre">create_eventset()</span></code></a>.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiNoEventSetError" title="pypapi.exceptions.PapiNoEventSetError"><strong>PapiNoEventSetError</strong></a> – The EventSet specified does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiComponentError" title="pypapi.exceptions.PapiComponentError"><strong>PapiComponentError</strong></a> – write() is not implemented for this architecture.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#pypapi.exceptions.PapiSystemError" title="pypapi.exceptions.PapiSystemError"><strong>PapiSystemError</strong></a> – The EventSet is currently counting events and the
+component could not change the values of the running counters.  write()
+writes the counter values provided in the array values into the event
+set EventSet.  The virtual counters managed by the PAPI library will be
+set to the values provided.  If the event set is running, an attempt
+will be made to write the values to the running counters.  This
+operation is not permitted by all components and may result in a
+run-time error.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -579,13 +1759,13 @@ the errno variable.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="papi_high.html" class="btn btn-neutral float-left" title="PAPI High Level API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="types.html" class="btn btn-neutral float-right" title="PAPI High Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="structs.html" class="btn btn-neutral float-right" title="PAPI Structs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2017, Fabien LOISON, Mathilde BOUTIGNY.</p>
+    <p>&#169; Copyright 2017 - 2024, Fabien LOISON, Mathilde BOUTIGNY.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
