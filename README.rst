@@ -97,7 +97,7 @@ Changelog
 
 * **v6.0.0.1:**
 
-  * feat!: Updated the PAPI library to v6.0.0.1
+  * feat!: Updated the PAPI library to v6.0.0.1 (@SerodioJ, #37)
 
 * **v5.5.1.6:**
 
