@@ -13,7 +13,10 @@ class CustomBuildPy(build_py):
         os.environ["CFLAGS"] = "%s -fPIC -Werror=format-truncation=0" % os.environ.get(
             "CFLAGS", ""
         )
-        subprocess.call("cd papi/src/ && ./configure", shell=True)  # noqa
+        subprocess.call(
+            f"cd papi/src/ && ./configure --with-components='{os.environ.get('PAPI_COMPONENTS', '')}' --prefix=$PWD/install",
+            shell=True,
+        )  # noqa
         subprocess.call("cd papi/src/ && make", shell=True)  # noqa
         build_py.run(self)
 
