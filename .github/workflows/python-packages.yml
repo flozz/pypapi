@@ -65,7 +65,7 @@ jobs:
         uses: pypa/cibuildwheel@v2.16.5
         env:
           CIBW_ARCHS_MACOS: x86_64 arm64 universal2
-          CIBW_SKIP: cp*-win32
+          CIBW_SKIP: cp*-win32 cp*-musllinux_*
 
       - name: "Upload artifacts"
         uses: actions/upload-artifact@v4
