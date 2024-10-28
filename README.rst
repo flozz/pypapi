@@ -93,6 +93,10 @@ Changelog
 
 * **[NEXT]** (changes on ``master``, but not released yet):
 
+  * Nothing yet ;)
+
+* **v6.0.0.2:**
+
   * misc: Added Python 3.13 support (@flozz)
   * misc!: Removed Python 3.8 support (@flozz)
 
