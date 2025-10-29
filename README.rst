@@ -1,3 +1,14 @@
+
+----
+
+END OF LIFE NOTICE
+==================
+
+I am not able to maintain this project anymore; there will be no more update. If it is useful to you, please consider becoming its new maintainer. Please contact me if you want to. :)
+
+----
+
+
 PyPAPI
 ======
 
